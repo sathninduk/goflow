@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+	<!-- Create table rider Query -->
+	<query id="create_rider_table">
+        <![CDATA[
+            create table rider (
+		    id integer auto_increment,
+		    name varchar(70) not null ,
+		    email varchar(70) not null,
+		    password varchar(250) not null,
+		    tel varchar(10) not null,
+		    constraint usr_pk primary key (id)
+		)
+        ]]>
+	</query>
+
+	<!-- DROP TABLE RIDERS Query -->
+	<query id="drop_table">
+         <![CDATA[        
+            DROP TABLE IF EXISTS rider 
+        ]]>
+	</query>
+
+	<!-- Select all customer orders Query -->
+	<query id="insert_rider">
+        <![CDATA[
+          	insert into rider (name, email, password, tel) values (?, ?, ?, ?)
+        ]]>
+	</query>
+
+	<!-- Select a particular rider by id Query -->
+	<query id="rider_by_id">
+         <![CDATA[        
+            select * from rider where rider.id = ?
+        ]]>
+	</query>
+
+	<!-- Select all riders -->
+	<query id="all_riders">
+         <![CDATA[        
+            select * from rider
+        ]]>
+	</query>
+
+	<!-- Delete a particular rider by id Query -->
+	<query id="remove_rider">
+         <![CDATA[        
+            delete from rider where rider.id = ?
+        ]]>
+	</query>
+
+	<!-- Update a particular rider by id Query -->
+	<query id="update_rider">
+         <![CDATA[        
+            update rider as r 
+            set r.name = ?, r.email = ?, r.tel = ? 
+            where r.id = ?
+        ]]>
+	</query>
+
+	<!-- Get rider IDs Query -->
+	<query id="rider_ids">
+         <![CDATA[        
+            select r.id from rider as r
+        ]]>
+	</query>
+
+</Querys>
