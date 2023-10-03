@@ -9,8 +9,8 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Rider;
-import service.IRiderService;
-import service.RiderServiceImpl;
+import service.rider.IRiderService;
+import service.rider.RiderServiceImpl;
 
 /**
  * Servlet implementation class AddRider

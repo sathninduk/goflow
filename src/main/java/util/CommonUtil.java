@@ -6,7 +6,7 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import service.IRiderService;
+import service.rider.IRiderService;
 
 public class CommonUtil {
     public static final Logger log = Logger.getLogger(IRiderService.class.getName());

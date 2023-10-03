@@ -1,4 +1,4 @@
-package service;
+package service.rider;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -17,24 +17,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import javax.xml.parsers.ParserConfigurationException;
+
 import org.xml.sax.SAXException;
 
 public class RiderServiceImpl implements IRiderService {
 
-	public static final Logger log = Logger.getLogger(RiderServiceImpl.class.getName());
+    public static final Logger log = Logger.getLogger(RiderServiceImpl.class.getName());
 
-	private static Connection connection;
-	private static Statement statement;
-	private PreparedStatement preparedStatement;
+    private static Connection connection;
+    private static Statement statement;
+    private PreparedStatement preparedStatement;
 
-	static {
-		createRiderTable();
-	}
+    static {
+        createRiderTable();
+    }
 
-	public RiderServiceImpl() {
-	}
+    public RiderServiceImpl() {
+    }
 
-	public static void createRiderTable() {
+    public static void createRiderTable() {
 //		try {
 //			connection = DBConnectionUtil.getDBConnection();
 //			statement = connection.createStatement();
@@ -49,27 +50,28 @@ public class RiderServiceImpl implements IRiderService {
 //			log.log(Level.SEVERE, var1.getMessage());
 //		}
 
-	}
+    }
 
-	@Override
-	public void addRider(Rider rider) {
-		
-		try {
+    @Override
+    public void addRider(Rider rider) {
+
+        try {
             connection = DBConnectionUtil.getDBConnection();
             this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("insert_rider"));
             connection.setAutoCommit(false);
-            
+
             String hashedPassword = generateMD5(rider.getPassword());
-            
+
             this.preparedStatement.setString(1, rider.getName());
             this.preparedStatement.setString(2, rider.getEmail());
             this.preparedStatement.setString(3, hashedPassword);
             this.preparedStatement.setString(4, rider.getTel());
-            
-            
+
+
             this.preparedStatement.execute();
             connection.commit();
-        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var12) {
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var12) {
             log.log(Level.SEVERE, var12.getMessage());
         } finally {
             try {
@@ -85,25 +87,64 @@ public class RiderServiceImpl implements IRiderService {
             }
 
         }
-		
-	}
 
-	@Override
-	public Rider getRiderByID(int id) {
-		return (Rider)this.actionOnRider(String.valueOf(id)).get(0);
-	}
+    }
 
-	@Override
-	public ArrayList<Rider> getRiders() {
-		return this.actionOnRider((String)null);
-	}
+    @Override
+    public Rider getRiderByID(int id) {
+        return (Rider) this.actionOnRider(String.valueOf(id)).get(0);
+    }
 
+    @Override
+    public Rider getRiderByEmail(String email) {
+        Rider rider = new Rider();
+        try {
+            connection = DBConnectionUtil.getDBConnection();
 
-	@Override
-	public Rider updateRider(int id, Rider rider) {
-		String riderID = String.valueOf(id);
-		
-		if (riderID != null && !riderID.isEmpty()) {
+            if (email != null && !email.isEmpty()) {
+                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("rider_by_email"));
+                this.preparedStatement.setString(1, email);
+            }
+
+            ResultSet resultSet = this.preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                rider.setID(resultSet.getInt(1));
+                rider.setName(resultSet.getString(2));
+                rider.setEmail(resultSet.getString(3));
+                rider.setPassword(resultSet.getString(4));
+                rider.setTel(resultSet.getString(5));
+            }
+
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var13) {
+            log.log(Level.SEVERE, var13.getMessage());
+        } finally {
+            try {
+                if (this.preparedStatement != null) {
+                    this.preparedStatement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException var12) {
+                log.log(Level.SEVERE, var12.getMessage());
+            }
+        }
+        return rider;
+    }
+
+    @Override
+    public ArrayList<Rider> getRiders() {
+        return this.actionOnRider((String) null);
+    }
+
+    @Override
+    public Rider updateRider(int id, Rider rider) {
+        String riderID = String.valueOf(id);
+
+        if (riderID != null && !riderID.isEmpty()) {
             try {
                 connection = DBConnectionUtil.getDBConnection();
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_rider"));
@@ -112,7 +153,8 @@ public class RiderServiceImpl implements IRiderService {
                 this.preparedStatement.setString(3, rider.getTel());
                 this.preparedStatement.setInt(4, rider.getID());
                 this.preparedStatement.executeUpdate();
-            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var12) {
+            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                     SQLException var12) {
                 log.log(Level.SEVERE, var12.getMessage());
             } finally {
                 try {
@@ -131,19 +173,20 @@ public class RiderServiceImpl implements IRiderService {
         }
 
         return this.getRiderByID(Integer.parseInt(riderID));
-	}
+    }
 
-	@Override
-	public void removeRider(int id) {
-		String riderID = String.valueOf(id);
-		
-		if (riderID != null && !riderID.isEmpty()) {
-			try {
+    @Override
+    public void removeRider(int id) {
+        String riderID = String.valueOf(id);
+
+        if (riderID != null && !riderID.isEmpty()) {
+            try {
                 connection = DBConnectionUtil.getDBConnection();
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("remove_rider"));
                 this.preparedStatement.setString(1, riderID);
                 this.preparedStatement.executeUpdate();
-            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var11) {
+            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                     SQLException var11) {
                 log.log(Level.SEVERE, var11.getMessage());
             } finally {
                 try {
@@ -159,16 +202,16 @@ public class RiderServiceImpl implements IRiderService {
                 }
 
             }
-		}
+        }
 
-	}
-	
-	private ArrayList<Rider> actionOnRider(String riderID) {
+    }
+
+    private ArrayList<Rider> actionOnRider(String riderID) {
         ArrayList<Rider> riderList = new ArrayList();
 
         try {
             connection = DBConnectionUtil.getDBConnection();
-            
+
             if (riderID != null && !riderID.isEmpty()) {
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("rider_by_id"));
                 this.preparedStatement.setString(1, riderID);
@@ -178,16 +221,17 @@ public class RiderServiceImpl implements IRiderService {
 
             ResultSet resultSet = this.preparedStatement.executeQuery();
 
-            while(resultSet.next()) {
-            	Rider rider = new Rider();
-            	rider.setID(resultSet.getInt(1));
-            	rider.setName(resultSet.getString(2));
-            	rider.setEmail(resultSet.getString(3));
+            while (resultSet.next()) {
+                Rider rider = new Rider();
+                rider.setID(resultSet.getInt(1));
+                rider.setName(resultSet.getString(2));
+                rider.setEmail(resultSet.getString(3));
                 rider.setPassword(resultSet.getString(4));
                 rider.setTel(resultSet.getString(5));
                 riderList.add(rider);
             }
-        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var13) {
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var13) {
             log.log(Level.SEVERE, var13.getMessage());
         } finally {
             try {
@@ -206,30 +250,30 @@ public class RiderServiceImpl implements IRiderService {
 
         return riderList;
     }
-	
-	public String generateMD5(String password) {
-	    try {
-	        // Create MessageDigest instance for MD5
-	        MessageDigest md = MessageDigest.getInstance("MD5");
 
-	        // Add password bytes to digest
-	        md.update(password.getBytes());
+    public String generateMD5(String password) {
+        try {
+            // Create MessageDigest instance for MD5
+            MessageDigest md = MessageDigest.getInstance("MD5");
 
-	        // Get the hash's bytes
-	        byte[] bytes = md.digest();
+            // Add password bytes to digest
+            md.update(password.getBytes());
 
-	        // Convert the bytes to a hexadecimal string
-	        StringBuilder sb = new StringBuilder();
-	        for (int i = 0; i < bytes.length; i++) {
-	            sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
-	        }
+            // Get the hash's bytes
+            byte[] bytes = md.digest();
 
-	        // Return the complete hash
-	        return sb.toString();
-	    } catch (NoSuchAlgorithmException e) {
-	        throw new RuntimeException(e);
-	    }
-	}
+            // Convert the bytes to a hexadecimal string
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                sb.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+            }
+
+            // Return the complete hash
+            return sb.toString();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
 }

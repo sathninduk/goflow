@@ -1,4 +1,4 @@
-package service;
+package service.rider;
 
 import model.Rider;
 import java.util.ArrayList;
@@ -10,6 +10,8 @@ public interface IRiderService {
 	void addRider(Rider rider);
 
 	Rider getRiderByID(int id);
+
+	Rider getRiderByEmail(String email);
 
 	ArrayList<Rider> getRiders();
 

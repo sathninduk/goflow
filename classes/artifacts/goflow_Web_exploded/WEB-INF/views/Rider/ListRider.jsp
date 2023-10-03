@@ -7,8 +7,8 @@
 --%>
 
 <%@page import="model.Rider"%>
-<%@page import="service.IRiderService"%>
-<%@page import="service.RiderServiceImpl"%>
+<%@page import="service.rider.IRiderService"%>
+<%@page import="service.rider.RiderServiceImpl"%>
 <%@page import="java.util.ArrayList"%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

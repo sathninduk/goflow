@@ -1,7 +1,7 @@
 package controller.rider;
 
-import service.IRiderService;
-import service.RiderServiceImpl;
+import service.rider.IRiderService;
+import service.rider.RiderServiceImpl;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

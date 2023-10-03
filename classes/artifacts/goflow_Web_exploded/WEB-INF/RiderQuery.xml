@@ -67,4 +67,11 @@
         ]]>
 	</query>
 
+	<!-- Get rider by Email Query -->
+	<query id="rider_by_email">
+		 <![CDATA[
+			select * from rider where rider.email = ?
+		]]>
+	</query>
+
 </Querys>

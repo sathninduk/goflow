@@ -2,10 +2,11 @@ package controller.auth;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import service.auth.AuthService;
+
 import java.io.IOException;
 
 /**
@@ -35,8 +36,18 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 
+		AuthService authService = new AuthService();
+
+		if (authService.login(email, password)) {
+			request.setAttribute("msg", "Logged in successfully");
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			response.sendRedirect("./Login");
+		}
+
+	}
 }
