@@ -12,12 +12,12 @@ public class DBConnectionUtil extends CommonUtil {
 
     public static Connection getDBConnection() throws ClassNotFoundException, SQLException {
     	
-    	String url = "jdbc:mysql://localhost:3306/goflow";
-        String username = "root";
-        String password = "root";
+    	String url = properties.getProperty("url");
+        String username = properties.getProperty("username");
+        String password = properties.getProperty("password");
     	
         if (connection == null || connection.isClosed()) {
-        	Class.forName("com.mysql.cj.jdbc.Driver");
+        	Class.forName(properties.getProperty("driverName"));
             connection = DriverManager.getConnection(url, username, password);
         }
 

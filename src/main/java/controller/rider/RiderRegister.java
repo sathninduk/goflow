@@ -1,27 +1,22 @@
 package controller.rider;
 
-
-import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Rider;
-import service.IRiderService;
-import service.RiderServiceImpl;
+import java.io.IOException;
 
 /**
- * Servlet implementation class AddRider
+ * Servlet implementation class Register
  */
-public class AddRider extends HttpServlet {
+public class RiderRegister extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddRider() {
+    public RiderRegister() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -30,29 +25,16 @@ public class AddRider extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+		response.setContentType("text/html");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/Register.jsp");
+		dispatcher.forward(request, response);		
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-		
-		Rider rider = new Rider();
-		
-		rider.setName(request.getParameter("name"));
-		rider.setEmail(request.getParameter("email"));
-		rider.setPassword(request.getParameter("password"));
-		rider.setTel(request.getParameter("tel"));
-		
-		IRiderService iEmployeeService = new RiderServiceImpl();
-        iEmployeeService.addRider(rider);
-        
-        request.setAttribute("msg", "Rider added successfully");
-		
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
-		dispatcher.forward(request, response);
+		doGet(request, response);
 	}
 
 }

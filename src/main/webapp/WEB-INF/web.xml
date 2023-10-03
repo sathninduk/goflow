@@ -57,12 +57,32 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Register</display-name>
-    <servlet-name>Register</servlet-name>
-    <servlet-class>controller.rider.Register</servlet-class>
+    <display-name>RiderRegister</display-name>
+    <servlet-name>RiderRegister</servlet-name>
+    <servlet-class>controller.rider.RiderRegister</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Register</servlet-name>
-    <url-pattern>/Register</url-pattern>
+    <servlet-name>RiderRegister</servlet-name>
+    <url-pattern>/RiderRegister</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Login</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>controller.auth.Login</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/Login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DriverRegister</display-name>
+    <servlet-name>DriverRegister</servlet-name>
+    <servlet-class>controller.driver.DriverRegister</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriverRegister</servlet-name>
+    <url-pattern>/DriverRegister</url-pattern>
   </servlet-mapping>
 </web-app>

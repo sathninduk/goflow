@@ -51,7 +51,7 @@ public class UpdateRider extends HttpServlet {
 		IRiderService iEmployeeService = new RiderServiceImpl();
         iEmployeeService.updateRider(Integer.parseInt(riderID), rider);
         
-        request.setAttribute("msg", "Driver updated successfully");
+        request.setAttribute("msg", "Rider updated successfully");
         
 		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
 		dispatcher.forward(request, response);
