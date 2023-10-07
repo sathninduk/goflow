@@ -15,8 +15,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>List Rider</title>
+	<meta charset="UTF-8">
+	<meta name="MobileOptimized" content="320">
+	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>List Rider</title>
+	<link rel="stylesheet" href="./public/css/styles.css">
+	<link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 
@@ -28,7 +32,7 @@
 
 <table border="1" cellpadding="12">
 		 <caption><h2>List of Riders</h2></caption>
-		 <a href="./Register">Add Rider</a>
+		 <a href="./RiderRegister">Add Rider</a>
 		  <tr>
                 <th>Rider ID</th>
                 <th>Name</th>

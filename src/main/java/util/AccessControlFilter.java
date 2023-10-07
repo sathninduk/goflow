@@ -16,6 +16,7 @@ public class AccessControlFilter implements Filter {
             "/index.jsp",
             "/public/css/styles.css",
             "/public/js/scripts.js",
+            "/public/images/GoFlow-Logo.png",
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
     };
 

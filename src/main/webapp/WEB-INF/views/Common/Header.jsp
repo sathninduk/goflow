@@ -18,7 +18,7 @@
     </div>
     <div class="nav-right-links">
         <a href="${pageContext.request.contextPath}/Login">Login</a>
-        <a href="${pageContext.request.contextPath}/Register">Register</a>
+        <a href="${pageContext.request.contextPath}/RiderRegister">Register</a>
         <a href="${pageContext.request.contextPath}/Logout">Logout</a>
     </div>
 </nav>
