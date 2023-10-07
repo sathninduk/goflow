@@ -9,10 +9,29 @@ import java.io.IOException;
 
 @WebFilter("/*")
 public class AccessControlFilter implements Filter {
+
+    private final String[] excludedUrls = {
+            "/",
+            "/login.jsp",
+            "/index.jsp",
+            "/public/css/styles.css",
+            "/public/js/scripts.js",
+            "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
+    };
+
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         HttpServletResponse httpResponse = (HttpServletResponse) response;
+
+        String requestURI = httpRequest.getRequestURI();
+        // Check if the request matches an excluded URL
+        for (String excludedUrl : excludedUrls) {
+            if (requestURI.matches(httpRequest.getContextPath() + excludedUrl)) {
+                chain.doFilter(request, response);  // Allow access
+                return;
+            }
+        }
 
         HttpSession session = httpRequest.getSession(false);
         String loginURI = httpRequest.getContextPath() + "/Login";

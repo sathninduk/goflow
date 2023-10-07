@@ -1,0 +1,165 @@
+/*
+Created by IntelliJ IDEA.
+User: sathnindu
+Date: 2023-10-05
+Time: 20:30
+*/
+
+@font-face {
+    font-family: 'Gabarito';
+    src: url('../fonts/Gabarito/Gabarito-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+    font-family: 'Gabarito', cursive;
+    background-color: #fff;
+    /*font-family: 'Roboto', sans-serif;*/
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    font-family: 'Gabarito', cursive;
+}
+
+.con-mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.con-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
+    text-align: right;
+}
+
+.con-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+}
+
+/* navigation */
+nav {
+    background-color: #000;
+    width: 100%;
+    /*height: 60px;*/
+    margin: 0;
+    color: #fff;
+    padding: 16px 64px;
+    display: inline-flex;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav-logo {
+    font-size: 24px;
+    font-family: 'Gabarito', cursive;
+}
+
+.nav-right-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    text-align: right;
+
+    width: 100%;
+    padding-right: 120px;
+}
+
+.nav-right-links a {
+    margin-left: 16px;
+}
+
+
+/* Login page */
+.login-con {
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+.login-box {
+    width: 328px;
+    margin: 0 auto;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.login-box label {
+    display: block;
+    width: 100%;
+}
+
+.login-box input {
+    height: 48px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #eee;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition-duration: .3s;
+    font-size: 14px;
+}
+
+.login-box input:focus {
+    outline: none;
+    border: 2px solid #000;
+    background-color: #f3f3f3;
+    transition-duration: .3s;
+}
+
+.login-box input:hover {
+    background-color: #f3f3f3;
+    transition-duration: .3s;
+}
+
+.login-btn {
+    margin-top: 10px;
+    box-shadow: 0px 5px 20px 0px #0000004a;
+    background-color: #000!important;
+    color: #fff!important;
+    border: none!important;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: .3s;
+}
+
+.login-btn:hover {
+    transition-duration: .3s;
+    background-color: #555;
+    box-shadow: none;
+}
+
+.login-box h1 {
+    font-size: 28px;
+    text-align: left;
+    line-height: 0;
+}
+
+.login-box h3 {
+    font-size: 24px;
+    text-align: left;
+    font-weight: 400;
+}
+
+/* legal footer */
+.legal-footer {
+    font-size: 12px;
+    color: #555;
+}

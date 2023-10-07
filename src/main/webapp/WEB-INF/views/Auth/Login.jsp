@@ -8,19 +8,35 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
 </head>
-<body>
+<body style="overflow-y: hidden">
 
-<form action="./Login" method="post">
-    <label>
-        <input type="email" name="email" placeholder="Email">
-    </label>
-    <label>
-        <input type="password" name="password" placeholder="Password">
-    </label>
-    <input type="submit" value="Login">
-</form>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
+<div class="login-con con-mid">
+    <div class="login-box">
+        <%--        <h1>GoFlow</h1>--%>
+        <h3>Rider Login</h3>
+        <form action="./Login" method="post">
+            <label>
+                <input type="email" name="email" placeholder="Email">
+            </label>
+            <label>
+                <input type="password" name="password" placeholder="Password">
+            </label>
+            <input class="login-btn" type="submit" value="Login">
+        </form>
+        <p class="legal-footer">
+            © <span id="year"></span> GoFlow. All rights reserved.
+        </p>
+    </div>
+</div>
+
+<script src="./public/js/scripts.js"></script>
 </body>
 </html>
