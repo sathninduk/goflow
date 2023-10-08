@@ -48,7 +48,7 @@ public class Login extends HttpServlet {
 			session.setAttribute("username", email);
 
 			request.setAttribute("msg", "Logged in successfully");
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
+			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
 			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("./Login");

@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Querys>
+
+    <!-- Create table rider Query -->
+    <query id="create_rider_table">
+        <![CDATA[
+            create table rider (
+		    id integer auto_increment,
+		    name varchar(70) not null ,
+		    email varchar(70) not null,
+		    password varchar(250) not null,
+		    tel varchar(10) not null,
+		    constraint usr_pk primary key (id)
+		)
+        ]]>
+    </query>
+
+    <!-- DROP TABLE RIDERS Query -->
+    <query id="drop_table">
+        <![CDATA[
+            DROP TABLE IF EXISTS rider
+        ]]>
+    </query>
+
+    <!-- Select all customer orders Query -->
+    <query id="insert_rider">
+        <![CDATA[
+          	insert into rider (name, email, password, tel) values (?, ?, ?, ?)
+        ]]>
+    </query>
+
+    <!-- Select a particular rider by id Query -->
+    <query id="rider_by_id">
+        <![CDATA[
+            select * from rider where rider.id = ?
+        ]]>
+    </query>
+
+    <!-- Select all riders -->
+    <query id="all_riders">
+        <![CDATA[
+            select * from rider
+        ]]>
+    </query>
+
+    <!-- Delete a particular rider by id Query -->
+    <query id="remove_rider">
+        <![CDATA[
+            delete from rider where rider.id = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular rider by id Query -->
+    <query id="update_rider">
+        <![CDATA[
+            update rider as r
+            set r.name = ?, r.email = ?, r.tel = ?
+            where r.id = ?
+        ]]>
+    </query>
+
+    <!-- Get rider IDs Query -->
+    <query id="rider_ids">
+        <![CDATA[
+            select r.id from rider as r
+        ]]>
+    </query>
+
+    <!-- Get rider by Email Query -->
+    <query id="rider_by_email">
+        <![CDATA[
+			select * from rider where rider.email = ?
+		]]>
+    </query>
+
+
+<!--  DRIVER  -->
+    <!-- Create table driver Query -->
+    <query id="create_driver_table">
+        <![CDATA[
+            create table driver (
+		    id integer auto_increment,
+		    name varchar(70) not null ,
+		    email varchar(70) not null,
+		    password varchar(250) not null,
+		    tel varchar(10) not null,
+		    constraint usr_pk primary key (id)
+		)
+        ]]>
+    </query>
+
+    <!-- DROP TABLE RIDERS Query -->
+    <query id="drop_table">
+        <![CDATA[
+            DROP TABLE IF EXISTS driver
+        ]]>
+    </query>
+
+    <!-- Select all customer orders Query -->
+    <query id="insert_driver">
+        <![CDATA[
+          	insert into driver (name, email, password, tel) values (?, ?, ?, ?)
+        ]]>
+    </query>
+
+    <!-- Select a particular driver by id Query -->
+    <query id="driver_by_id">
+        <![CDATA[
+            select * from driver where driver.id = ?
+        ]]>
+    </query>
+
+    <!-- Select all drivers -->
+    <query id="all_drivers">
+        <![CDATA[
+            select * from driver
+        ]]>
+    </query>
+
+    <!-- Delete a particular driver by id Query -->
+    <query id="remove_driver">
+        <![CDATA[
+            delete from driver where driver.id = ?
+        ]]>
+    </query>
+
+    <!-- Update a particular driver by id Query -->
+    <query id="update_driver">
+        <![CDATA[
+            update driver as r
+            set r.name = ?, r.email = ?, r.tel = ?
+            where r.id = ?
+        ]]>
+    </query>
+
+    <!-- Get driver IDs Query -->
+    <query id="driver_ids">
+        <![CDATA[
+            select r.id from driver as r
+        ]]>
+    </query>
+
+    <!-- Get driver by Email Query -->
+    <query id="driver_by_email">
+        <![CDATA[
+			select * from driver where driver.email = ?
+		]]>
+    </query>
+
+</Querys>

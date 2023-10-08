@@ -37,7 +37,7 @@ public class DeleteRider extends HttpServlet {
 		
 		request.setAttribute("msg", "Rider deleted successfully");
 		
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Common/Notification.jsp");
 		dispatcher.forward(request, response);
 	}
 

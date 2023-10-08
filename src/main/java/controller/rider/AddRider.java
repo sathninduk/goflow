@@ -51,7 +51,7 @@ public class AddRider extends HttpServlet {
         
         request.setAttribute("msg", "Rider added successfully");
 		
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/RiderNotification.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Common/Notification.jsp");
 		dispatcher.forward(request, response);
 	}
 
