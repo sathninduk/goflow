@@ -20,7 +20,8 @@ public class AccessControlFilter implements Filter {
             "/public/images/GoFlow-Logo.png",
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
 
-            "/AddRide"
+            "/AddRide",
+            "/ListCity"
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

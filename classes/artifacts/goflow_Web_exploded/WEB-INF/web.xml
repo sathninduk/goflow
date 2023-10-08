@@ -205,4 +205,14 @@
     <servlet-name>AdminDashboard</servlet-name>
     <url-pattern>/AdminDashboard</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListCity</display-name>
+    <servlet-name>ListCity</servlet-name>
+    <servlet-class>controller.ride.ListCity</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListCity</servlet-name>
+    <url-pattern>/ListCity</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -7,4 +7,5 @@ public interface ICityService {
     City getCityByID(int id);
     City getCityByName(String name);
     ArrayList<City> getCities();
+    ArrayList<City> getCitiesBySearch(String cityString);
 }

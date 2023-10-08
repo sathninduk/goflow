@@ -50,6 +50,52 @@ public class CityServiceImpl implements ICityService {
     }
 
     @Override
+    public ArrayList<City> getCitiesBySearch(String cityString) {
+        ArrayList<City> cityList = new ArrayList();
+
+        try {
+            connection = DBConnectionUtil.getDBConnection();
+
+            if (cityString != null && !cityString.isEmpty()) {
+                cityString = cityString + "%";
+                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("city_by_search"));
+                this.preparedStatement.setString(1, cityString);
+            } else {
+                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("all_cities"));
+            }
+
+            ResultSet resultSet = this.preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                City city = new City();
+                city.setID(resultSet.getInt(1));
+                city.setName(resultSet.getString(2));
+                city.setLatitude(resultSet.getFloat(3));
+                city.setLongitude(resultSet.getFloat(4));
+                cityList.add(city);
+            }
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var13) {
+            log.log(Level.SEVERE, var13.getMessage());
+        } finally {
+            try {
+                if (this.preparedStatement != null) {
+                    this.preparedStatement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException var12) {
+                log.log(Level.SEVERE, var12.getMessage());
+            }
+
+        }
+
+        return cityList;
+    }
+
+    @Override
     public City getCityByName(String name) {
         City city = new City();
         try {

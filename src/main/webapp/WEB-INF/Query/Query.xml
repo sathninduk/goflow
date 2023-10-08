@@ -170,5 +170,12 @@
         ]]>
     </query>
 
+    <!--  Get city by search  -->
+    <query id="city_by_search">
+        <![CDATA[
+            select * from city where city.name like ?
+        ]]>
+    </query>
+
 
 </Querys>
