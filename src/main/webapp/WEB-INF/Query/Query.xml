@@ -148,4 +148,27 @@
 		]]>
     </query>
 
+    <!--  City  -->
+    <!-- Get all cities -->
+    <query id="all_cities">
+        <![CDATA[
+            select * from city
+        ]]>
+    </query>
+
+    <!-- Get city by id -->
+    <query id="city_by_id">
+        <![CDATA[
+            select * from city where city.id = ?
+        ]]>
+    </query>
+
+    <!-- Get city by name -->
+    <query id="city_by_name">
+        <![CDATA[
+            select * from city where city.name = ?
+        ]]>
+    </query>
+
+
 </Querys>

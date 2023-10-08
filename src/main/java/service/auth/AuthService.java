@@ -5,7 +5,7 @@ import service.rider.IRiderService;
 import service.rider.RiderServiceImpl;
 import util.Md5;
 
-public class AuthService {
+public class AuthService implements IAuthService{
     public AuthService() {
     }
 
