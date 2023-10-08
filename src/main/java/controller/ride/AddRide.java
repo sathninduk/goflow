@@ -1,5 +1,6 @@
 package controller.ride;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -25,8 +26,9 @@ public class AddRide extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/AddRide.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

@@ -16,8 +16,11 @@ public class AccessControlFilter implements Filter {
             "/index.jsp",
             "/public/css/styles.css",
             "/public/js/scripts.js",
+            "/public/js/location.js",
             "/public/images/GoFlow-Logo.png",
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
+
+            "/AddRide"
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
