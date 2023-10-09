@@ -64,29 +64,31 @@ function setMapView(latitude, longitude) {
     console.log(latitude, longitude);
     document.getElementById("location").value = latitude + ", " + longitude;
 
+    // view
     var map = L.map('map').setView([latitude, longitude], 17);
 
-    map.on('click', function (e) {
-        var coordinates = e.latlng;
-        console.log(coordinates);
-        addMarker(coordinates);
-        document.getElementById("location").value = coordinates.lat + ", " + coordinates.lng;
+    // marker
+    var theMarker = L.marker([latitude, longitude]).addTo(map);
+
+    map.on('click',function(e){
+        lat = e.latlng.lat;
+        lon = e.latlng.lng;
+
+        document.getElementById("location").value = lat + ", " + lon;
+        //Clear existing marker,
+
+        if (theMarker !== undefined) {
+            map.removeLayer(theMarker);
+        }
+
+        theMarker = L.marker([lat,lon]).addTo(map);
     });
 
-    function addMarker(coordinates) {
-        L.marker(coordinates).addTo(map);
-    }
-
-    function removeMarker(coordinates) {
-        L.marker(coordinates).remove(map);
-    }
-
+    // map
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-
-    var marker = L.marker([latitude, longitude]).addTo(map);
 
     var circle = L.circle([latitude, longitude], {
         color: 'rgb(85,125,255)',
