@@ -10,7 +10,7 @@ function getLocation() {
 function showPosition(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    setMapView(latitude, longitude);
+    setMapView(latitude, longitude, "current");
 }
 
 function showError(error) {
@@ -59,7 +59,11 @@ getLocation();
 
 
 // Set Map View ------------------------------------------------- leaflet.js
-function setMapView(latitude, longitude) {
+function setMapView(latitude, longitude, type) {
+
+    if (map) {
+        map.remove(); // Remove the existing map
+    }
 
     console.log(latitude, longitude);
     document.getElementById("location").value = latitude + ", " + longitude;
@@ -70,7 +74,7 @@ function setMapView(latitude, longitude) {
     // marker
     var theMarker = L.marker([latitude, longitude]).addTo(map);
 
-    map.on('click',function(e){
+    map.on('click', function (e) {
         lat = e.latlng.lat;
         lon = e.latlng.lng;
 
@@ -81,7 +85,7 @@ function setMapView(latitude, longitude) {
             map.removeLayer(theMarker);
         }
 
-        theMarker = L.marker([lat,lon]).addTo(map);
+        theMarker = L.marker([lat, lon]).addTo(map);
     });
 
     // map
@@ -90,12 +94,14 @@ function setMapView(latitude, longitude) {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    var circle = L.circle([latitude, longitude], {
-        color: 'rgb(85,125,255)',
-        fillColor: 'rgba(109,142,255,0.7)',
-        fillOpacity: 0.5,
-        radius: 200
-    }).addTo(map);
+    if (type === "current") {
+        var circle = L.circle([latitude, longitude], {
+            color: 'rgb(85,125,255)',
+            fillColor: 'rgba(109,142,255,0.7)',
+            fillOpacity: 0.5,
+            radius: 200
+        }).addTo(map);
+    }
 
     // var polygon = L.polygon([
     //     [51.509, -0.08],

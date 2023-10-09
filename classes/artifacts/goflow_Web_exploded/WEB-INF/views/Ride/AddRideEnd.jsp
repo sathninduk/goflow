@@ -61,7 +61,7 @@
 
 <form>
     <div style="display: inline-block;">
-        <label for="location">Destination Location</label>
+        <label for="location">Pickup Location</label>
         <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
         <div id="locCities"></div>
     </div>
@@ -69,7 +69,9 @@
     <input type="submit" value="Next">
 </form>
 
-<div id="map" style="outline: none;"></div>
+<div id="mapContainer">
+    <div id="map" style="outline: none;"></div>
+</div>
 
 <script>
     document.getElementById("location").addEventListener("input", function () {
@@ -89,7 +91,9 @@
                 .then(data => {
                     // Work with the JSON data
                     for (let i = 0; i < data.length; i++) {
-                        document.getElementById("locCities").innerHTML += "<p>" + data[i].name + "</p>";
+                        document.getElementById("locCities").innerHTML +=
+                            "<p onclick=\"addToLoc('" + data[i].name + "', '" + data[i].longitude + "', '" + data[i].latitude + "')\">" +
+                            data[i].name + "</p>";
                     }
                 })
                 .catch(error => {
@@ -98,10 +102,6 @@
 
         }
 
-        if (end !== "") {
-            let url = "./AddRide?city=" + end;
-            window.location.href = url;
-        }
     });
 </script>
 
@@ -109,6 +109,24 @@
     function highlightText() {
         const input = document.getElementById('location');
         input.select();
+    }
+</script>
+
+<script>
+    async function addToLoc(name, longitude, latitude) {
+        console.log(name, longitude, latitude);
+
+        // delete element
+        document.getElementById("map").remove();
+
+        const newDiv = document.createElement('div');
+        newDiv.id = 'map';
+        const targetElement = document.getElementById('mapContainer');
+        targetElement.appendChild(newDiv);
+
+        setMapView(latitude, longitude);
+        document.getElementById("location").value = name;
+        document.getElementById("locCities").innerHTML = "";
     }
 </script>
 
