@@ -1,7 +1,7 @@
 // Built-in -------------------------------------------------
 function getLocation() {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError, { enableHighAccuracy: true });
+        navigator.geolocation.getCurrentPosition(showPosition, showError, {enableHighAccuracy: true});
     } else {
         console.log("Geolocation is not supported by this browser.");
     }
@@ -34,7 +34,6 @@ function showError(error) {
 getLocation();
 
 
-
 // API Service -------------------------------------------------
 //
 // function httpGetAsync(url, callback) {
@@ -63,17 +62,23 @@ getLocation();
 function setMapView(latitude, longitude) {
 
     console.log(latitude, longitude);
+    document.getElementById("location").value = latitude + ", " + longitude;
 
-    var map = L.map('map').setView([latitude, longitude], 12);
+    var map = L.map('map').setView([latitude, longitude], 17);
 
-    map.on('click', function(e) {
+    map.on('click', function (e) {
         var coordinates = e.latlng;
         console.log(coordinates);
         addMarker(coordinates);
+        document.getElementById("location").value = coordinates.lat + ", " + coordinates.lng;
     });
 
     function addMarker(coordinates) {
         L.marker(coordinates).addTo(map);
+    }
+
+    function removeMarker(coordinates) {
+        L.marker(coordinates).remove(map);
     }
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -84,10 +89,10 @@ function setMapView(latitude, longitude) {
     var marker = L.marker([latitude, longitude]).addTo(map);
 
     var circle = L.circle([latitude, longitude], {
-        color: 'black',
-        fillColor: 'rgba(0,0,0,0.1)',
+        color: 'rgb(85,125,255)',
+        fillColor: 'rgba(109,142,255,0.7)',
         fillOpacity: 0.5,
-        radius: 15000
+        radius: 200
     }).addTo(map);
 
     // var polygon = L.polygon([

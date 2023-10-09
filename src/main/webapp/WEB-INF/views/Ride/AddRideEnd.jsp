@@ -1,5 +1,3 @@
-<%@ page import="service.city.ICityService" %>
-<%@ page import="service.city.CityServiceImpl" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="model.City" %><%--
   Created by IntelliJ IDEA.
@@ -14,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GoFlow | Request Ride</title>
+    <title>GoFlow | Request Ride - Destination Location</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 
@@ -28,7 +26,7 @@
             width: 100%;
         }
 
-        #startCities {
+        #locCities {
             position: absolute;
             background-color: white;
             width: 100%;
@@ -45,7 +43,7 @@
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<h1>Request Ride</h1>
+<h1>Destination Location</h1>
 
 <%
     //    ICityService cityService = new CityServiceImpl();
@@ -63,35 +61,23 @@
 
 <form>
     <div style="display: inline-block;">
-        <label for="start">Start</label>
-        <input type="text" id="start" name="start" placeholder="Start">
-
-        <div id="startCities"></div>
+        <label for="location">Destination Location</label>
+        <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
+        <div id="locCities"></div>
     </div>
 
-    <label for="end">End</label>
-    <input type="text" id="end" name="end" placeholder="End">
-
-    <label for="seats">Vehicle type</label>
-    <select id="seats" name="seats">
-        <option value="1">Car</option>
-        <option value="2">Van</option>
-        <option value="3">Bus</option>
-    </select>
-
-    <input type="submit" value="Request">
+    <input type="submit" value="Next">
 </form>
 
 <div id="map" style="outline: none;"></div>
 
 <script>
-    document.getElementById("start").addEventListener("input", function () {
-        document.getElementById("startCities").innerHTML = "";
-        let start = document.getElementById("start").value;
-        let end = document.getElementById("end").value;
+    document.getElementById("location").addEventListener("input", function () {
+        document.getElementById("locCities").innerHTML = "";
+        let location = document.getElementById("location").value;
 
-        if (start !== "") {
-            let url = "./ListCity?city=" + start;
+        if (location !== "") {
+            let url = "./ListCity?city=" + location;
 
             fetch(url)
                 .then(response => {
@@ -103,7 +89,7 @@
                 .then(data => {
                     // Work with the JSON data
                     for (let i = 0; i < data.length; i++) {
-                        document.getElementById("startCities").innerHTML += "<p>" + data[i].name + "</p>";
+                        document.getElementById("locCities").innerHTML += "<p>" + data[i].name + "</p>";
                     }
                 })
                 .catch(error => {
@@ -117,6 +103,13 @@
             window.location.href = url;
         }
     });
+</script>
+
+<script>
+    function highlightText() {
+        const input = document.getElementById('location');
+        input.select();
+    }
 </script>
 
 <%-- leaflet.js - script --%>
