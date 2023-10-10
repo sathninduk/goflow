@@ -164,3 +164,14 @@ nav a {
     font-size: 12px;
     color: #555;
 }
+
+/* map env */
+#map {
+    height: calc(100vh - 60px);
+    width: 100%;
+}
+
+.map-prompter {
+    position: absolute;
+    z-index: 1000;
+}

@@ -21,11 +21,6 @@
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-
         #locCities {
             position: absolute;
             background-color: white;
@@ -59,15 +54,16 @@
 <%--%>--%>
 
 
-<form>
+<div>
     <div style="display: inline-block;">
         <label for="location">Pickup Location</label>
         <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
         <div id="locCities"></div>
     </div>
 
-    <input type="submit" value="Next">
-</form>
+    <input type="button" onclick="window.location.reload()" value="Current Location">
+    <input type="submit" value="Next" onclick="nextStep()">
+</div>
 
 <div id="mapContainer">
     <div id="map" style="outline: none;"></div>
@@ -125,8 +121,39 @@
         targetElement.appendChild(newDiv);
 
         setMapView(latitude, longitude);
-        document.getElementById("location").value = name;
+        document.getElementById("location").value = latitude + ", " + longitude;
         document.getElementById("locCities").innerHTML = "";
+    }
+</script>
+
+<script>
+    function getURLParameters() {
+        const searchParams = new URLSearchParams(window.location.search);
+        const params = {};
+
+        if (searchParams.has('step')) {
+            params.step = searchParams.get('step');
+        }
+
+        // Check if "lat" and "lon" parameters exist in the URL
+        if (searchParams.has('latitude')) {
+            params.latitude = parseFloat(searchParams.get('latitude'));
+        }
+        if (searchParams.has('longitude')) {
+            params.longitude = parseFloat(searchParams.get('longitude'));
+        }
+
+        return params;
+    }
+
+    function nextStep() {
+        let location = document.getElementById("location").value;
+        let end_latitude = parseFloat(location.split(", ")[0]);
+        let end_longitude = parseFloat(location.split(", ")[1]);
+
+        const { latitude, longitude } = getURLParameters();
+
+        window.location.href = "./AddRide?step=type&start_latitude=" + latitude + "&start_longitude=" + longitude + "&end_latitude=" + end_latitude + "&end_longitude=" + end_longitude;
     }
 </script>
 

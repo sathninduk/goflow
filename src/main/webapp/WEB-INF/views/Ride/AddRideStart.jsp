@@ -21,11 +21,6 @@
           integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 
     <style>
-        #map {
-            height: 400px;
-            width: 100%;
-        }
-
         #locCities {
             position: absolute;
             background-color: white;
@@ -59,17 +54,16 @@
 <%--%>--%>
 
 
-<form>
+<div>
     <div style="display: inline-block;">
         <label for="location">Pickup Location</label>
         <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
-        <input type="hidden" name="longitude" id="longitude">
-        <input type="hidden" name="latitude" id="latitude">
         <div id="locCities"></div>
     </div>
 
-    <input type="submit" value="Next">
-</form>
+    <input type="button" onclick="window.location.reload()" value="Current Location">
+    <input type="submit" value="Next" onclick="nextStep()">
+</div>
 
 <div id="mapContainer">
     <div id="map" style="outline: none;"></div>
@@ -115,6 +109,19 @@
 </script>
 
 <script>
+    function getURLParameters() {
+        const searchParams = new URLSearchParams(window.location.search);
+        const params = {};
+
+        if (searchParams.has('step')) {
+            params.step = searchParams.get('step');
+        }
+
+        return params;
+    }
+</script>
+
+<script>
     async function addToLoc(name, longitude, latitude) {
         console.log(name, longitude, latitude);
 
@@ -127,8 +134,20 @@
         targetElement.appendChild(newDiv);
 
         setMapView(latitude, longitude, "custom");
-        document.getElementById("location").value = name;
+        document.getElementById("location").value = longitude + ", " + latitude;
         document.getElementById("locCities").innerHTML = "";
+    }
+</script>
+
+<script>
+    function nextStep() {
+        let location = document.getElementById("location").value;
+        let latitude = parseFloat(location.split(", ")[0]);
+        let longitude = parseFloat(location.split(", ")[1]);
+
+        console.log(latitude, longitude)
+
+        window.location.href = "./AddRide?step=end&latitude=" + latitude + "&longitude=" + longitude;
     }
 </script>
 
