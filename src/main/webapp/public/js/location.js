@@ -137,23 +137,20 @@ function setMapView(latitude, longitude, type) {
         for (var i = 1; i <= 15; i++) {
             let distRange = 40960 / (Math.pow(2, i - 1));
             if (distance >= distRange) {
-                setMap = true;
-                if (i - 1 === 0)
-                    map = L.map('map', {zoomControl: false}).setView([midpoint.latitude, midpoint.longitude], 1);
-                else
-                    map = L.map('map', {zoomControl: false}).setView([midpoint.latitude, midpoint.longitude], i - 1);
-
+                 setMap = true;
+                console.log("Zoom Level: " + i - 1);
+                var map = L.map('map').setView([midpoint.latitude, midpoint.longitude], i - 1);
                 break;
             }
         }
 
         if (setMap === false) {
-            var map = L.map('map', {zoomControl: false}).setView([midpoint.latitude, midpoint.longitude], 15);
+            var map = L.map('map').setView([midpoint.latitude, midpoint.longitude], 15);
         }
 
 
     } else {
-        map = L.map('map', {zoomControl: false}).setView([latitude, longitude], 17);
+        map = L.map('map').setView([latitude, longitude], 17);
     }
 
     // marker
@@ -187,9 +184,6 @@ function setMapView(latitude, longitude, type) {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-
-    const zoomControl = L.control.zoom({ position: 'bottomright' });
-    zoomControl.addTo(map);
 
     if (type === "current") {
         //var circle =

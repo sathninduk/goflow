@@ -171,7 +171,69 @@ nav a {
     width: 100%;
 }
 
+/* map prompt */
 .map-prompter {
+    min-width: 320px;
     position: absolute;
     z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.26);
+    backdrop-filter: blur(20px);
+    padding: 30px 40px;
+    border-bottom-right-radius: 16px;
+    border-bottom: 2px solid #000;
+    border-right: 2px solid #000;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 20px 0px #0000004a;
+    background-color: #000!important;
+    color: #fff!important;
+    border: none!important;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: .3s;
+}
+
+.submit-btn:hover {
+    transition-duration: .3s;
+    background-color: #555;
+    box-shadow: none;
+}
+
+.next-btn {
+    padding: 10px;
+    margin: 0 5px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 20px 0px #0000004a;
+    background-color: #000!important;
+    color: #fff!important;
+    border: none!important;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: .3s;
+}
+
+.next-btn:hover {
+    transition-duration: .3s;
+    background-color: #555;
+    box-shadow: none;
+}
+
+.map-prompter select, .map-prompter input {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 2px solid #000;
+}
+
+.map-prompter select:focus, .map-prompter input:focus {
+    outline: none;
+    transition-duration: .3s;
 }

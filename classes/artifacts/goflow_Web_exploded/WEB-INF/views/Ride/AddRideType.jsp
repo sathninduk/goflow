@@ -39,21 +39,31 @@
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="map-prompter">
-    <h1>Vehicle Type</h1>
     <div>
-        <div style="display: inline-block;">
-            <label for="vehicle">Select vehicle type</label>
-            <select id="vehicle" name="vehicle">
-                <option value="truck">Tuk</option>
-                <option value="car">Car</option>
-                <option value="van">Van</option>
-                <option value="bus">Bicycle</option>
-            </select>
+        <div>
+<%--            <label for="vehicle">Select vehicle type</label>--%>
+            <div>
+                <select id="vehicle" name="vehicle">
+                    <option value="tuk">Tuk Ride</option>
+                    <option value="car">Car Ride</option>
+                    <option value="van">Van Ride</option>
+                    <option value="bicycle">Bicycle Ride</option>
+                </select>
+            </div>
 
             <input type="hidden" name="location" id="location">
         </div>
 
-        <input type="submit" value="Request">
+        <div style="padding: 20px 0">
+            <span>Distance: </span>
+            <h2 style="margin-top: 0;">3.2 Km</h2>
+            <span>Fare:</span>
+            <h1 style="margin: 0;">LKR 232.80</h1>
+        </div>
+
+        <div>
+            <input type="submit" class="submit-btn" value="Request">
+        </div>
     </div>
 </div>
 

@@ -38,31 +38,17 @@
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<h1>Destination Location</h1>
+<div class="map-prompter">
+    <h1>Where to?</h1>
+    <div>
+        <div style="display: inline-block;">
+            <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
+            <div id="locCities"></div>
+        </div>
 
-<%
-    //    ICityService cityService = new CityServiceImpl();
-//    ArrayList<City> cities = cityService.getCitiesBySearch("");
-
-//    for (City city : cities) {
-%>
-<%--<p>--%>
-<%--    <%=city.getName()%>--%>
-<%--</p>--%>
-<%--<%--%>
-<%--    }--%>
-<%--%>--%>
-
-
-<div>
-    <div style="display: inline-block;">
-        <label for="location">Pickup Location</label>
-        <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
-        <div id="locCities"></div>
+        <button onclick="window.location.reload()" class="next-btn">C</button>
+        <button onclick="nextStep()" class="next-btn">Next</button>
     </div>
-
-    <input type="button" onclick="window.location.reload()" value="Current Location">
-    <input type="submit" value="Next" onclick="nextStep()">
 </div>
 
 <div id="mapContainer">
@@ -151,7 +137,7 @@
         let end_latitude = parseFloat(location.split(", ")[0]);
         let end_longitude = parseFloat(location.split(", ")[1]);
 
-        const { latitude, longitude } = getURLParameters();
+        const {latitude, longitude} = getURLParameters();
 
         window.location.href = "./AddRide?step=type&start_latitude=" + latitude + "&start_longitude=" + longitude + "&end_latitude=" + end_latitude + "&end_longitude=" + end_longitude;
     }
