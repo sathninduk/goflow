@@ -139,7 +139,7 @@ function setMapView(latitude, longitude, type) {
             if (distance >= distRange) {
                  setMap = true;
                 console.log("Zoom Level: " + i - 1);
-                var map = L.map('map').setView([midpoint.latitude, midpoint.longitude], i - 1);
+                map = L.map('map').setView([midpoint.latitude, midpoint.longitude], i - 1);
                 break;
             }
         }
