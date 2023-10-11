@@ -41,14 +41,15 @@
 <div class="map-prompter">
     <h1>Where to?</h1>
     <div>
-        <div style="display: inline-block;">
+        <div style="display: inline-block; width: calc(100% - 64px); margin: 0 10px 15px 0;">
             <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
             <div id="locCities"></div>
         </div>
 
-        <button onclick="window.location.reload()" class="next-btn">C</button>
-        <button onclick="nextStep()" class="next-btn">Next</button>
+        <button onclick="window.location.reload()" class="next-btn"><img src="./public/images/map_icon.png" style="
+        height: 20px;"></button>
     </div>
+    <button onclick="nextStep()" class="submit-btn">Next</button>
 </div>
 
 <div id="mapContainer">

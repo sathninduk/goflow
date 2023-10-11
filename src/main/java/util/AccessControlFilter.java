@@ -18,6 +18,7 @@ public class AccessControlFilter implements Filter {
             "/public/js/scripts.js",
             "/public/js/location.js",
             "/public/images/GoFlow-Logo.png",
+            "/public/images/map_icon.png",
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
 
             "/AddRide",
