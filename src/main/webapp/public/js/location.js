@@ -128,7 +128,7 @@ function setMapView(latitude, longitude, type) {
         const {start_latitude, start_longitude, end_latitude, end_longitude} = getURLParameters();
 
         const distance = calculateDistance(start_latitude, start_longitude, end_latitude, end_longitude); // Berlin to Paris
-        console.log('Distance:', distance.toFixed(2), 'km');
+        document.getElementById("trip_distance").innerText = distance.toFixed(2);
 
         const midpoint = calculateMidpoint(start_latitude, start_longitude, end_latitude, end_longitude); // Berlin to Paris
 
@@ -138,7 +138,7 @@ function setMapView(latitude, longitude, type) {
             let distRange = 40960 / (Math.pow(2, i - 1));
             if (distance >= distRange) {
                 setMap = true;
-                console.log(i - 1);
+                console.log("Map zooming: " + (i - 1));
                 if (i - 1 === 0)
                     map = L.map('map', {zoomControl: false}).setView([midpoint.latitude, midpoint.longitude], 1);
                 else

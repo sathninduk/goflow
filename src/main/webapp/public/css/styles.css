@@ -176,12 +176,10 @@ nav a {
     min-width: 320px;
     position: absolute;
     z-index: 1000;
-    background-color: rgba(255, 255, 255, 0.26);
+    background-color: rgb(255 255 255);
     backdrop-filter: blur(20px);
-    padding: 30px 40px;
+    padding: 40px 40px;
     border-bottom-right-radius: 16px;
-    border-bottom: 2px solid #000;
-    border-right: 2px solid #000;
 }
 
 .submit-btn {

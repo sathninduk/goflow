@@ -56,7 +56,7 @@
 
         <div style="padding: 20px 0">
             <span>Distance: </span>
-            <h2 style="margin-top: 0;">3.2 Km</h2>
+            <h2 style="margin-top: 0;"><span id="trip_distance"></span> Km</h2>
             <span>Fare:</span>
             <h1 style="margin: 0;">LKR 232.80</h1>
         </div>
