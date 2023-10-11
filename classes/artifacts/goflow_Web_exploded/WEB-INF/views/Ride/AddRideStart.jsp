@@ -74,7 +74,7 @@
                     // Work with the JSON data
                     for (let i = 0; i < data.length; i++) {
                         document.getElementById("locCities").innerHTML +=
-                            "<p onclick=\"addToLoc('" + data[i].name + "', '" + data[i].longitude + "', '" + data[i].latitude + "')\">" +
+                            "<p onclick=\"addToLoc('" + data[i].name + "', '" + data[i].latitude + "', '" + data[i].longitude + "')\">" +
                             data[i].name + "</p>";
                     }
                 })
@@ -108,8 +108,7 @@
 </script>
 
 <script>
-    async function addToLoc(name, longitude, latitude) {
-        console.log(name, longitude, latitude);
+    async function addToLoc(name, latitude, longitude) {
 
         // delete element
         document.getElementById("map").remove();
@@ -120,7 +119,7 @@
         targetElement.appendChild(newDiv);
 
         setMapView(latitude, longitude, "custom");
-        document.getElementById("location").value = longitude + ", " + latitude;
+        document.getElementById("location").value = latitude + ", " + longitude;
         document.getElementById("locCities").innerHTML = "";
     }
 </script>
