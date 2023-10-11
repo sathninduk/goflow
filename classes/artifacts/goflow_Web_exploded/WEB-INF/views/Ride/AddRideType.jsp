@@ -62,7 +62,8 @@
         </div>
 
         <div>
-            <input type="submit" class="submit-btn" value="Request">
+            <input type="button" class="submit-btn" value="Request">
+            <input type="button" class="back-btn" value="Cancel" onclick="window.location.href = './AddRide?step=start'">
         </div>
     </div>
 </div>

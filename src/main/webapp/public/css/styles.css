@@ -235,3 +235,31 @@ nav a {
     outline: none;
     transition-duration: .3s;
 }
+
+.back-btn {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 20px 0px #0000004a;
+    background-color: #565656 !important;
+    color: #fff!important;
+    border: none!important;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: .3s;
+}
+
+.back-btn:hover {
+    transition-duration: .3s;
+    background-color: #555;
+    box-shadow: none;
+}
+
+#locCities {
+    max-width: calc(100% - 60px);
+    max-height: calc(100vh - 260px);
+    overflow-y: scroll;
+    padding: 10px;
+    border-radius: 8px;
+}

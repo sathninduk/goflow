@@ -50,6 +50,7 @@
         height: 20px;"></button>
     </div>
     <button onclick="nextStep()" class="submit-btn">Next</button>
+    <input type="button" class="back-btn" value="Back" onclick="window.location.href = './AddRide?step=start'">
 </div>
 
 <div id="mapContainer">
