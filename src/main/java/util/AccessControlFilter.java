@@ -22,7 +22,9 @@ public class AccessControlFilter implements Filter {
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
 
             "/AddRide",
-            "/ListCity"
+            "/ListCity",
+            "/DriverWaiting",
+            "/DriverRinging"
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

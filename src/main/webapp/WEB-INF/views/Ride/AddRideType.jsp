@@ -39,11 +39,11 @@
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="map-prompter">
-    <div>
+    <form action="./DriverWaiting" method="post">
         <div>
-<%--            <label for="vehicle">Select vehicle type</label>--%>
+<%--            <label for="vehicleType">Select vehicleType type</label>--%>
             <div>
-                <select id="vehicle" name="vehicle">
+                <select id="vehicleType" name="vehicleType">
                     <option value="tuk">Tuk Ride</option>
                     <option value="car">Car Ride</option>
                     <option value="van">Van Ride</option>
@@ -52,6 +52,13 @@
             </div>
 
             <input type="hidden" name="location" id="location">
+            <input type="hidden" name="start_latitude" id="start_latitude">
+            <input type="hidden" name="start_longitude" id="start_longitude">
+            <input type="hidden" name="end_latitude" id="end_latitude">
+            <input type="hidden" name="end_longitude" id="end_longitude">
+            <input type="hidden" name="distance" id="distance">
+            <input type="hidden" name="fare" id="fare">
+
         </div>
 
         <div style="padding: 20px 0">
@@ -62,10 +69,10 @@
         </div>
 
         <div>
-            <input type="button" class="submit-btn" value="Request">
+            <input type="submit" class="submit-btn" value="Request">
             <input type="button" class="back-btn" value="Cancel" onclick="window.location.href = './AddRide?step=start'">
         </div>
-    </div>
+    </form>
 </div>
 
 <div id="map" style="outline: none;"></div>
@@ -108,6 +115,24 @@
         crossorigin=""></script>
 
 <script src="./public/js/location.js"></script>
+
+<script>
+    document.getElementById("start_latitude").value = getURLParameters().start_latitude;
+    document.getElementById("start_longitude").value = getURLParameters().start_longitude;
+    document.getElementById("end_latitude").value = getURLParameters().end_latitude;
+    document.getElementById("end_longitude").value = getURLParameters().end_longitude;
+    document.getElementById("fare").value = 232.30;
+
+    const distance = calculateDistance(
+        getURLParameters().start_latitude,
+        getURLParameters().start_longitude,
+        getURLParameters().end_latitude,
+        getURLParameters().end_longitude
+    );
+
+    document.getElementById("distance").value = distance.toFixed(2);
+
+</script>
 
 </body>
 </html>

@@ -128,6 +128,7 @@ function setMapView(latitude, longitude, type) {
         const {start_latitude, start_longitude, end_latitude, end_longitude} = getURLParameters();
 
         const distance = calculateDistance(start_latitude, start_longitude, end_latitude, end_longitude); // Berlin to Paris
+        // document.getElementById("distance").value = distance.toFixed(2);
         document.getElementById("trip_distance").innerText = distance.toFixed(2);
 
         const midpoint = calculateMidpoint(start_latitude, start_longitude, end_latitude, end_longitude); // Berlin to Paris

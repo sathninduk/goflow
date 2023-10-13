@@ -1,17 +1,11 @@
-package controller.ride;
+package controller.driver;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.City;
 import model.Ride;
-import model.Rider;
-import model.VehicleType;
-import service.city.CityServiceImpl;
-import service.city.ICityService;
 import service.ride.IRideService;
 import service.ride.RideServiceImpl;
 import service.rider.IRiderService;
@@ -19,18 +13,17 @@ import service.rider.RiderServiceImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
- * Servlet implementation class AddRide
+ * Servlet implementation class DriverRegister
  */
-public class AddRide extends HttpServlet {
+public class DriverRinging extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddRide() {
+    public DriverRinging() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,21 +33,8 @@ public class AddRide extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-
-        String step = request.getParameter("step");
-
-        if (Objects.equals(step, "type")) {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/AddRideType.jsp");
-            dispatcher.forward(request, response);
-        } else if (Objects.equals(step, "end")) {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/AddRideEnd.jsp");
-            dispatcher.forward(request, response);
-        } else {
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/AddRideStart.jsp");
-            dispatcher.forward(request, response);
-        }
-
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Driver/DriverRinging.jsp");
+        dispatcher.forward(request, response);
     }
 
     /**
@@ -65,3 +45,4 @@ public class AddRide extends HttpServlet {
     }
 
 }
+
