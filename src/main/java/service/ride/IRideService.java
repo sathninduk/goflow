@@ -13,11 +13,15 @@ public interface IRideService {
 
     Ride getRideByID(int id);
 
+    boolean checkRideExists(int id);
+
     ArrayList<Ride> getRides();
 
     ArrayList<Ride> getRidesByStatus(String status);
 
     Ride updateRide(int id, Ride ride);
+
+    Ride updateRideStatus(int id, String status);
 
     void removeRide(int id);
 }

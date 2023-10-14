@@ -195,7 +195,23 @@
     <!-- Get all rides by status -->
     <query id="ride_by_status">
         <![CDATA[
-            select * from ride where ride.status = ?
+            select * from ride where ride.status = ? order by ride.rideId desc
+        ]]>
+    </query>
+
+    <!-- update ride status -->
+    <query id="update_ride_status">
+        <![CDATA[
+            update ride as r
+            set r.status = ?
+            where r.rideId = ?
+        ]]>
+    </query>
+
+    <!-- ride_by_id -->
+    <query id="ride_by_id">
+        <![CDATA[
+            select * from ride where ride.rideId = ?
         ]]>
     </query>
 

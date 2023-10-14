@@ -23,8 +23,11 @@ public class AccessControlFilter implements Filter {
 
             "/AddRide",
             "/ListCity",
-            "/DriverWaiting",
-            "/DriverRinging"
+            "/RiderViewRideStatus",
+            "/DriverRinging",
+            "/DriverUpdateRideStatus",
+            "/RiderRideStatus",
+            "/DriverRideStatus"
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

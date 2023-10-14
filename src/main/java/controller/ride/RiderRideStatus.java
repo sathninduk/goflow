@@ -1,29 +1,23 @@
-package controller.driver;
+package controller.ride;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import model.Ride;
-import service.ride.IRideService;
-import service.ride.RideServiceImpl;
-import service.rider.IRiderService;
-import service.rider.RiderServiceImpl;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
 /**
- * Servlet implementation class DriverRegister
+ * Servlet implementation class CollectPayment
  */
-public class DriverRinging extends HttpServlet {
+public class RiderRideStatus extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DriverRinging() {
+    public RiderRideStatus() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,16 +27,21 @@ public class DriverRinging extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Driver/DriverRinging.jsp");
+
+        int id = Integer.parseInt(request.getParameter("id"));
+        request.setAttribute("ride_id", id);
+
+        RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/RiderRideStatus.jsp");
         dispatcher.forward(request, response);
+
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // TODO Auto-generated method stub
         doGet(request, response);
     }
 
 }
-

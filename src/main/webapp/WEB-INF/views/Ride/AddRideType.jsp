@@ -39,7 +39,7 @@
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="map-prompter">
-    <form action="./DriverWaiting" method="post">
+    <form action="./RiderViewRideStatus" method="post">
         <div>
 <%--            <label for="vehicleType">Select vehicleType type</label>--%>
             <div>

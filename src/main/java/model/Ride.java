@@ -17,6 +17,18 @@ public class Ride {
     private String status;
 
     public Ride() {
+        this.rideId = 0;
+        this.start_latitude = 0;
+        this.start_longitude = 0;
+        this.end_latitude = 0;
+        this.end_longitude = 0;
+        this.vehicleType = null;
+        this.distance = 0;
+        this.fare = 0;
+        this.date_time = null;
+        this.rider = null;
+        this.driver = null;
+        this.status = null;
     }
 
     public Ride(int rideId, float start_latitude, float start_longitude, float end_latitude, float end_longitude, VehicleType vehicleType, float distance, float fare, Date date_time, Rider rider, Driver driver, String status) {

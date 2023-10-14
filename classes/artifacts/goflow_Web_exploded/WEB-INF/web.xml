@@ -107,46 +107,6 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DeleteRide</display-name>
-    <servlet-name>DeleteRide</servlet-name>
-    <servlet-class>controller.ride.DeleteRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>DeleteRide</servlet-name>
-    <url-pattern>/DeleteRide</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>GetRide</display-name>
-    <servlet-name>GetRide</servlet-name>
-    <servlet-class>controller.ride.GetRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>GetRide</servlet-name>
-    <url-pattern>/GetRide</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ListRide</display-name>
-    <servlet-name>ListRide</servlet-name>
-    <servlet-class>controller.ride.ListRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ListRide</servlet-name>
-    <url-pattern>/ListRide</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>UpdateRide</display-name>
-    <servlet-name>UpdateRide</servlet-name>
-    <servlet-class>controller.ride.UpdateRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>UpdateRide</servlet-name>
-    <url-pattern>/UpdateRide</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>AddDriver</display-name>
     <servlet-name>AddDriver</servlet-name>
     <servlet-class>controller.driver.AddDriver</servlet-class>
@@ -217,43 +177,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>DriverWaiting</display-name>
-    <servlet-name>DriverWaiting</servlet-name>
-    <servlet-class>controller.ride.DriverWaiting</servlet-class>
+    <display-name>RiderViewRideStatus</display-name>
+    <servlet-name>RiderViewRideStatus</servlet-name>
+    <servlet-class>controller.ride.RiderViewRideStatus</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DriverWaiting</servlet-name>
-    <url-pattern>/DriverWaiting</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>PickupWaiting</display-name>
-    <servlet-name>PickupWaiting</servlet-name>
-    <servlet-class>controller.ride.PickupWaiting</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>PickupWaiting</servlet-name>
-    <url-pattern>/PickupWaiting</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ActiveRide</display-name>
-    <servlet-name>ActiveRide</servlet-name>
-    <servlet-class>controller.ride.ActiveRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ActiveRide</servlet-name>
-    <url-pattern>/ActiveRide</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>CompleteRide</display-name>
-    <servlet-name>CompleteRide</servlet-name>
-    <servlet-class>controller.ride.CompleteRide</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CompleteRide</servlet-name>
-    <url-pattern>/CompleteRide</url-pattern>
+    <servlet-name>RiderViewRideStatus</servlet-name>
+    <url-pattern>/RiderViewRideStatus</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -269,10 +199,40 @@
     <description></description>
     <display-name>DriverRinging</display-name>
     <servlet-name>DriverRinging</servlet-name>
-    <servlet-class>controller.driver.DriverRinging</servlet-class>
+    <servlet-class>controller.ride.DriverRinging</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>DriverRinging</servlet-name>
     <url-pattern>/DriverRinging</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DriverUpdateRideStatus</display-name>
+    <servlet-name>DriverUpdateRideStatus</servlet-name>
+    <servlet-class>controller.ride.DriverUpdateRideStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriverUpdateRideStatus</servlet-name>
+    <url-pattern>/DriverUpdateRideStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RiderRideStatus</display-name>
+    <servlet-name>RiderRideStatus</servlet-name>
+    <servlet-class>controller.ride.RiderRideStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RiderRideStatus</servlet-name>
+    <url-pattern>/RiderRideStatus</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DriverRideStatus</display-name>
+    <servlet-name>DriverRideStatus</servlet-name>
+    <servlet-class>controller.ride.DriverRideStatus</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriverRideStatus</servlet-name>
+    <url-pattern>/DriverRideStatus</url-pattern>
   </servlet-mapping>
 </web-app>

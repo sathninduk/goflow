@@ -2,7 +2,6 @@ package controller.ride;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -15,15 +14,15 @@ import service.ride.RideServiceImpl;
 import java.io.IOException;
 
 /**
- * Servlet implementation class DriverWaiting
+ * Servlet implementation class RiderViewRideStatus
  */
-public class DriverWaiting extends HttpServlet {
+public class RiderViewRideStatus extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DriverWaiting() {
+    public RiderViewRideStatus() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -59,7 +58,7 @@ public class DriverWaiting extends HttpServlet {
 
 		request.setAttribute("ride_id", rideId);
 
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/DriverWaiting.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/RiderViewRideStatus.jsp");
 		dispatcher.forward(request, response);
 
 	}
