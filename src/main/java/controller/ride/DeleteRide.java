@@ -37,8 +37,13 @@ public class DeleteRide extends HttpServlet {
 		iRideService.removeRide(id);
 
 		// redirect
-		String redirectURL = "./AddRide?type=start";
-		response.sendRedirect(redirectURL);
+		if (request.getParameter("source").equals("cancel")) {
+			String redirectURL = "./AddRide?type=start";
+			response.sendRedirect(redirectURL);
+		} else {
+			String redirectURL = "./RidesHistory";
+			response.sendRedirect(redirectURL);
+		}
 
 	}
 

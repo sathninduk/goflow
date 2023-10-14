@@ -28,7 +28,8 @@ public class AccessControlFilter implements Filter {
             "/DriverUpdateRideStatus",
             "/RiderRideStatus",
             "/DriverRideStatus",
-            "/DeleteRide"
+            "/DeleteRide",
+            "/RidesHistory"
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

@@ -23,7 +23,7 @@
 <% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
 
 <h1>Finding a driver...</h1>
-<button onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>'">Cancel</button>
+<button onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">Cancel</button>
 
 <%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
 
