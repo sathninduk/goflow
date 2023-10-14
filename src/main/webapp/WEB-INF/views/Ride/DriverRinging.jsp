@@ -43,7 +43,7 @@
             <h4><%= r.getDistance() %>km</h4>
             <h3>LKR <%= r.getFare() %>
             </h3>
-            <form action="./DriverUpdateRideStatus" method="post" style="margin: 0">
+            <form action="./DriverUpdateRideStatus?status=wait_pickup" method="post" style="margin: 0">
                 <input type="hidden" name="id" value="<%= r.getRideId() %>">
                 <button type="submit" class="btn">Accept</button>
             </form>

@@ -25,18 +25,18 @@
 <% if(Objects.equals(ride.getStatus(), "wait_pickup")) { %>
 
 <h1>Heading to the pickup location</h1>
-<button>Pickup</button>
+<button onclick="window.location.href = './DriverUpdateRideStatus?id=<%= ride.getRideId() %>&status=active'">Pickup</button>
 
 <% } else if(Objects.equals(ride.getStatus(), "active")) { %>
 
 <h1>Heading to the destination</h1>
-<button>Dropoff</button>
+<button onclick="window.location.href = './DriverUpdateRideStatus?id=<%= ride.getRideId() %>&status=completed'">Dropoff</button>
 
 <% } else if(Objects.equals(ride.getStatus(), "completed")) { %>
 
 <h1>Ride completed</h1>
 <h3>Collect payment: LKR <%= ride.getFare() %></h3>
-<button>Collected</button>
+<button onclick="window.location.href = './DriverRinging'">End</button>
 
 <% } else { %>
 <script>window.location.href = "./DriverRinging"</script>

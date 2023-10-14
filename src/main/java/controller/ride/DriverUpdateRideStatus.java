@@ -29,16 +29,13 @@ public class DriverUpdateRideStatus extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.setContentType("text/html");
-		request.setAttribute("id", request.getParameter("id"));
-
+		// update
 		IRideService iRideService = new RideServiceImpl();
-		Ride ride = iRideService.updateRideStatus(Integer.parseInt(request.getParameter("id")), "wait_pickup");
+		iRideService.updateRideStatus(Integer.parseInt(request.getParameter("id")), request.getParameter("status"));
 
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/DriverUpdateRideStatus.jsp");
-		dispatcher.forward(request, response);
-
+		// redirect
+		String redirectURL = "./DriverRideStatus?id=" + request.getParameter("id");
+		response.sendRedirect(redirectURL);
 	}
 
 	/**
