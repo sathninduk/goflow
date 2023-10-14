@@ -235,4 +235,14 @@
     <servlet-name>DriverRideStatus</servlet-name>
     <url-pattern>/DriverRideStatus</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteRide</display-name>
+    <servlet-name>DeleteRide</servlet-name>
+    <servlet-class>controller.ride.DeleteRide</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteRide</servlet-name>
+    <url-pattern>/DeleteRide</url-pattern>
+  </servlet-mapping>
 </web-app>

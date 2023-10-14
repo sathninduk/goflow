@@ -23,7 +23,7 @@
 <% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
 
 <h1>Finding a driver...</h1>
-<button>Cancel</button>
+<button onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>'">Cancel</button>
 
 <%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
 
@@ -37,7 +37,7 @@
 
 <h1>Your payment is: LKR <%=ride.getFare()%>
 </h1>
-<button>Back</button>
+<button onclick="window.location.href='AddRide?type=start'">Back</button>
 
 <%} else {%>
 <h1>Something went wrong!</h1>

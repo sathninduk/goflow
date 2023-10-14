@@ -215,5 +215,12 @@
         ]]>
     </query>
 
+    <!-- delete ride -->
+    <query id="delete_ride">
+        <![CDATA[
+            delete from ride where ride.rideId = ?
+        ]]>
+    </query>
+
 
 </Querys>
