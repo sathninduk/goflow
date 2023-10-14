@@ -58,8 +58,9 @@ public class RiderViewRideStatus extends HttpServlet {
 
 		request.setAttribute("ride_id", rideId);
 
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/RiderViewRideStatus.jsp");
-		dispatcher.forward(request, response);
+		// redirect
+		String redirectURL = "./RiderRideStatus?id=" + rideId;
+		response.sendRedirect(redirectURL);
 
 	}
 
