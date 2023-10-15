@@ -277,7 +277,7 @@ public class RideServiceImpl implements IRideService {
         if (rideID != null && !rideID.isEmpty()) {
             try {
                 connection = DBConnectionUtil.getDBConnection();
-                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("remove_ride"));
+                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("delete_ride"));
                 this.preparedStatement.setString(1, rideID);
                 this.preparedStatement.executeUpdate();
             } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
