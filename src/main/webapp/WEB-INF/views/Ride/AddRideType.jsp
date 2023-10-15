@@ -1,5 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.City" %><%--
+<%@ page import="model.City" %>
+<%@ page import="service.vehicleType.IVehicleTypeService" %>
+<%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %>
+<%@ page import="model.VehicleType" %>
+<%--
   Created by IntelliJ IDEA.
   User: sathnindu
   Date: 2023-10-07
@@ -41,13 +45,17 @@
 <div class="map-prompter">
     <form action="./RiderViewRideStatus" method="post">
         <div>
-<%--            <label for="vehicleType">Select vehicleType type</label>--%>
+            <%--            <label for="vehicleType">Select vehicleType type</label>--%>
             <div>
-                <select id="vehicleType" name="vehicleType">
-                    <option value="tuk">Tuk Ride</option>
-                    <option value="car">Car Ride</option>
-                    <option value="van">Van Ride</option>
-                    <option value="bicycle">Bicycle Ride</option>
+                <%
+                    IVehicleTypeService vehicleTypeService = new IVehicleTypeServiceImpl();
+                    ArrayList<VehicleType> vehicleTypes = vehicleTypeService.getVehicleTypes();
+                %>
+                <select id="vehicleType" name="vehicleType" onchange="typeChange()">
+                    <option value="">-- Select Vehicle Type --</option>
+                    <% for (VehicleType v : vehicleTypes) { %>
+                    <option value="<%=v.getVehicle_id()%>,<%=v.getRate()%>"><%=v.getName()%> Ride</option>
+                    <% } %>
                 </select>
             </div>
 
@@ -57,20 +65,23 @@
             <input type="hidden" name="end_latitude" id="end_latitude">
             <input type="hidden" name="end_longitude" id="end_longitude">
             <input type="hidden" name="distance" id="distance">
-            <input type="hidden" name="fare" id="fare">
+            <input type="hidden" name="fare" id="fare" required>
 
         </div>
 
         <div style="padding: 20px 0">
             <span>Distance: </span>
-            <h2 style="margin-top: 0;"><span id="trip_distance"></span> Km</h2>
-            <span>Fare:</span>
-            <h1 style="margin: 0;">LKR 232.80</h1>
+            <h2 style="margin-top: 0; margin-bottom: 0;"><span id="trip_distance"></span> Km</h2>
+            <div id="fare_div" style="display: none; margin-top: 18px">
+                <span>Fare:</span>
+                <h1 style="margin: 0;">LKR <span id="fare_view"></span></h1>
+            </div>
         </div>
 
         <div>
-            <input type="submit" class="submit-btn" value="Request">
-            <input type="button" class="back-btn" value="Cancel" onclick="window.location.href = './AddRide?step=start'">
+            <input type="submit" id="submit-btn" class="submit-btn" value="Request" disabled>
+            <input type="button" class="back-btn" value="Cancel"
+                   onclick="window.location.href = './AddRide?step=start'">
         </div>
     </form>
 </div>
@@ -121,7 +132,7 @@
     document.getElementById("start_longitude").value = getURLParameters().start_longitude;
     document.getElementById("end_latitude").value = getURLParameters().end_latitude;
     document.getElementById("end_longitude").value = getURLParameters().end_longitude;
-    document.getElementById("fare").value = 232.30;
+    // document.getElementById("fare").value = 232.30;
 
     const distance = calculateDistance(
         getURLParameters().start_latitude,
@@ -132,6 +143,25 @@
 
     document.getElementById("distance").value = distance.toFixed(2);
 
+</script>
+
+<script>
+    function typeChange() {
+
+        if (document.getElementById("vehicleType").value === "") {
+            document.getElementById("submit-btn").disabled = true;
+            document.getElementById("fare_div").style.display = "none";
+            return;
+        }
+
+        document.getElementById("submit-btn").disabled = false;
+        document.getElementById("fare_div").style.display = "block";
+
+        let rate = document.getElementById("vehicleType").value.split(",")[1];
+        let fare = document.getElementById("distance").value * rate;
+        document.getElementById("fare_view").innerText = fare.toFixed(2);
+        document.getElementById("fare").value = fare.toFixed(2);
+    }
 </script>
 
 </body>

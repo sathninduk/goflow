@@ -202,6 +202,20 @@ nav a {
     box-shadow: none;
 }
 
+.submit-btn:disabled {
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: none;
+    background-color: #696969 !important;
+    color: #cbcbcb !important;
+    border: none !important;
+    cursor: pointer;
+    font-size: 16px;
+    transition-duration: .3s;
+}
+
 .next-btn {
     padding: 10px;
     margin: 0 5px;
