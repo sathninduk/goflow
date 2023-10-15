@@ -220,6 +220,51 @@
         <![CDATA[
             delete from ride where ride.rideId = ?
         ]]>
+    </query>0
+
+    <!-- vehicle_type table -->
+    <!-- get all vehicle types -->
+    <query id="all_vehicleTypes">
+        <![CDATA[
+            select * from vehicle_type
+        ]]>
+    </query>
+
+    <!-- get vehicle type by id -->
+    <query id="vehicleType_by_id">
+        <![CDATA[
+            select * from vehicle_type where vehicle_type.id = ?
+        ]]>
+    </query>
+
+    <!-- get vehicle type by name -->
+    <query id="vehicleType_by_name">
+        <![CDATA[
+            select * from vehicle_type where vehicle_type.name = ?
+        ]]>
+    </query>
+
+    <!-- delete vehicle type -->
+    <query id="remove_vehicleType">
+        <![CDATA[
+            delete from vehicle_type where vehicle_type.id = ?
+        ]]>
+    </query>
+
+    <!-- insert vehicle type -->
+    <query id="insert_vehicleType">
+        <![CDATA[
+            insert into vehicle_type (name, rate) values (?, ?)
+        ]]>
+    </query>
+
+    <!-- update vehicle type -->
+    <query id="update_vehicleType">
+        <![CDATA[
+            update vehicle_type as v
+            set v.name = ?, v.rate = ?
+            where v.id = ?
+        ]]>
     </query>
 
 

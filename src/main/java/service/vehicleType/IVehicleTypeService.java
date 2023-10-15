@@ -1,23 +1,21 @@
 package service.vehicleType;
 
-import model.Ride;
 import model.VehicleType;
-import service.rider.IRiderService;
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public interface IVehicleTypeService {
 
-    Logger log = Logger.getLogger(IRiderService.class.getName());
+    Logger log = Logger.getLogger(IVehicleTypeService.class.getName());
 
-    void addVehicleType(Ride ride);
+    void addVehicleType(VehicleType vehicleType);
 
-    Ride getVehicleTypeByID(int id);
+    VehicleType getVehicleTypeByID(int id);
 
     ArrayList<VehicleType> getVehicleTypes();
 
-    Ride updateVehicleType(int id, Ride ride);
+    VehicleType updateVehicleType(int id, VehicleType vehicleType);
 
     void removeVehicleType(int id);
 

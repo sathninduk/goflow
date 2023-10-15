@@ -13,7 +13,7 @@
 <head>
     <title>Title</title>
 </head>
-<body>
+<body class="gray-bg">
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 

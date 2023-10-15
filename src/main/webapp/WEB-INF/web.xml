@@ -245,4 +245,54 @@
     <servlet-name>DeleteRide</servlet-name>
     <url-pattern>/DeleteRide</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddVehicleType</display-name>
+    <servlet-name>AddVehicleType</servlet-name>
+    <servlet-class>controller.vehicleType.AddVehicleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddVehicleType</servlet-name>
+    <url-pattern>/AddVehicleType</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteVehicleType</display-name>
+    <servlet-name>DeleteVehicleType</servlet-name>
+    <servlet-class>controller.vehicleType.DeleteVehicleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteVehicleType</servlet-name>
+    <url-pattern>/DeleteVehicleType</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GetVehicleType</display-name>
+    <servlet-name>GetVehicleType</servlet-name>
+    <servlet-class>controller.vehicleType.GetVehicleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetVehicleType</servlet-name>
+    <url-pattern>/GetVehicleType</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListVehicleType</display-name>
+    <servlet-name>ListVehicleType</servlet-name>
+    <servlet-class>controller.vehicleType.ListVehicleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListVehicleType</servlet-name>
+    <url-pattern>/ListVehicleType</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateVehicleType</display-name>
+    <servlet-name>UpdateVehicleType</servlet-name>
+    <servlet-class>controller.vehicleType.UpdateVehicleType</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateVehicleType</servlet-name>
+    <url-pattern>/UpdateVehicleType</url-pattern>
+  </servlet-mapping>
 </web-app>

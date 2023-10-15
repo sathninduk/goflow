@@ -53,7 +53,7 @@ public class UpdateRider extends HttpServlet {
         
         request.setAttribute("msg", "Rider updated successfully");
         
-		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Common/Notification.jsp");
+		RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Rider/Notification.jsp");
 		dispatcher.forward(request, response);
 	}
 

@@ -207,7 +207,7 @@ public class RiderServiceImpl implements IRiderService {
     }
 
     private ArrayList<Rider> actionOnRider(String riderID) {
-        ArrayList<Rider> riderList = new ArrayList();
+        ArrayList<Rider> riderList = new ArrayList<Rider>();
 
         try {
             connection = DBConnectionUtil.getDBConnection();
