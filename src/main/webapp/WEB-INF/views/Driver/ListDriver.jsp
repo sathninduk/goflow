@@ -10,6 +10,9 @@
 <%@page import="service.driver.IDriverService"%>
 <%@page import="service.driver.DriverServiceImpl"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page import="service.vehicleType.IVehicleTypeService" %>
+<%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %>
+<%@ page import="model.VehicleType" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -38,6 +41,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Tel</th>
+        <th>Vehicle Type</th>
     </tr>
     <%
 
@@ -51,6 +55,11 @@
         <td> <%=r.getName() %> </td>
         <td> <%=r.getEmail() %> </td>
         <td> <%=r.getTel() %> </td>
+        <%
+            IVehicleTypeService vehicleTypeService = new IVehicleTypeServiceImpl();
+            VehicleType vehicleType = vehicleTypeService.getVehicleTypeByID(r.getVehicleType());
+        %>
+        <td> <%=vehicleType.getName() %> </td>
         <td>
             <form method="POST" action="GetDriver">
                 <input type="hidden" name="driverID" value="<%=r.getID()%>"/>
