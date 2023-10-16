@@ -42,7 +42,7 @@ public class RiderLogin extends HttpServlet {
 
 		AuthService authService = new AuthService();
 
-		if (authService.login(email, password)) {
+		if (authService.login(email, password, "Rider")) {
 
 			HttpSession session = request.getSession(true);
 			session.setAttribute("username", email);

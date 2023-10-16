@@ -49,7 +49,7 @@
             height: 45px;
             z-index: 999;
             position: absolute;
-            background-color: #333;
+            background-color: #000000;
             color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             cursor: pointer;

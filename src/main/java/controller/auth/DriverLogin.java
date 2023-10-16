@@ -42,7 +42,7 @@ public class DriverLogin extends HttpServlet {
 
         AuthService authService = new AuthService();
 
-        if (authService.login(email, password)) {
+        if (authService.login(email, password, "Driver")) {
 
             HttpSession session = request.getSession(true);
             session.setAttribute("username", email);
