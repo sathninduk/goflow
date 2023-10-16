@@ -1,43 +1,113 @@
 <%--
   Created by IntelliJ IDEA.
   User: sathnindu
-  Date: 2023-10-03
-  Time: 09:46
+  Date: 2023-10-16
+  Time: 05:08
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GoFlow | Login</title>
-    <link rel="stylesheet" href="./public/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+    <title>CodePen - Toggle button on hover | switch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <style>
+        .toggle-body {
+            background-color: #cccccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 360px;
+            height: 80px;
+            border-radius: 300px;
+        }
+
+        .toggle-body .btn_box {
+            position: relative;
+        }
+
+        .toggle-body .btn {
+            display: table;
+            float: left;
+            border: none;
+            background: #ccc;
+            padding: 15px 35px;
+            color: #000000;
+            border-radius: 300px;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+        }
+
+        .toggle-body .btn:hover {
+            background-color: transparent;
+            color: transparent;
+        }
+
+        .toggle-body .moving-bg {
+            width: 50%;
+            height: 45px;
+            z-index: 999;
+            position: absolute;
+            background-color: #333;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+            border-radius: 300px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
 </head>
-<body style="overflow-y: hidden">
+<body>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<div class="login-con con-mid">
-    <div class="login-box">
-        <%--        <h1>GoFlow</h1>--%>
-        <h3>Rider Login</h3>
-        <form action="./Login" method="post">
-            <label>
-                <input type="email" name="email" placeholder="Email">
-            </label>
-            <label>
-                <input type="password" name="password" placeholder="Password">
-            </label>
-            <input class="login-btn" type="submit" value="Login">
-        </form>
-        <p class="legal-footer">
-            © <span id="year"></span> GoFlow. All rights reserved.
-        </p>
+<div class="con-mid" style="width: 100%; height: calc(100% - 60px)">
+    <div class="con-mid">
+
+        <h1 style="font-size: 24px; margin-bottom: 24px">Login</h1>
+
+        <div class="toggle-body">
+            <div class="btn_box login-selector">
+                <button class="btn btn1">Rider Login</button>
+                <button class="btn btn2">Driver Login</button>
+                <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid">Rider Login</div>
+            </div>
+        </div>
+
     </div>
 </div>
 
-<script src="./public/js/scripts.js"></script>
+
+<!-- script -->
+<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
+<script>
+    $('.btn_box .btn').mouseover(function () {
+        if ($(this).hasClass("btn1")) {
+            $('.btn_box .moving-bg').css("left", "0%");
+            $('.btn_box .moving-bg').text('Rider Login');
+        }
+        if ($(this).hasClass("btn2")) {
+            $('.btn_box .moving-bg').css("left", "50%");
+            $('.btn_box .moving-bg').text('Driver Login');
+        }
+    });
+</script>
+
+<script>
+    function loginLink() {
+        if (document.getElementById("movingPart").innerText === "DRIVER LOGIN") {
+            window.location.href = "./DriverLogin";
+        } else {
+            window.location.href = "./RiderLogin";
+        }
+    }
+</script>
+
 </body>
 </html>

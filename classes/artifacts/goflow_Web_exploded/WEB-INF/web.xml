@@ -67,6 +67,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>RiderLogin</display-name>
+    <servlet-name>RiderLogin</servlet-name>
+    <servlet-class>controller.auth.RiderLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RiderLogin</servlet-name>
+    <url-pattern>/RiderLogin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>Login</display-name>
     <servlet-name>Login</servlet-name>
     <servlet-class>controller.auth.Login</servlet-class>
@@ -294,5 +304,15 @@
   <servlet-mapping>
     <servlet-name>UpdateVehicleType</servlet-name>
     <url-pattern>/UpdateVehicleType</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DriverLogin</display-name>
+    <servlet-name>DriverLogin</servlet-name>
+    <servlet-class>controller.auth.DriverLogin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DriverLogin</servlet-name>
+    <url-pattern>/DriverLogin</url-pattern>
   </servlet-mapping>
 </web-app>

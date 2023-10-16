@@ -13,13 +13,13 @@ import java.io.IOException;
 /**
  * Servlet implementation class Login
  */
-public class Login extends HttpServlet {
+public class DriverLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Login() {
+    public DriverLogin() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,7 +29,7 @@ public class Login extends HttpServlet {
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Login.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/DriverLogin.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -37,6 +37,22 @@ public class Login extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+
+        AuthService authService = new AuthService();
+
+        if (authService.login(email, password)) {
+
+            HttpSession session = request.getSession(true);
+            session.setAttribute("username", email);
+
+            request.setAttribute("msg", "Logged in successfully");
+            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            response.sendRedirect("./DriverLogin");
+        }
+
     }
 }

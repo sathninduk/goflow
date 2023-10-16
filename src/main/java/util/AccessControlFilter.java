@@ -12,7 +12,9 @@ public class AccessControlFilter implements Filter {
 
     private final String[] excludedUrls = {
             "/",
-            "/login.jsp",
+            "/DriverLogin",
+            "/RiderLogin",
+            "/Login",
             "/index.jsp",
             "/public/css/styles.css",
             "/public/js/scripts.js",

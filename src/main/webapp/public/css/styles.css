@@ -10,6 +10,10 @@ Time: 20:30
     src: url('../fonts/Gabarito/Gabarito-VariableFont_wght.ttf') format('truetype');
 }
 
+* {
+    transition: 0.3s
+}
+
 body {
     font-family: 'Gabarito', cursive;
     background-color: #fff;
@@ -330,6 +334,20 @@ nav a {
     font-size: 10px;
 }
 
+.small-btn {
+    float: right;
+    background-color: dimgrey;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 14px;
+    outline: none;
+    border: none;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
 .btn {
     background-color: #000000;
     color: #ffffff;
@@ -349,9 +367,16 @@ nav a {
 }
 
 .map-btn {
-    background-color: #d7d7d7;
+    background-color: #eee;
     padding: 3px 10px;
     color: #000;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.login-selector {
+    /*background-color: #cecece;*/
+    /*width: 500px;*/
+    /*height: 80px;*/
+    /*border-radius: 300px;*/
 }

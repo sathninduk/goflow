@@ -30,6 +30,10 @@
 
 <br>
 
+<p><%=
+	session.getAttribute("username")
+%></p>
+
 <table border="1" cellpadding="12">
 		 <caption><h2>List of Vehicle Types</h2></caption>
 		 <a href="./AddVehicleType">Add Vehicle Type</a>
