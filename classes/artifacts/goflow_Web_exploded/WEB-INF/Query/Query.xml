@@ -100,7 +100,7 @@
     <!-- Select all customer orders Query -->
     <query id="insert_driver">
         <![CDATA[
-          	insert into driver (name, email, password, tel) values (?, ?, ?, ?)
+          	insert into driver (name, email, vehicle_type, password, tel) values (?, ?, ?, ?, ?)
         ]]>
     </query>
 
@@ -129,15 +129,8 @@
     <query id="update_driver">
         <![CDATA[
             update driver as r
-            set r.name = ?, r.email = ?, r.tel = ?
+            set r.name = ?, r.email = ?, r.vehicle_type = ?, r.tel = ?
             where r.id = ?
-        ]]>
-    </query>
-
-    <!-- Get driver IDs Query -->
-    <query id="driver_ids">
-        <![CDATA[
-            select r.id from driver as r
         ]]>
     </query>
 

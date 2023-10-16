@@ -5,6 +5,7 @@ public class Driver {
     private int id;
     private String name;
     private String email;
+    private int vehicleType;
     private String password;
     private String tel;
 
@@ -42,6 +43,14 @@ public class Driver {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getVehicleType() {
+        return this.vehicleType;
+    }
+
+    public void setVehicleType(int vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     public String getPassword() {

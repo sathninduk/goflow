@@ -42,6 +42,7 @@ public class AddDriver extends HttpServlet {
 
 		driver.setName(request.getParameter("name"));
 		driver.setEmail(request.getParameter("email"));
+		driver.setVehicleType(Integer.parseInt(request.getParameter("vehicleType")));
 		driver.setPassword(request.getParameter("password"));
 		driver.setTel(request.getParameter("tel"));
 

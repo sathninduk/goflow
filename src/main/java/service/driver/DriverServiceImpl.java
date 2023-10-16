@@ -60,8 +60,9 @@ public class DriverServiceImpl implements IDriverService {
 
             this.preparedStatement.setString(1, driver.getName());
             this.preparedStatement.setString(2, driver.getEmail());
-            this.preparedStatement.setString(3, hashedPassword);
-            this.preparedStatement.setString(4, driver.getTel());
+            this.preparedStatement.setInt(3, driver.getVehicleType());
+            this.preparedStatement.setString(4, hashedPassword);
+            this.preparedStatement.setString(5, driver.getTel());
 
 
             this.preparedStatement.execute();
@@ -108,8 +109,9 @@ public class DriverServiceImpl implements IDriverService {
                 driver.setID(resultSet.getInt(1));
                 driver.setName(resultSet.getString(2));
                 driver.setEmail(resultSet.getString(3));
-                driver.setPassword(resultSet.getString(4));
-                driver.setTel(resultSet.getString(5));
+                driver.setVehicleType(Integer.parseInt(resultSet.getString(4)));
+                driver.setPassword(resultSet.getString(5));
+                driver.setTel(resultSet.getString(6));
             }
 
         } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
@@ -146,8 +148,9 @@ public class DriverServiceImpl implements IDriverService {
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_driver"));
                 this.preparedStatement.setString(1, driver.getName());
                 this.preparedStatement.setString(2, driver.getEmail());
-                this.preparedStatement.setString(3, driver.getTel());
-                this.preparedStatement.setInt(4, driver.getID());
+                this.preparedStatement.setInt(3, driver.getVehicleType());
+                this.preparedStatement.setString(4, driver.getTel());
+                this.preparedStatement.setInt(5, driver.getID());
                 this.preparedStatement.executeUpdate();
             } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
                      SQLException var12) {
@@ -222,8 +225,9 @@ public class DriverServiceImpl implements IDriverService {
                 driver.setID(resultSet.getInt(1));
                 driver.setName(resultSet.getString(2));
                 driver.setEmail(resultSet.getString(3));
-                driver.setPassword(resultSet.getString(4));
-                driver.setTel(resultSet.getString(5));
+                driver.setVehicleType(resultSet.getInt(4));
+                driver.setPassword(resultSet.getString(5));
+                driver.setTel(resultSet.getString(6));
                 driverList.add(driver);
             }
         } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |

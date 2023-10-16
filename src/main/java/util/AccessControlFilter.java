@@ -15,6 +15,8 @@ public class AccessControlFilter implements Filter {
             "/DriverLogin",
             "/RiderLogin",
             "/Login",
+            "/DriverRegister",
+            "/RiderRegister",
             "/index.jsp",
             "/public/css/styles.css",
             "/public/js/scripts.js",

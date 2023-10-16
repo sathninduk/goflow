@@ -26,7 +26,7 @@ public class DriverRegister extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Driver/AddVehicleType.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/views/Driver/Register.jsp");
 		dispatcher.forward(request, response);
 	}
 
