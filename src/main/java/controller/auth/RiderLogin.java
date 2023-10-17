@@ -6,7 +6,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Rider;
 import service.auth.AuthService;
+import service.rider.IRiderService;
 
 import java.io.IOException;
 
@@ -44,8 +46,13 @@ public class RiderLogin extends HttpServlet {
 
 		if (authService.login(email, password, "Rider")) {
 
+			IRiderService iRiderService = new service.rider.RiderServiceImpl();
+			Rider rider = iRiderService.getRiderByEmail(email);
+
 			HttpSession session = request.getSession(true);
 			session.setAttribute("username", email);
+			session.setAttribute("id", rider.getID());
+			session.setAttribute("role", "Rider");
 
 			request.setAttribute("msg", "Logged in successfully");
 			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");

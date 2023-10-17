@@ -46,6 +46,8 @@ public class AdminLogin extends HttpServlet {
 
             HttpSession session = request.getSession(true);
             session.setAttribute("username", email);
+            session.setAttribute("id", 0);
+            session.setAttribute("role", "Admin");
 
             request.setAttribute("msg", "Logged in successfully");
             RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");

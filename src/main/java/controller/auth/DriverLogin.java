@@ -6,7 +6,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Driver;
+import model.Rider;
 import service.auth.AuthService;
+import service.driver.DriverServiceImpl;
+import service.driver.IDriverService;
+import service.rider.IRiderService;
 
 import java.io.IOException;
 
@@ -44,8 +49,14 @@ public class DriverLogin extends HttpServlet {
 
         if (authService.login(email, password, "Driver")) {
 
+            IDriverService iDriverService = new DriverServiceImpl();
+            Driver drive = iDriverService.getDriverByEmail(email);
+
             HttpSession session = request.getSession(true);
             session.setAttribute("username", email);
+            session.setAttribute("id", drive.getID());
+            session.setAttribute("vehicleType", drive.getVehicleType());
+            session.setAttribute("role", "Driver");
 
             request.setAttribute("msg", "Logged in successfully");
             RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
