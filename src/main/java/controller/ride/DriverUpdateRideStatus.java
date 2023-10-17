@@ -5,7 +5,10 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Driver;
 import model.Ride;
+import service.driver.DriverServiceImpl;
+import service.driver.IDriverService;
 import service.ride.IRideService;
 import service.ride.RideServiceImpl;
 
@@ -33,9 +36,12 @@ public class DriverUpdateRideStatus extends HttpServlet {
         IRideService iRideService = new RideServiceImpl();
         boolean rideExists = iRideService.checkRideExists(Integer.parseInt(request.getParameter("id")));
 
+        IDriverService iDriverService = new DriverServiceImpl();
+        Driver driver = iDriverService.getDriverByID((Integer) request.getSession().getAttribute("id"));
+
         if (rideExists) {
             // update
-            iRideService.updateRideStatus(Integer.parseInt(request.getParameter("id")), request.getParameter("status"));
+            iRideService.updateRideStatus(Integer.parseInt(request.getParameter("id")), request.getParameter("status"), driver);
             // redirect
             String redirectURL = "./DriverRideStatus?id=" + request.getParameter("id");
             response.sendRedirect(redirectURL);

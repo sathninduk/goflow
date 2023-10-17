@@ -63,7 +63,7 @@ public class RideServiceImpl implements IRideService {
             this.preparedStatement.setFloat(2, ride.getStart_longitude());
             this.preparedStatement.setFloat(3, ride.getEnd_latitude());
             this.preparedStatement.setFloat(4, ride.getEnd_longitude());
-            this.preparedStatement.setString(5, ride.getVehicleType().getName());
+            this.preparedStatement.setInt(5, ride.getVehicleType().getVehicle_id());
             this.preparedStatement.setFloat(6, ride.getDistance());
             this.preparedStatement.setFloat(7, ride.getFare());
 //            this.preparedStatement.setDate(8, (Date) ride.getDate_time());
@@ -110,7 +110,7 @@ public class RideServiceImpl implements IRideService {
     }
 
     @Override
-    public ArrayList<Ride> getRidesByStatus(String status) {
+    public ArrayList<Ride> getRidesByStatusAndVehicle(String status, VehicleType vehicleTypeIn) {
         ArrayList<Ride> rideList = new ArrayList<Ride>();
 
         try {
@@ -118,6 +118,7 @@ public class RideServiceImpl implements IRideService {
 
             this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("ride_by_status"));
             this.preparedStatement.setString(1, status);
+            this.preparedStatement.setInt(2, vehicleTypeIn.getVehicle_id());
 
             ResultSet resultSet = this.preparedStatement.executeQuery();
 
@@ -236,7 +237,7 @@ public class RideServiceImpl implements IRideService {
     }
 
     @Override
-    public Ride updateRideStatus(int id, String status) {
+    public void updateRideStatus(int id, String status, Driver driver) {
         String rideID = String.valueOf(id);
 
         if (rideID != null && !rideID.isEmpty()) {
@@ -244,8 +245,11 @@ public class RideServiceImpl implements IRideService {
                 connection = DBConnectionUtil.getDBConnection();
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_ride_status"));
 
+                System.out.println("Driver ID: " + driver.getID());
+
                 this.preparedStatement.setString(1, status);
-                this.preparedStatement.setInt(2, id);
+                this.preparedStatement.setInt(2, driver.getID());
+                this.preparedStatement.setInt(3, id);
 
                 this.preparedStatement.executeUpdate();
             } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
@@ -267,7 +271,7 @@ public class RideServiceImpl implements IRideService {
             }
         }
 
-        return this.getRideByID(Integer.parseInt(rideID));
+        //return this.getRideByID(Integer.parseInt(rideID));
     }
 
     @Override

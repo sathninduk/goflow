@@ -1,6 +1,8 @@
 package service.ride;
 
+import model.Driver;
 import model.Ride;
+import model.VehicleType;
 import service.rider.IRiderService;
 
 import java.util.ArrayList;
@@ -17,11 +19,11 @@ public interface IRideService {
 
     ArrayList<Ride> getRides();
 
-    ArrayList<Ride> getRidesByStatus(String status);
+    ArrayList<Ride> getRidesByStatusAndVehicle(String status, VehicleType vehicleTypeIn);
 
     Ride updateRide(int id, Ride ride);
 
-    Ride updateRideStatus(int id, String status);
+    void updateRideStatus(int id, String status, Driver driver);
 
     void removeRide(int id);
 }

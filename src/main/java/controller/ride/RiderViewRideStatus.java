@@ -5,6 +5,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import model.Ride;
 import model.Rider;
 import model.VehicleType;
@@ -43,19 +44,21 @@ public class RiderViewRideStatus extends HttpServlet {
 		ride.setDistance(Float.parseFloat(request.getParameter("distance")));
 		ride.setFare(Float.parseFloat(request.getParameter("fare")));
 
+		// -- vehicle type
 		VehicleType vehicleType = new VehicleType();
-		vehicleType.setName(request.getParameter("vehicleType"));
-
+		vehicleType.setVehicle_id(Integer.parseInt(request.getParameter("vehicleType_id")));
 		ride.setVehicleType(vehicleType);
 
+		// -- rider
+		HttpSession session = request.getSession();
 		Rider rider = new Rider();
-		rider.setID(Integer.parseInt("10"));
-
+		rider.setID((Integer) session.getAttribute("id"));
 		ride.setRider(rider);
 
 		IRideService iRideService = new RideServiceImpl();
 		int rideId = iRideService.addRide(ride);
 
+		// -- set attribute
 		request.setAttribute("ride_id", rideId);
 
 		// redirect

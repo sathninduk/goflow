@@ -1,7 +1,10 @@
 <%@ page import="service.ride.IRideService" %>
 <%@ page import="service.ride.RideServiceImpl" %>
 <%@ page import="model.Ride" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.VehicleType" %>
+<%@ page import="service.vehicleType.IVehicleTypeService" %>
+<%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %><%--
   Created by IntelliJ IDEA.
   User: sathnindu
   Date: 2023-10-13
@@ -30,8 +33,11 @@
             <p>Action</p>
         </div>
         <%
+            IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
+            VehicleType vehicleType = iVehicleTypeService.getVehicleTypeByID(Integer.parseInt(session.getAttribute("vehicleType").toString()));
+
             IRideService iRideService = new RideServiceImpl();
-            ArrayList<Ride> ride = iRideService.getRidesByStatus("wait_driver");
+            ArrayList<Ride> ride = iRideService.getRidesByStatusAndVehicle("wait_driver", vehicleType);
 
             for (Ride r : ride) {
         %>
