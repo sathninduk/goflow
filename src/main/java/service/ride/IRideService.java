@@ -2,6 +2,7 @@ package service.ride;
 
 import model.Driver;
 import model.Ride;
+import model.Rider;
 import model.VehicleType;
 import service.rider.IRiderService;
 
@@ -20,6 +21,8 @@ public interface IRideService {
     ArrayList<Ride> getRides();
 
     ArrayList<Ride> getRidesByStatusAndVehicle(String status, VehicleType vehicleTypeIn);
+
+    ArrayList<Ride> getRideByRider(Rider rider);
 
     Ride updateRide(int id, Ride ride);
 

@@ -209,6 +209,13 @@
         ]]>
     </query>
 
+    <!-- ride_by_rider -->
+    <query id="ride_by_rider">
+        <![CDATA[
+            select * from ride where ride.rider_id = ?
+        ]]>
+    </query>
+
     <!-- delete ride -->
     <query id="delete_ride">
         <![CDATA[
