@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet" href="./public/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+    <!--<link rel="stylesheet" href="./public/css/styles.css">-->
+    <!--<link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">-->
 </head>
 <body>
 

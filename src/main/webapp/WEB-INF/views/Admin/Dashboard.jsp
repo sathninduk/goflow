@@ -8,7 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Admin Dashboard</title>
+    <title>Admin Dashboard | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body class="gray-bg">
 

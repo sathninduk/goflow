@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Get Rider</title>
+<title>Edit Rider | GoFlow</title>
 </head>
 <body>
 	<%
