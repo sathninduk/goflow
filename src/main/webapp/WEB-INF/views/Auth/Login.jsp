@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Toggle button on hover | switch</title>
+    <title>GoFlow | Login</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
         .toggle-body {
@@ -76,7 +76,9 @@
             <div class="btn_box login-selector">
                 <button class="btn btn1">Rider Login</button>
                 <button class="btn btn2">Driver Login</button>
-                <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid">Rider Login</div>
+                <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid" style="left: 0;">
+                    Rider Login
+                </div>
             </div>
         </div>
 

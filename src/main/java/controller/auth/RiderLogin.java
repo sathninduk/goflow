@@ -54,9 +54,11 @@ public class RiderLogin extends HttpServlet {
 			session.setAttribute("id", rider.getID());
 			session.setAttribute("role", "Rider");
 
-			request.setAttribute("msg", "Logged in successfully");
-			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
-			dispatcher.forward(request, response);
+			response.sendRedirect("./AddRide?type=start");
+
+//			request.setAttribute("msg", "Logged in successfully");
+//			RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
+//			dispatcher.forward(request, response);
 		} else {
 			response.sendRedirect("./Login");
 		}

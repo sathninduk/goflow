@@ -10,7 +10,7 @@ Time: 20:30
     src: url('../fonts/Gabarito/Gabarito-VariableFont_wght.ttf') format('truetype');
 }
 
-* {
+.btn, #movingPart {
     transition: 0.3s
 }
 
@@ -379,4 +379,46 @@ nav a {
     /*width: 500px;*/
     /*height: 80px;*/
     /*border-radius: 300px;*/
+}
+
+
+/* admin dashboard */
+.admin-block-panel {
+    width: calc(100% - 120px);
+    padding: 80px 60px;
+}
+
+.admin-block {
+    cursor: pointer;
+    width: calc((100% - 300px) / 3);
+    display: inline-block;
+    margin: 15px;
+    background-color: #ffffff;
+    padding: 30px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.03);
+    transition-duration: .3s;
+    font-size: 15px;
+}
+
+.admin-block-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.admin-block:hover {
+    scale: 0.96;
+    box-shadow: none;
+}
+
+.admin-block-text {
+    display: inline-block;
+    float: left;
+}
+
+.admin-block-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
 }

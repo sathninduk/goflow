@@ -49,9 +49,11 @@ public class AdminLogin extends HttpServlet {
             session.setAttribute("id", 0);
             session.setAttribute("role", "Admin");
 
-            request.setAttribute("msg", "Logged in successfully");
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("./AdminDashboard");
+
+//            request.setAttribute("msg", "Logged in successfully");
+//            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
+//            dispatcher.forward(request, response);
         } else {
             response.sendRedirect("./AdminLogin");
         }

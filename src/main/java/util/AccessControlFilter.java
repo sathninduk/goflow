@@ -40,6 +40,8 @@ public class AccessControlFilter implements Filter {
             "/AddVehicleType",
             "/UpdateVehicleType",
             "/DeleteVehicleType",
+            "/AdminDashboard"
+
     };
 
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)

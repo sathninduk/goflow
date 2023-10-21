@@ -58,9 +58,11 @@ public class DriverLogin extends HttpServlet {
             session.setAttribute("vehicleType", drive.getVehicleType());
             session.setAttribute("role", "Driver");
 
-            request.setAttribute("msg", "Logged in successfully");
-            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
-            dispatcher.forward(request, response);
+            response.sendRedirect("./DriverRinging");
+
+//            request.setAttribute("msg", "Logged in successfully");
+//            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
+//            dispatcher.forward(request, response);
         } else {
             response.sendRedirect("./DriverLogin");
         }
