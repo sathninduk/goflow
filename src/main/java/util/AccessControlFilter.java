@@ -20,6 +20,7 @@ public class AccessControlFilter implements Filter {
             "/AdminLogin",
             "/index.jsp",
             "/public/css/styles.css",
+            "/public/css/styles_home.css",
             "/public/js/scripts.js",
             "/public/js/location.js",
             "/public/images/GoFlow-Logo.png",

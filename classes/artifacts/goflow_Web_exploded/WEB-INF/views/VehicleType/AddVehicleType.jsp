@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Get VehicleType</title>
+<title>Add Vehicle Type | GoFlow</title>
 </head>
 <body>
 	

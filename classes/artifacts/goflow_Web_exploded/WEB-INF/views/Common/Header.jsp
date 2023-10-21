@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
     <!--<link rel="stylesheet" href="./public/css/styles.css">-->
     <!--<link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">-->
 </head>
@@ -16,7 +15,7 @@
 
 <nav>
     <div class="nav-left-links">
-        <a href="${pageContext.request.contextPath}/Home" class="nav-logo">GoFlow</a>
+        <a href="${pageContext.request.contextPath}/" class="nav-logo">GoFlow</a>
     </div>
     <div class="nav-right-links">
         <a href="${pageContext.request.contextPath}/Login">Login</a>

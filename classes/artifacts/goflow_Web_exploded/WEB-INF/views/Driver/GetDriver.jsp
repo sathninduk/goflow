@@ -12,7 +12,9 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Get Driver</title>
+    <title>Edit Driver | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 <%

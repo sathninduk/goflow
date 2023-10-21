@@ -18,7 +18,7 @@
 	<meta charset="UTF-8">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>List Rider</title>
+	<title>List Riders | GoFlow</title>
 	<link rel="stylesheet" href="./public/css/styles.css">
 	<link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>

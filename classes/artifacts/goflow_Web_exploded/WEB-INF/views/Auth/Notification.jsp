@@ -11,6 +11,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
+  <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 

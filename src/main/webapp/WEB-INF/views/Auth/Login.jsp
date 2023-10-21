@@ -9,8 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Login | GoFlow</title>
-    <link rel="stylesheet" href="./public/css/styles.css">
-    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
         .toggle-body {
@@ -63,6 +62,9 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 
 </head>
 <body>
