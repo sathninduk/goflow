@@ -77,7 +77,7 @@
         <h1 style="font-size: 24px; margin-bottom: 24px">Login</h1>
 
         <div class="toggle-body">
-            <div class="btn_box login-selector">
+            <div class="btn_box">
                 <button class="btn btn1">Rider Login</button>
                 <button class="btn btn2">Driver Login</button>
                 <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid" style="left: 0;">

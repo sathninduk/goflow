@@ -374,14 +374,6 @@ nav a {
     cursor: pointer;
 }
 
-.login-selector {
-    /*background-color: #cecece;*/
-    /*width: 500px;*/
-    /*height: 80px;*/
-    /*border-radius: 300px;*/
-}
-
-
 /* admin dashboard */
 .admin-block-panel {
     width: calc(100% - 120px);
