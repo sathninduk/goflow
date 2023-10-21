@@ -33,7 +33,9 @@
 <body>
 
 <%
-    ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cityList");
+   if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+    }
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>

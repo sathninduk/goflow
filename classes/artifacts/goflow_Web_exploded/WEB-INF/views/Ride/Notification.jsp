@@ -16,6 +16,12 @@
 </head>
 <body>
 
+<%
+ if (!session.getAttribute("role").equals("Rider")) {
+    response.sendRedirect("./Login");
+  }
+%>
+
 <% String msg = (String) request.getAttribute("msg"); %>
 
 <script>

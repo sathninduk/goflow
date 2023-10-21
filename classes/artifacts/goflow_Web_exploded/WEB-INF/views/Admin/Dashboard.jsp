@@ -14,6 +14,12 @@
 </head>
 <body class="gray-bg">
 
+<%
+    if (!session.getAttribute("role").equals("Admin")) {
+        response.sendRedirect("./Login");
+    }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="admin-block-panel">

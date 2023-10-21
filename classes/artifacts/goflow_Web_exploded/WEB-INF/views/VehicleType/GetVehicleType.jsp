@@ -16,6 +16,9 @@
 </head>
 <body>
 <%
+    if (!session.getAttribute("role").equals("Admin")) {
+        response.sendRedirect("./Login");
+    }
     VehicleType vehicleType = (VehicleType) request.getAttribute("vehicleType");
 %>
 <p>Get VehicleType</p>

@@ -15,7 +15,11 @@
 <title>Edit Rider | GoFlow</title>
 </head>
 <body>
-	<%
+<%
+	if (!session.getAttribute("role").equals("Admin")) {
+		response.sendRedirect("./Login");
+	}
+
 		Rider rider = (Rider) request.getAttribute("rider");
 	%>
 	<p>Get Rider</p>

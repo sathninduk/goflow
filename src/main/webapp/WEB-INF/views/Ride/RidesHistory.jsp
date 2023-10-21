@@ -20,6 +20,12 @@
 </head>
 <body class="gray-bg">
 
+<%
+   if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+    }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="con-mid" style="width: 100%;">

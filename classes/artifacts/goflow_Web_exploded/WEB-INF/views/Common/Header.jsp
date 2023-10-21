@@ -18,9 +18,16 @@
         <a href="${pageContext.request.contextPath}/" class="nav-logo">GoFlow</a>
     </div>
     <div class="nav-right-links">
+        <% if (session.getAttribute("id") != null) { %>
+        <a href="${pageContext.request.contextPath}/Login"><%= session.getAttribute("username") %></a>
+        <a href="${pageContext.request.contextPath}/Logout">Logout</a>
+        <% } else { %>
+        <a style="color: #000; background-color: #fff; border-radius: 8px; padding: 4px 10px;"
+           href="${pageContext.request.contextPath}/AdminLogin">Admin Login</a>
+        <a> | </a>
         <a href="${pageContext.request.contextPath}/Login">Login</a>
         <a href="${pageContext.request.contextPath}/Register">Register</a>
-        <a href="${pageContext.request.contextPath}/Logout">Logout</a>
+        <% } %>
     </div>
 </nav>
 

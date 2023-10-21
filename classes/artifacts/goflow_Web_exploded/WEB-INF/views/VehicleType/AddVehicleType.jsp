@@ -15,6 +15,12 @@
 <title>Add Vehicle Type | GoFlow</title>
 </head>
 <body>
+
+<%
+	if (!session.getAttribute("role").equals("Admin")) {
+		response.sendRedirect("./Login");
+	}
+%>
 	
 	<p>Add VehicleType</p>
 

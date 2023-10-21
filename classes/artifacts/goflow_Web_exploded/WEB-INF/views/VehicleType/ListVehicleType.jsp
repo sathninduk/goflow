@@ -18,21 +18,23 @@
 	<meta charset="UTF-8">
 	<meta name="MobileOptimized" content="320">
 	<meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<title>List Vehicle Types< | GoFlow/title>
+	<title>List Vehicle Types< | GoFlow</title>
 	<link rel="stylesheet" href="./public/css/styles.css">
 	<link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
+
+<%
+	if (!session.getAttribute("role").equals("Admin")) {
+		response.sendRedirect("./Login");
+	}
+%>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <p>List Vehicle Types</p>
 
 <br>
-
-<p><%=
-	session.getAttribute("username")
-%></p>
 
 <table border="1" cellpadding="12">
 		 <caption><h2>List of Vehicle Types</h2></caption>

@@ -18,6 +18,9 @@
 </head>
 <body>
 <%
+    if (!session.getAttribute("role").equals("Admin")) {
+        response.sendRedirect("./Login");
+    }
     Driver driver = (Driver) request.getAttribute("driver");
 %>
 <p>Get Driver</p>

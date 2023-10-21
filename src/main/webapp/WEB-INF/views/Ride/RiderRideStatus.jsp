@@ -17,6 +17,12 @@
 </head>
 <body>
 
+<%
+   if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+    }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <% IRideService iRideService = new RideServiceImpl();
