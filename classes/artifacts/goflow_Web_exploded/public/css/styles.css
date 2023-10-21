@@ -422,3 +422,49 @@ nav a {
     font-size: 24px;
     margin-bottom: 6px;
 }
+
+.status-block {
+    /*box-shadow: 0 5px 20px 0 #0000000f;*/
+    border-radius: 47px;
+    width: 400px;
+    padding: 20px;
+    /*background-color: #ffffff;*/
+}
+
+.status-block h1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.status-block-animated {
+    position: absolute;
+    box-shadow: 0 5px 20px 0 #0000000f;
+    border-radius: 200px;
+    width: 280px;
+    height: 280px;
+    scale: 1;
+    z-index: -1;
+    /*border: 1px solid #000;*/
+}
+
+.scale-animation {
+    animation: scale 2s ease infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    3% {
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2); /* Scale to 1.2 at 50% of the animation */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0;
+    }
+}

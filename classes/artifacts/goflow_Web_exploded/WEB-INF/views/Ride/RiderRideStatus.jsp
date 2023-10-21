@@ -17,33 +17,41 @@
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
+
 <% IRideService iRideService = new RideServiceImpl();
     Ride ride = iRideService.getRideByID((Integer) request.getAttribute("ride_id"));%>
 
-<p>Status: <%= ride.getStatus() %>
-</p>
-<% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
+<div style="width: 100%; height: calc(100% - 60px); overflow: hidden;" class="con-mid">
+    <div class="status-block-animated scale-animation"></div>
+    <div class="status-block">
 
-<h1>Finding a driver...</h1>
-<button onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">Cancel</button>
+        <% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
 
-<%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
+        <h1>Finding a driver...</h1>
+        <button class="btn" onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">Cancel
+        </button>
 
-<h1>Your driver is arriving...</h1>
+        <%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
 
-<%} else if (Objects.equals(ride.getStatus(), "active")) {%>
+        <h1>Your driver is arriving...</h1>
 
-<h1>Enjoy your ride!</h1>
+        <%} else if (Objects.equals(ride.getStatus(), "active")) {%>
 
-<%} else if (Objects.equals(ride.getStatus(), "completed")) {%>
+        <h1>Enjoy your ride!</h1>
 
-<h1>Your payment is: LKR <%=ride.getFare()%>
-</h1>
-<button onclick="window.location.href='AddRide?type=start'">Back</button>
+        <%} else if (Objects.equals(ride.getStatus(), "completed")) {%>
 
-<%} else {%>
-<h1>Something went wrong!</h1>
-<%}%>
+        <h1>Your payment is: LKR <%=ride.getFare()%>
+        </h1>
+        <button class="btn" onclick="window.location.href='AddRide?type=start'">Back</button>
+
+        <%} else {%>
+        <h1>Something went wrong!</h1>
+        <%}%>
+
+    </div>
+</div>
 
 </body>
 </html>
