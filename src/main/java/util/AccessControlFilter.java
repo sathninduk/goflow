@@ -32,6 +32,7 @@ public class AccessControlFilter implements Filter {
             // scripts
             "/public/js/scripts.js",
             "/public/js/location.js",
+            "/public/js/validation.js",
 
             // images
             "/public/images/GoFlow-Logo.png",

@@ -460,3 +460,15 @@ nav a {
         opacity: 0;
     }
 }
+
+/* error styles */
+/* input error */
+.input-error {
+    border: 2px solid #ff0000 !important;
+    background-color: #ff00001a !important;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
+}

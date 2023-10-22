@@ -31,12 +31,14 @@
             <button class="small-btn" onclick="window.location.href = './Login'">Back</button>
             <h3>Driver Login</h3>
         </div>
-        <form action="./DriverLogin" method="post">
+        <form action="./DriverLogin" method="post" onsubmit="return formValidation()">
             <label>
-                <input type="email" name="email" placeholder="Email">
+                <input id="email" name="email" placeholder="Email">
+                <span class="error-message" id="error-email"></span>
             </label>
             <label>
-                <input type="password" name="password" placeholder="Password">
+                <input type="password" id="password" name="password" placeholder="Password">
+                <span class="error-message" id="error-pw"></span>
             </label>
             <input class="login-btn" type="submit" value="Login">
         </form>
@@ -46,6 +48,7 @@
     </div>
 </div>
 
+<script src="./public/js/validation.js"></script>
 <script src="./public/js/scripts.js"></script>
 </body>
 </html>
