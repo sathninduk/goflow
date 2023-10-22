@@ -19,6 +19,10 @@
     </div>
     <div class="nav-right-links">
         <% if (session.getAttribute("id") != null) { %>
+        <% if (session.getAttribute("role").equals("Rider")) { %>
+        <a href="${pageContext.request.contextPath}/RidesHistory">Rides History</a>
+        <a> | </a>
+        <% } %>
         <a href="${pageContext.request.contextPath}/Login"><%= session.getAttribute("username") %></a>
         <a href="${pageContext.request.contextPath}/Logout">Logout</a>
         <% } else { %>

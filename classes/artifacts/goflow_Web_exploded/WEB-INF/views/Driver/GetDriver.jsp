@@ -17,6 +17,7 @@
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 <%
     if (!session.getAttribute("role").equals("Admin")) {
         response.sendRedirect("./Login");

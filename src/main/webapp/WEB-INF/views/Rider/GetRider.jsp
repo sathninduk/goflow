@@ -15,6 +15,7 @@
 <title>Edit Rider | GoFlow</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 <%
 	if (!session.getAttribute("role").equals("Admin")) {
 		response.sendRedirect("./Login");

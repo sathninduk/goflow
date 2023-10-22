@@ -21,6 +21,7 @@
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <p>Add Driver</p>
 

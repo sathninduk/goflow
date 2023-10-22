@@ -15,6 +15,7 @@
 <title>Rider Registration | GoFlow</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 	
 	<p>Add Rider</p>
 
