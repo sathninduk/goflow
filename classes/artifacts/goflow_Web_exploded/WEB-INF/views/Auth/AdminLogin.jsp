@@ -17,6 +17,13 @@
 </head>
 <body style="overflow-y: hidden">
 
+<%
+    if (session.getAttribute("id") != null) {
+        response.sendRedirect("./Login");
+      return;
+    }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="login-con con-mid">

@@ -15,6 +15,13 @@
 <title>Rider Registration | GoFlow</title>
 </head>
 <body>
+<%
+	if (session.getAttribute("id") != null) {
+		response.sendRedirect("./Login");
+		return;
+	}
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 	
 	<p>Add Rider</p>

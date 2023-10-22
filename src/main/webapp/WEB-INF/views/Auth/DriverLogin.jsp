@@ -16,6 +16,12 @@
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body style="overflow-y: hidden">
+<%
+    if (session.getAttribute("id") != null) {
+        response.sendRedirect("./Login");
+        return;
+    }
+%>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 

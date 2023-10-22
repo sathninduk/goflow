@@ -23,6 +23,7 @@
 <%
     if (!session.getAttribute("role").equals("Driver")) {
         response.sendRedirect("./Login");
+        return;
     }
 %>
 

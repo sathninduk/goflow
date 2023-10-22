@@ -21,6 +21,7 @@
 <%
     if (!session.getAttribute("role").equals("Admin")) {
         response.sendRedirect("./Login");
+        return;
     }
     Driver driver = (Driver) request.getAttribute("driver");
 %>

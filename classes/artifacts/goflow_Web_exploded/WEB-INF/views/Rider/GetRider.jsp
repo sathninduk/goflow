@@ -19,6 +19,7 @@
 <%
 	if (!session.getAttribute("role").equals("Admin")) {
 		response.sendRedirect("./Login");
+		return;
 	}
 
 		Rider rider = (Rider) request.getAttribute("rider");

@@ -71,6 +71,20 @@
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
+<%
+    if (session.getAttribute("id") != null) {
+        if (session.getAttribute("role").equals("Rider")) {
+            response.sendRedirect("./AddRide?type=start");
+        } else if (session.getAttribute("role").equals("Driver")) {
+            response.sendRedirect("./DriverRinging");
+        } else if (session.getAttribute("role").equals("Admin")) {
+            response.sendRedirect("./AdminDashboard");
+        } else {
+            response.sendRedirect("./Logout");
+        }
+    }
+%>
+
 <div class="con-mid" style="width: 100%; height: calc(100% - 60px)">
     <div class="con-mid">
 

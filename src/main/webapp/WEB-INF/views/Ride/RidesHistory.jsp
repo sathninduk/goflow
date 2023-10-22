@@ -23,6 +23,7 @@
 <%
    if (!session.getAttribute("role").equals("Rider")) {
         response.sendRedirect("./Login");
+       return;
     }
 %>
 

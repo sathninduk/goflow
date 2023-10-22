@@ -11,6 +11,8 @@ import java.io.IOException;
 public class AccessControlFilter implements Filter {
 
     private final String[] excludedUrls = {
+
+            // public
             "/",
             "/DriverLogin",
             "/RiderLogin",
@@ -22,31 +24,24 @@ public class AccessControlFilter implements Filter {
             "/RiderRegister",
             "/AdminLogin",
             "/index.jsp",
+
+            // css
             "/public/css/styles.css",
             "/public/css/styles_home.css",
+
+            // scripts
             "/public/js/scripts.js",
             "/public/js/location.js",
+
+            // images
             "/public/images/GoFlow-Logo.png",
             "/public/images/GoFlow_White.png",
             "/public/images/Hero-img.jpg",
             "/public/images/map_icon.png",
+
+            // fonts
             "/public/fonts/Gabarito/Gabarito-VariableFont_wght.ttf",
 
-            "/AddRide",
-            "/ListCity",
-            "/RiderViewRideStatus",
-            "/DriverRinging",
-            "/DriverUpdateRideStatus",
-            "/RiderRideStatus",
-            "/DriverRideStatus",
-            "/DeleteRide",
-            "/RidesHistory",
-            "/ListVehicleType",
-            "/GetVehicleType",
-            "/AddVehicleType",
-            "/UpdateVehicleType",
-            "/DeleteVehicleType",
-            "/AdminDashboard"
 
     };
 

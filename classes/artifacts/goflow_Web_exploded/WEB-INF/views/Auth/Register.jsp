@@ -69,6 +69,13 @@
 </head>
 <body>
 
+<%
+  if (session.getAttribute("id") != null) {
+    response.sendRedirect("./Login");
+    return;
+  }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <div class="con-mid" style="width: 100%; height: calc(100% - 60px)">
