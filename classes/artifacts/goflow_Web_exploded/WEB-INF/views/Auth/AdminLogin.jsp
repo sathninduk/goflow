@@ -49,7 +49,7 @@
   </div>
 </div>
 
-<script src="./public/js/validation.js"></script>
+<script src="./public/js/validation/loginValidation.js"></script>
 <script src="./public/js/scripts.js"></script>
 </body>
 </html>

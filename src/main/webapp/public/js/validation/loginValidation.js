@@ -1,35 +1,44 @@
+// login form validation function
 function formValidation() {
 
+    // elements
     var email = document.getElementById("email");
     var password = document.getElementById("password");
+    var emailError = document.getElementById("error-email");
+    var pwError = document.getElementById("error-pw");
 
+    // element initialize
     email.classList.remove("input-error");
     password.classList.remove("input-error");
-    document.getElementById("error-email").innerHTML = "";
-    document.getElementById("error-pw").innerHTML = "";
+    emailError.innerHTML = "";
+    pwError.innerHTML = "";
 
+    // check if email is empty
     if (email.value.trim() === "") {
         email.classList.add("input-error");
-        document.getElementById("error-email").innerHTML = "Email is required<br><br>";
+        emailError.innerHTML = "Email is required<br><br>";
         return false;
     }
 
+    // check if email is valid
     if (!isValidEmail(email.value)) {
         email.classList.add("input-error");
-        document.getElementById("error-email").innerHTML = "Invalid email address<br><br>";
+        emailError.innerHTML = "Invalid email address<br><br>";
         return false;
     }
 
+    // check if password is empty
     if (password.value.trim() === "") {
         password.classList.add("input-error");
-        document.getElementById("error-pw").innerHTML = "Password is required<br><br>";
+        pwError.innerHTML = "Password is required<br><br>";
         return false;
     }
 
-    return true;
+    return true; // return true (no error)
 }
 
 
+// regex email validation function
 function isValidEmail(email) {
     var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // regex pattern
     return pattern.test(email);
