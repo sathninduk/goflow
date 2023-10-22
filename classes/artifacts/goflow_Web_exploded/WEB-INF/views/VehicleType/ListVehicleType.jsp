@@ -33,10 +33,6 @@
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<p>List Vehicle Types</p>
-
-<br>
-
 <table border="1" cellpadding="12">
 		 <caption><h2>List of Vehicle Types</h2></caption>
 		 <a href="./AddVehicleType">Add Vehicle Type</a>

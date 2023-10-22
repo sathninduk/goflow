@@ -32,14 +32,9 @@
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
-
-<p>List Rider</p>
-
-<br>
-
 <table border="1" cellpadding="12">
 		 <caption><h2>List of Riders</h2></caption>
-		 <a href="./RiderRegister">Add Rider</a>
+		 <!--<a href="./RiderRegister">Add Rider</a>-->
 		  <tr>
                 <th>Rider ID</th>
                 <th>Name</th>

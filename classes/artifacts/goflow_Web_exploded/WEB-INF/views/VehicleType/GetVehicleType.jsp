@@ -13,6 +13,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Edit Vehicle Type | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>

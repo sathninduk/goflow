@@ -448,7 +448,7 @@ nav a {
         transform: scale(1);
         opacity: 0;
     }
-    3% {
+    25% {
         opacity: 1;
     }
     50% {

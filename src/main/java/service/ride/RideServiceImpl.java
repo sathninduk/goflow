@@ -309,8 +309,6 @@ public class RideServiceImpl implements IRideService {
                 connection = DBConnectionUtil.getDBConnection();
                 this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_ride_status"));
 
-                System.out.println("Driver ID: " + driver.getID());
-
                 this.preparedStatement.setString(1, status);
                 this.preparedStatement.setInt(2, driver.getID());
                 this.preparedStatement.setInt(3, id);

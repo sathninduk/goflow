@@ -35,14 +35,9 @@
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
-
-<p>List Driver</p>
-
-<br>
-
 <table border="1" cellpadding="12">
     <caption><h2>List of Drivers</h2></caption>
-    <a href="./DriverRegister">Add Driver</a>
+    <!--<a href="./DriverRegister">Add Driver</a>-->
     <tr>
         <th>Driver ID</th>
         <th>Name</th>

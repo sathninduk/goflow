@@ -27,7 +27,15 @@
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
 <%
+
     IRideService iRideService = new RideServiceImpl();
+    boolean rideExists = iRideService.checkRideExists(Integer.parseInt(request.getParameter("id")));
+
+    if (!rideExists) {
+        response.sendRedirect("./DriverRinging");
+        return;
+    }
+
     Ride ride = iRideService.getRideByID(Integer.parseInt(request.getParameter("id")));
 %>
 

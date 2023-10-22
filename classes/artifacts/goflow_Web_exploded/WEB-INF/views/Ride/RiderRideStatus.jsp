@@ -18,16 +18,18 @@
 <body>
 
 <%
-   if (!session.getAttribute("role").equals("Rider")) {
+    if (!session.getAttribute("role").equals("Rider")) {
         response.sendRedirect("./Login");
-       return;
+        return;
     }
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<% IRideService iRideService = new RideServiceImpl();
-    Ride ride = iRideService.getRideByID((Integer) request.getAttribute("ride_id"));%>
+<%
+    IRideService iRideService = new RideServiceImpl();
+    Ride ride = iRideService.getRideByID((Integer) request.getAttribute("ride_id"));
+%>
 
 <div style="width: 100%; height: calc(100% - 60px); overflow: hidden;" class="con-mid">
     <div class="status-block-animated scale-animation"></div>
@@ -36,7 +38,8 @@
         <% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
 
         <h1>Finding a driver...</h1>
-        <button class="btn" onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">Cancel
+        <button class="btn" onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">
+            Cancel
         </button>
 
         <%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
@@ -47,7 +50,9 @@
 
         <h1>Enjoy your ride!</h1>
 
-        <%} else if (Objects.equals(ride.getStatus(), "completed")) {%>
+        <%} else if (Objects.equals(ride.getStatus(), "completed")) {
+        session.removeAttribute("ride_id");
+        %>
 
         <h1>Your payment is: LKR <%=ride.getFare()%>
         </h1>
