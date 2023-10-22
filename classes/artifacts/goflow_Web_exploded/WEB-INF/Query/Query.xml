@@ -181,7 +181,7 @@
     <!-- Get all rides -->
     <query id="all_rides">
         <![CDATA[
-            select * from ride order by ride.rideId desc
+            select * from ride
         ]]>
     </query>
 
@@ -212,7 +212,7 @@
     <!-- ride_by_rider -->
     <query id="ride_by_rider">
         <![CDATA[
-            select * from ride where ride.rider_id = ?
+            select * from ride where ride.rider_id = ? order by ride.rideId desc
         ]]>
     </query>
 

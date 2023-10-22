@@ -78,7 +78,7 @@
                     // Work with the JSON data
                     for (let i = 0; i < data.length; i++) {
                         document.getElementById("locCities").innerHTML +=
-                            "<p onclick=\"addToLoc('" + data[i].name + "', '" + data[i].latitude + "', '" + data[i].longitude + "')\">" +
+                            "<p style='cursor: pointer;' onclick=\"addToLoc('" + data[i].name + "', '" + data[i].latitude + "', '" + data[i].longitude + "')\">" +
                             data[i].name + "</p>";
                     }
                 })
