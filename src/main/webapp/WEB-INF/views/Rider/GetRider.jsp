@@ -14,7 +14,49 @@
 <meta charset="UTF-8">
 <title>Get Rider</title>
 	<style>
-		
+		/* Internal CSS styles */
+		body {
+			background-color: #f0f0f0;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		p {
+			font-size: 24px;
+			font-weight: bold;
+		}
+
+		table {
+			margin: 20px;
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		table td {
+			padding: 10px;
+		}
+
+		input[type="text"] {
+			width: 100%;
+			padding: 5px;
+		}
+
+		.update-button {
+			background-color: #007bff;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+		}
+
+		.delete-button {
+			background-color: #dc3545;
+			color: #fff;
+			padding: 10px 20px;
+			border: none;
+			cursor: pointer;
+		}
 	</style>
 </head>
 <body>
