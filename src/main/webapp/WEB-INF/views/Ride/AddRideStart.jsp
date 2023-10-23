@@ -45,12 +45,12 @@
     <h1>Pickup Location</h1>
     <div>
         <div style="display: inline-block; width: calc(100% - 64px); margin: 0 10px 15px 0;">
+            <span class="error-message" id="error-loc"></span>
             <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
             <div id="locCities"></div>
         </div>
 
-        <button onclick="window.location.reload()" class="next-btn"><img src="./public/images/map_icon.png" style="
-        height: 20px;"></button>
+        <button onclick="window.location.reload()" class="next-btn"><span>&#128204;</span></button>
     </div>
     <button onclick="nextStep()" class="submit-btn">Next</button>
 </div>
@@ -130,9 +130,21 @@
 
 <script>
     function nextStep() {
-        let location = document.getElementById("location").value;
-        let latitude = parseFloat(location.split(", ")[0]);
-        let longitude = parseFloat(location.split(", ")[1]);
+        let location = document.getElementById("location");
+
+        // frontend validation
+        if (location.value === "") {
+
+            let locError = document.getElementById("error-loc");
+
+            location.classList.add("input-error");
+            locError.innerHTML = "Location is required<br><br>";
+
+            return;
+        }
+
+        let latitude = parseFloat(location.value.split(", ")[0]);
+        let longitude = parseFloat(location.value.split(", ")[1]);
 
         console.log(latitude, longitude)
 
