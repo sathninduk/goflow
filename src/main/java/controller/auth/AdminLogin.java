@@ -1,5 +1,7 @@
 package controller.auth;
 
+import exception.auth.AuthException;
+import exception.common.EmptyInputsException;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -37,25 +39,42 @@ public class AdminLogin extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        // get inputs
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        AuthService authService = new AuthService();
+        try {
+            // exception - empty inputs
+            if (email.isEmpty() || password.isEmpty())
+                throw new EmptyInputsException("Empty email or password");
 
-        if (authService.login(email, password, "Admin")) {
+            // auth service object
+            AuthService authService = new AuthService();
 
-            HttpSession session = request.getSession(true);
-            session.setAttribute("username", email);
-            session.setAttribute("id", 0);
-            session.setAttribute("role", "Admin");
+            // check authentication
+            if (authService.login(email, password, "Admin")) { // authenticated
 
-            response.sendRedirect("./AdminDashboard");
+                // create session
+                HttpSession session = request.getSession(true);
+                session.setAttribute("username", email);
+                session.setAttribute("id", 0);
+                session.setAttribute("role", "Admin");
 
-//            request.setAttribute("msg", "Logged in successfully");
-//            RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Auth/Notification.jsp");
-//            dispatcher.forward(request, response);
-        } else {
-            response.sendRedirect("./AdminLogin");
+                // redirect to admin dashboard
+                response.sendRedirect("./AdminDashboard");
+
+            } else // not authenticated
+                throw new AuthException("Invalid email or password");
+
+        } catch (AuthException e) { // not authenticated exception
+            response.sendRedirect("./AdminLogin?flag=invalid"); // redirect to login with invalid flag
+            e.printStackTrace();
+        } catch (EmptyInputsException e) { // empty inputs exception
+            response.sendRedirect("./AdminLogin"); // redirect to login
+            e.printStackTrace();
+        } finally {
+            System.out.println("Login attempt by admin"); // log
         }
 
     }
