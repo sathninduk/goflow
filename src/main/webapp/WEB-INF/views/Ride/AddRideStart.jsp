@@ -129,6 +129,21 @@
 </script>
 
 <script>
+    // check error flags
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('flag')) {
+        const flag = urlParams.get('flag');
+        if (flag === "empty") {
+           alert("All inputs are required. Please try again.");
+        }
+
+        if (flag === "distance") {
+            alert("Locations should fall within a range of 1km to 500km. Please try again.");
+        }
+    }
+</script>
+
+<script>
     function nextStep() {
         let location = document.getElementById("location");
 
