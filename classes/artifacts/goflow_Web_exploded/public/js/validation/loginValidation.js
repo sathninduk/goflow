@@ -1,3 +1,22 @@
+// flag: invalid - invalid credentials
+window.onload = function invalidCred() {
+    const urlParams = new URLSearchParams(window.location.search);
+
+    if (urlParams.has('flag')) {
+        const flag = urlParams.get('flag');
+        if (flag === "invalid") {
+            var email = document.getElementById("email");
+            var password = document.getElementById("password");
+            var pwError = document.getElementById("error-pw");
+
+            email.classList.add("input-error");
+            password.classList.add("input-error");
+            pwError.innerHTML = "Invalid email or password<br><br>";
+        }
+    }
+}
+
+
 // login form validation function
 function formValidation() {
 
@@ -43,3 +62,6 @@ function isValidEmail(email) {
     var pattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // regex pattern
     return pattern.test(email);
 }
+
+
+
