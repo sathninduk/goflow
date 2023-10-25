@@ -24,9 +24,50 @@
     <title>List Drivers | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+    <style>
+        /* Internal CSS styles go here */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        caption {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .select-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-
 <%
     if (!session.getAttribute("role").equals("Admin")) {
         response.sendRedirect("./Login");
@@ -37,7 +78,7 @@
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 <table border="1" cellpadding="12">
     <caption><h2>List of Drivers</h2></caption>
-    <!--<a href="./DriverRegister">Add Driver</a>-->
+    <!--<a href="./DriverRegister">Add Driver</a-->
     <tr>
         <th>Driver ID</th>
         <th>Name</th>
@@ -76,3 +117,4 @@
 
 </body>
 </html>
+
