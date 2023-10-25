@@ -12,7 +12,7 @@
     <meta charset="UTF-8">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GoFlow | Request Ride - Destination Location</title>
+    <title>Request Ride - Destination Location | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 
@@ -33,7 +33,10 @@
 <body>
 
 <%
-    ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cityList");
+    if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+        return;
+    }
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
@@ -42,12 +45,12 @@
     <h1>Where to?</h1>
     <div>
         <div style="display: inline-block; width: calc(100% - 64px); margin: 0 10px 15px 0;">
-            <input type="text" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
+            <span class="error-message" id="error-loc"></span>
+            <input type="text" class="loc-input" id="location" name="location" placeholder="Enter city" onfocus="highlightText()">
             <div id="locCities"></div>
         </div>
 
-        <button onclick="window.location.reload()" class="next-btn"><img src="./public/images/map_icon.png" style="
-        height: 20px;"></button>
+        <button onclick="window.location.reload()" class="next-btn"><span>&#128204;</span></button>
     </div>
     <button onclick="nextStep()" class="submit-btn">Next</button>
     <input type="button" class="back-btn" value="Back" onclick="window.location.href = './AddRide?step=start'">
@@ -135,9 +138,21 @@
     }
 
     function nextStep() {
-        let location = document.getElementById("location").value;
-        let end_latitude = parseFloat(location.split(", ")[0]);
-        let end_longitude = parseFloat(location.split(", ")[1]);
+        let location = document.getElementById("location");
+
+        // frontend validation
+        if (location.value === "") {
+
+            let locError = document.getElementById("error-loc");
+
+            location.classList.add("input-error");
+            locError.innerHTML = "Location is required<br><br>";
+
+            return;
+        }
+
+        let end_latitude = parseFloat(location.value.split(", ")[0]);
+        let end_longitude = parseFloat(location.value.split(", ")[1]);
 
         const {latitude, longitude} = getURLParameters();
 

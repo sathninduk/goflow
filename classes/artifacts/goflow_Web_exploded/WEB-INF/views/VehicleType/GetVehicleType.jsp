@@ -12,10 +12,17 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Get VehicleType</title>
+    <title>Edit Vehicle Type | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 <%
+    if (!session.getAttribute("role").equals("Admin")) {
+        response.sendRedirect("./Login");
+        return;
+    }
     VehicleType vehicleType = (VehicleType) request.getAttribute("vehicleType");
 %>
 <p>Get VehicleType</p>

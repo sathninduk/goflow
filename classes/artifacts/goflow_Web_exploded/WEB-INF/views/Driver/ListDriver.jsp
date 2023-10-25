@@ -21,21 +21,23 @@
     <meta charset="UTF-8">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>List Driver</title>
+    <title>List Drivers | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 
+<%
+    if (!session.getAttribute("role").equals("Admin")) {
+        response.sendRedirect("./Login");
+        return;
+    }
+%>
+
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
-
-<p>List Driver</p>
-
-<br>
-
 <table border="1" cellpadding="12">
     <caption><h2>List of Drivers</h2></caption>
-    <a href="./DriverRegister">Add Driver</a>
+    <!--<a href="./DriverRegister">Add Driver</a>-->
     <tr>
         <th>Driver ID</th>
         <th>Name</th>

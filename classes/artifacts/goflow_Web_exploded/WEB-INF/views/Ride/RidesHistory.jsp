@@ -1,7 +1,10 @@
 <%@ page import="service.ride.IRideService" %>
 <%@ page import="service.ride.RideServiceImpl" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="model.Ride" %><%--
+<%@ page import="model.Ride" %>
+<%@ page import="model.Rider" %>
+<%@ page import="service.rider.RiderServiceImpl" %>
+<%@ page import="service.rider.IRiderService" %><%--
   Created by IntelliJ IDEA.
   User: sathnindu
   Date: 2023-10-14
@@ -11,9 +14,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Rides History | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body class="gray-bg">
+
+<%
+   if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+       return;
+    }
+%>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
@@ -32,7 +44,9 @@
 
         <%
             IRideService iRideService = new RideServiceImpl();
-            ArrayList<Ride> rides = iRideService.getRides();
+            IRiderService iRiderService = new RiderServiceImpl();
+            Rider para_rider = iRiderService.getRiderByID(Integer.parseInt(session.getAttribute("id").toString()));
+            ArrayList<Ride> rides = iRideService.getRideByRider(para_rider);
 
             for (Ride r : rides) {
         %>
@@ -46,8 +60,10 @@
             <p onclick="openMap(<%= r.getEnd_latitude() %>,<%= r.getEnd_longitude() %>)"
                class="map-btn"><%= r.getEnd_latitude() %>, <%= r.getEnd_longitude() %> <span>📍</span></p>
             <h4><%= r.getDistance() %>km</h4>
-            <h3>LKR <%= r.getFare() %></h3>
-            <p class="map-btn"><%= r.getStatus() %></p>
+            <h3>LKR <%= r.getFare() %>
+            </h3>
+            <p class="map-btn"><%= r.getStatus() %>
+            </p>
             <form action="./DeleteRide" method="post" style="margin: 0">
                 <input type="hidden" name="id" value="<%= r.getRideId() %>">
                 <input type="hidden" name="source" value="history">

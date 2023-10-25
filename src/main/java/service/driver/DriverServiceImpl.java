@@ -2,7 +2,6 @@ package service.driver;
 
 import model.Driver;
 import org.xml.sax.SAXException;
-import service.driver.DriverServiceImpl;
 import util.DBConnectionUtil;
 import util.QueryUtil;
 
@@ -89,7 +88,7 @@ public class DriverServiceImpl implements IDriverService {
 
     @Override
     public Driver getDriverByID(int id) {
-        return (Driver) this.actionOnDriver(String.valueOf(id)).get(0);
+            return (Driver) this.actionOnDriver(String.valueOf(id)).get(0);
     }
 
     @Override
