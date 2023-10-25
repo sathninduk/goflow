@@ -16,7 +16,7 @@
     <meta charset="UTF-8">
     <meta name="MobileOptimized" content="320">
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>GoFlow | Request Ride - Destination Location</title>
+    <title>Request Ride - Destination Location | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 
@@ -37,7 +37,10 @@
 <body>
 
 <%
-    ArrayList<City> cities = (ArrayList<City>) request.getAttribute("cityList");
+   if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+       return;
+    }
 %>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
@@ -57,6 +60,7 @@
                     <option value="<%=v.getVehicle_id()%>,<%=v.getRate()%>"><%=v.getName()%> Ride</option>
                     <% } %>
                 </select>
+                <input type="hidden" name="vehicleType_id" id="vehicleType_id">
             </div>
 
             <input type="hidden" name="location" id="location">
@@ -157,6 +161,7 @@
         document.getElementById("submit-btn").disabled = false;
         document.getElementById("fare_div").style.display = "block";
 
+        document.getElementById("vehicleType_id").value = document.getElementById("vehicleType").value.split(",")[0];
         let rate = document.getElementById("vehicleType").value.split(",")[1];
         let fare = document.getElementById("distance").value * rate;
         document.getElementById("fare_view").innerText = fare.toFixed(2);

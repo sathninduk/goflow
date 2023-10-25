@@ -11,37 +11,59 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Ride Status | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 
-<% IRideService iRideService = new RideServiceImpl();
-    Ride ride = iRideService.getRideByID((Integer) request.getAttribute("ride_id"));%>
+<%
+    if (!session.getAttribute("role").equals("Rider")) {
+        response.sendRedirect("./Login");
+        return;
+    }
+%>
 
-<p>Status: <%= ride.getStatus() %>
-</p>
-<% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
-<h1>Finding a driver...</h1>
-<button onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">Cancel</button>
+<%
+    IRideService iRideService = new RideServiceImpl();
+    Ride ride = iRideService.getRideByID((Integer) request.getAttribute("ride_id"));
+%>
 
-<%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
+<div style="width: 100%; height: calc(100% - 60px); overflow: hidden;" class="con-mid">
+    <div class="status-block-animated scale-animation"></div>
+    <div class="status-block">
 
-<h1>Your driver is arriving...</h1>
+        <% if (Objects.equals(ride.getStatus(), "wait_driver")) {%>
 
-<%} else if (Objects.equals(ride.getStatus(), "active")) {%>
+        <h1>Finding a driver...</h1>
+        <button class="btn" onclick="window.location.href = './DeleteRide?id=<%= ride.getRideId() %>&source=cancel'">
+            Cancel
+        </button>
 
-<h1>Enjoy your ride!</h1>
+        <%} else if (Objects.equals(ride.getStatus(), "wait_pickup")) {%>
 
-<%} else if (Objects.equals(ride.getStatus(), "completed")) {%>
+        <h1>Your driver is arriving...</h1>
 
-<h1>Your payment is: LKR <%=ride.getFare()%>
-</h1>
-<button onclick="window.location.href='AddRide?type=start'">Back</button>
+        <%} else if (Objects.equals(ride.getStatus(), "active")) {%>
 
-<%} else {%>
-<h1>Something went wrong!</h1>
-<%}%>
+        <h1>Enjoy your ride!</h1>
+
+        <%} else if (Objects.equals(ride.getStatus(), "completed")) {
+        session.removeAttribute("ride_id");
+        %>
+
+        <h1>Your payment is: LKR <%=ride.getFare()%>
+        </h1>
+        <button class="btn" onclick="window.location.href='AddRide?type=start'">Back</button>
+
+        <%} else {%>
+        <h1>Something went wrong!</h1>
+        <%}%>
+
+    </div>
+</div>
 
 </body>
 </html>

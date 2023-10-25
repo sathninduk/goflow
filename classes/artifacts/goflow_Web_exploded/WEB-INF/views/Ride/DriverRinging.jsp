@@ -1,7 +1,10 @@
 <%@ page import="service.ride.IRideService" %>
 <%@ page import="service.ride.RideServiceImpl" %>
 <%@ page import="model.Ride" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="model.VehicleType" %>
+<%@ page import="service.vehicleType.IVehicleTypeService" %>
+<%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %><%--
   Created by IntelliJ IDEA.
   User: sathnindu
   Date: 2023-10-13
@@ -11,9 +14,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Ringing</title>
+    <title>Rides Rining | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body class="gray-bg">
+
+<%
+    if (!session.getAttribute("role").equals("Driver")) {
+        response.sendRedirect("./Login");
+        return;
+    }
+%>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
 
@@ -30,8 +42,11 @@
             <p>Action</p>
         </div>
         <%
+            IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
+            VehicleType vehicleType = iVehicleTypeService.getVehicleTypeByID(Integer.parseInt(session.getAttribute("vehicleType").toString()));
+
             IRideService iRideService = new RideServiceImpl();
-            ArrayList<Ride> ride = iRideService.getRidesByStatus("wait_driver");
+            ArrayList<Ride> ride = iRideService.getRidesByStatusAndVehicle("wait_driver", vehicleType);
 
             for (Ride r : ride) {
         %>

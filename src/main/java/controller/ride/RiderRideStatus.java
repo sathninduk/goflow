@@ -6,6 +6,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
+
 import java.io.IOException;
 
 /**
@@ -29,6 +31,10 @@ public class RiderRideStatus extends HttpServlet {
         response.setContentType("text/html");
 
         int id = Integer.parseInt(request.getParameter("id"));
+
+        HttpSession session = request.getSession();
+        session.setAttribute("ride_id", id);
+
         request.setAttribute("ride_id", id);
 
         RequestDispatcher dispatcher = this.getServletContext().getRequestDispatcher("/WEB-INF/views/Ride/RiderRideStatus.jsp");

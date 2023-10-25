@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+import jakarta.servlet.http.HttpSession;
 import service.ride.IRideService;
 import service.ride.RideServiceImpl;
 
@@ -35,6 +36,9 @@ public class DeleteRide extends HttpServlet {
 		// delete ride
 		IRideService iRideService = new RideServiceImpl();
 		iRideService.removeRide(id);
+
+		HttpSession session = request.getSession();
+		session.removeAttribute("ride_id");
 
 		// redirect
 		if (request.getParameter("source").equals("cancel")) {

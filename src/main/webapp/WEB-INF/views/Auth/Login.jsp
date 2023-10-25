@@ -8,7 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <meta charset="UTF-8">
-    <title>CodePen - Toggle button on hover | switch</title>
+    <title>Login | GoFlow</title>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
         .toggle-body {
@@ -62,10 +63,27 @@
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+
 </head>
 <body>
 
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
+
+<%
+    if (session.getAttribute("id") != null) {
+        if (session.getAttribute("role").equals("Rider")) {
+            response.sendRedirect("./AddRide?type=start");
+        } else if (session.getAttribute("role").equals("Driver")) {
+            response.sendRedirect("./DriverRinging");
+        } else if (session.getAttribute("role").equals("Admin")) {
+            response.sendRedirect("./AdminDashboard");
+        } else {
+            response.sendRedirect("./Logout");
+        }
+    }
+%>
 
 <div class="con-mid" style="width: 100%; height: calc(100% - 60px)">
     <div class="con-mid">
@@ -73,10 +91,12 @@
         <h1 style="font-size: 24px; margin-bottom: 24px">Login</h1>
 
         <div class="toggle-body">
-            <div class="btn_box login-selector">
+            <div class="btn_box">
                 <button class="btn btn1">Rider Login</button>
                 <button class="btn btn2">Driver Login</button>
-                <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid">Rider Login</div>
+                <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid" style="left: 0;">
+                    Rider Login
+                </div>
             </div>
         </div>
 

@@ -10,7 +10,7 @@ Time: 20:30
     src: url('../fonts/Gabarito/Gabarito-VariableFont_wght.ttf') format('truetype');
 }
 
-* {
+.btn, #movingPart {
     transition: 0.3s
 }
 
@@ -191,12 +191,13 @@ nav a {
     padding: 10px 0;
     margin-top: 10px;
     border-radius: 8px;
-    box-shadow: 0px 5px 20px 0px #0000004a;
+    /*box-shadow: 0px 5px 20px 0px #0000004a;*/
     background-color: #000 !important;
     color: #fff !important;
     border: none !important;
     cursor: pointer;
-    font-size: 16px;
+    /*font-size: 16px;*/
+    height: 48px;
     transition-duration: .3s;
 }
 
@@ -224,7 +225,7 @@ nav a {
     padding: 10px;
     margin: 0 5px;
     border-radius: 8px;
-    box-shadow: 0px 5px 20px 0px #0000004a;
+    /*box-shadow: 0px 5px 20px 0px #0000004a;*/
     background-color: #000 !important;
     color: #fff !important;
     border: none !important;
@@ -240,13 +241,23 @@ nav a {
 }
 
 .map-prompter select, .map-prompter input {
-    font-size: 16px;
-    font-weight: bold;
+    /*font-size: 16px;*/
+    /*font-weight: bold;*/
+    /*width: 100%;*/
+    /*padding: 10px 12px;*/
+    /*border-radius: 8px;*/
+    /*background-color: transparent;*/
+    /*border: 2px solid #000;*/
+
+    height: 48px;
     width: 100%;
-    padding: 10px 12px;
+    padding: 10px;
+    border: none;
+    background-color: #eee;
     border-radius: 8px;
-    background-color: transparent;
-    border: 2px solid #000;
+    margin-bottom: 10px;
+    transition-duration: .3s;
+    font-size: 14px;
 }
 
 .map-prompter select:focus, .map-prompter input:focus {
@@ -259,7 +270,7 @@ nav a {
     padding: 10px 0;
     margin-top: 10px;
     border-radius: 8px;
-    box-shadow: 0px 5px 20px 0px #0000004a;
+    /*box-shadow: 0px 5px 20px 0px #0000004a;*/
     background-color: #565656 !important;
     color: #fff !important;
     border: none !important;
@@ -374,9 +385,101 @@ nav a {
     cursor: pointer;
 }
 
-.login-selector {
-    /*background-color: #cecece;*/
-    /*width: 500px;*/
-    /*height: 80px;*/
-    /*border-radius: 300px;*/
+/* admin dashboard */
+.admin-block-panel {
+    width: calc(100% - 120px);
+    padding: 80px 60px;
+}
+
+.admin-block {
+    cursor: pointer;
+    width: calc((100% - 300px) / 3);
+    display: inline-block;
+    margin: 15px;
+    background-color: #ffffff;
+    padding: 30px 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.03);
+    transition-duration: .3s;
+    font-size: 15px;
+}
+
+.admin-block-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.admin-block:hover {
+    scale: 0.96;
+    box-shadow: none;
+}
+
+.admin-block-text {
+    display: inline-block;
+    float: left;
+}
+
+.admin-block-icon {
+    font-size: 24px;
+    margin-bottom: 6px;
+}
+
+.status-block {
+    /*box-shadow: 0 5px 20px 0 #0000000f;*/
+    border-radius: 47px;
+    width: 400px;
+    padding: 20px;
+    /*background-color: #ffffff;*/
+}
+
+.status-block h1 {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.status-block-animated {
+    position: absolute;
+    box-shadow: 0 5px 20px 0 #0000000f;
+    border-radius: 200px;
+    width: 280px;
+    height: 280px;
+    scale: 1;
+    z-index: -1;
+    /*border: 1px solid #000;*/
+}
+
+.scale-animation {
+    animation: scale 2s ease infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+        opacity: 0;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        transform: scale(2); /* Scale to 1.2 at 50% of the animation */
+        opacity: 1;
+    }
+    100% {
+        transform: scale(5);
+        opacity: 0;
+    }
+}
+
+/* error styles */
+/* input error */
+.input-error {
+    border: 2px solid #ff0000 !important;
+    background-color: #ff00001a !important;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 12px;
 }

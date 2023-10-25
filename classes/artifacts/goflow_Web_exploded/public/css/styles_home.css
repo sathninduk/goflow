@@ -1,0 +1,67 @@
+.hero-heading {
+    color: #fff;
+}
+
+.hero-para {
+    color: #fff;
+    width: 600px;
+
+    transition-duration: .3s;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 8px;
+}
+
+.hero-btn .btn-primary {
+    color: #000;
+    background-color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero-btn .btn-primary:hover {
+    color: #fff;
+    background-color: #2d2d2d;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.hero-div {
+    background-color: #191919ed;
+    padding: 40px 60px 60px;
+    border-radius: 60px;
+    backdrop-filter: blur(20px);
+}
+
+.hero-img {
+    width: 340px;
+    margin-left: 15px;
+    border-radius: 40px;
+}
+
+/* bg oval */
+.bg-oval {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg-oval-1 {
+    position: absolute;
+    border-radius: 300px;
+    height: 300px;
+    width: 300px;
+    border: 80px solid #ffffff;
+    z-index: 0;
+}
+
+.bg-oval-2 {
+    position: absolute;
+    top: 300px;
+    right: -200px;
+    border-radius: 600px;
+    height: 600px;
+    width: 600px;
+    border: 100px solid #ffffff;
+    z-index: 0;
+}

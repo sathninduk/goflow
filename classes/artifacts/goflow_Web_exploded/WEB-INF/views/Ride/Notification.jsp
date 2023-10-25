@@ -11,8 +11,17 @@
 <head>
   <meta charset="UTF-8">
   <title>Redirecting...</title>
+  <link rel="stylesheet" href="./public/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
+
+<%
+ if (!session.getAttribute("role").equals("Rider")) {
+    response.sendRedirect("./Login");
+     return;
+  }
+%>
 
 <% String msg = (String) request.getAttribute("msg"); %>
 

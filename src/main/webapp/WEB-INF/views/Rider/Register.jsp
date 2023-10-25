@@ -6,43 +6,53 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@page import="model.Rider"%>
+<%@page import="model.Rider" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Get Rider</title>
+    <meta charset="UTF-8">
+    <title>Rider Registration | GoFlow</title>
+    <link rel="stylesheet" href="./public/css/styles.css">
+    <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
-	
-	<p>Add Rider</p>
+<%
+    if (session.getAttribute("id") != null) {
+        response.sendRedirect("./Login");
+        return;
+    }
+%>
 
-	<form method="POST" action="AddRider">
-		<table>
-			<tr>
-				<td>Name</td>
-				<td><input type="text" name="name"/></td>
-			</tr>
-			<tr>
-				<td>Email</td>
-				<td><input type="text" name="email"/></td>
-			</tr>
-			<tr>
-				<td>Password</td>
-				<td><input type="password" name="password"/></td>
-			</tr>
-			<tr>
-				<td>Telephone</td>
-				<td><input type="text" name="tel"/></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit"
-					value="Add Rider" class="add-button" /></td>
-			</tr>
-		</table>
-	</form>
-	
-	
+<jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
+
+<p>Add Rider</p>
+
+<form method="POST" action="AddRider">
+    <table>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" name="name"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="text" name="email"/></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" name="password"/></td>
+        </tr>
+        <tr>
+            <td>Telephone</td>
+            <td><input type="text" name="tel"/></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit"
+                                   value="Add Rider" class="add-button"/></td>
+        </tr>
+    </table>
+</form>
+
+
 </body>
 </html>
