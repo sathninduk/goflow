@@ -13,50 +13,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Get Rider</title>
-	<style>
-		/* Internal CSS styles */
-		body {
-			background-color: #f5f5f5;
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-		}
-
-		p {
-			font-size: 24px;
-			font-weight: bold;
-			margin: 20px 0;
-		}
-
-		table {
-			width: 100%;
-			max-width: 400px;
-			margin: 0 auto;
-			border-collapse: collapse;
-		}
-
-		table td {
-			padding: 10px;
-		}
-
-		input[type="text"],
-		input[type="password"] {
-			width: 100%;
-			padding: 10px;
-			margin: 5px 0;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-		}
-
-		.add-button {
-			background-color: #007bff;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			cursor: pointer;
-			border-radius: 5px;
-		}
-	</style>
 </head>
 <body>
 	
