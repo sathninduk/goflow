@@ -15,10 +15,7 @@
 <body>
 
 <%
-    if (!session.getAttribute("role").equals("Admin")) {
-        response.sendRedirect("./Login");
-        return;
-    }
+
     String msg = (String) request.getAttribute("msg"); %>
 
 <script>
