@@ -24,15 +24,15 @@ public class CommonUtil {
     public CommonUtil() {
     }
 
-    public static String generateIDs(ArrayList<String> arrayList) {
-        int next = arrayList.size();
-        ++next;
-        String id = "E300" + next;
-        if (arrayList.contains(id)) {
-            ++next;
-            id = "E300" + next;
-        }
-
-        return id;
-    }
+//    public static String generateIDs(ArrayList<String> arrayList) {
+//        int next = arrayList.size();
+//        ++next;
+//        String id = "E300" + next;
+//        if (arrayList.contains(id)) {
+//            ++next;
+//            id = "E300" + next;
+//        }
+//
+//        return id;
+//    }
 }
