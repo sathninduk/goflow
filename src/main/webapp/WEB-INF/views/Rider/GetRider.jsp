@@ -13,9 +13,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Get Rider</title>
-	<style>
-		
-	</style>
 </head>
 <body>
 	<%
