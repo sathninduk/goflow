@@ -31,7 +31,7 @@
     <table>
         <tr>
             <td>Driver ID</td>
-            <td><input type="text" name="driverID" disabled="disabled"
+            <td><input required type="text" name="driverID" disabled="disabled"
                        value="<%=driver.getID()%>" /></td>
         </tr>
         <tr>

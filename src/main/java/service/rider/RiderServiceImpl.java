@@ -28,29 +28,9 @@ public class RiderServiceImpl implements IRiderService {
     private static Statement statement;
     private PreparedStatement preparedStatement;
 
-    static {
-        createRiderTable();
-    }
-
     public RiderServiceImpl() {
     }
 
-    public static void createRiderTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//			
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//			
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_rider_table"));
-//			
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
-
-    }
 
     @Override
     public void addRider(Rider rider) {

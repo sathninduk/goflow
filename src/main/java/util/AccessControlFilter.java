@@ -20,6 +20,8 @@ public class AccessControlFilter implements Filter {
             "/RiderRegister",
             "/Login",
             "/Register",
+            "/AddRider",
+            "/AddDriver",
             "/DriverRegister",
             "/RiderRegister",
             "/AdminLogin",

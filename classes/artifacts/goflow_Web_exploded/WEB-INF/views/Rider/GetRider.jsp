@@ -80,22 +80,22 @@
     <table>
         <tr>
             <td>Rider ID</td>
-            <td><input type="text" name="riderID" disabled="disabled"
+            <td><input required type="text" name="riderID" disabled="disabled"
                        value="<%=rider.getID()%>"/></td>
         </tr>
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name"
+            <td><input required type="text" name="name"
                        value="<%=rider.getName()%>"/></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="text" name="email"
+            <td><input required type="text" name="email"
                        value="<%=rider.getEmail()%>"/></td>
         </tr>
         <tr>
             <td>Telephone</td>
-            <td><input type="text" name="tel"
+            <td><input required type="text" name="tel"
                        value="<%=rider.getTel()%>"/></td>
         </tr>
         <tr>
