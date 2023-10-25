@@ -16,7 +16,7 @@ public class QueryUtil extends CommonUtil {
 	    public static String queryByID(String id) throws SAXException, IOException, ParserConfigurationException {
 	        Element element = null;
 	        //NodeList nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File(System.getProperty("catalina.base") + File.separator + "wtpwebapps" + File.separator + "goflow" + File.separator + "WEB-INF" + File.separator + "Query.xml")).getElementsByTagName("query");
-			NodeList nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("/Users/sathnindu/Develop/SLIIT/eclipse/goflow/src/main/webapp/WEB-INF/Query/Query.xml")).getElementsByTagName("query");
+			NodeList nodeList = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(new File("C:\\Users\\HP\\Documents\\GitHub\\goflow\\src\\main\\webapp\\WEB-INF\\Query\\Query.xml")).getElementsByTagName("query");
 
 	        for(int value = 0; value < nodeList.getLength(); ++value) {
 	            element = (Element)nodeList.item(value);
