@@ -24,7 +24,7 @@ public interface IRideService {
 
     ArrayList<Ride> getRideByRider(Rider rider);
 
-    Ride updateRide(int id, Ride ride);
+//    Ride updateRide(int id, Ride ride);
 
     void updateRideStatus(int id, String status, Driver driver);
 

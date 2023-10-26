@@ -1,9 +1,8 @@
 package service.ride;
 
+import model.*;
 import model.Driver;
-import model.Ride;
-import model.Rider;
-import model.VehicleType;
+import model.Factory.RideFactory;
 import org.xml.sax.SAXException;
 import util.DBConnectionUtil;
 import util.QueryUtil;
@@ -123,7 +122,7 @@ public class RideServiceImpl implements IRideService {
             ResultSet resultSet = this.preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Ride ride = new Ride();
+                ActiveRide ride = new ActiveRide();
 
                 ride.setRideId(resultSet.getInt(1)); // ride id
                 ride.setStart_latitude(resultSet.getFloat(2)); // start latitude
@@ -187,7 +186,7 @@ public class RideServiceImpl implements IRideService {
             ResultSet resultSet = this.preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Ride ride = new Ride();
+                ActiveRide ride = new ActiveRide();
 
                 ride.setRideId(resultSet.getInt(1)); // ride id
                 ride.setStart_latitude(resultSet.getFloat(2)); // start latitude
@@ -255,50 +254,51 @@ public class RideServiceImpl implements IRideService {
         return this.actionOnRide((String) null);
     }
 
-    @Override
-    public Ride updateRide(int id, Ride ride) {
-        String rideID = String.valueOf(id);
+//    @Override
+//    public Ride updateRide(int id, Ride ride) {
+//        String rideID = String.valueOf(id);
+//
+//        if (rideID != null && !rideID.isEmpty()) {
+//            try {
+//                connection = DBConnectionUtil.getDBConnection();
+//                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_ride"));
+//
+//                this.preparedStatement.setInt(1, ride.getRideId());
+//                this.preparedStatement.setFloat(1, ride.getStart_latitude());
+//                this.preparedStatement.setFloat(2, ride.getStart_longitude());
+//                this.preparedStatement.setFloat(3, ride.getEnd_latitude());
+//                this.preparedStatement.setFloat(4, ride.getEnd_longitude());
+//                this.preparedStatement.setString(5, ride.getVehicleType().getName());
+//                this.preparedStatement.setFloat(6, ride.getDistance());
+//                this.preparedStatement.setFloat(7, ride.getFare());
+//                this.preparedStatement.setDate(8, (Date) ride.getDate_time());
+//                this.preparedStatement.setInt(9, ride.getRider().getID());
+//                this.preparedStatement.setInt(10, ride.getDriver().getID());
+//                this.preparedStatement.setString(11, ride.getStatus());
+//
+//                this.preparedStatement.executeUpdate();
+//            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+//                     SQLException var12) {
+//                log.log(Level.SEVERE, var12.getMessage());
+//            } finally {
+//                try {
+//                    if (this.preparedStatement != null) {
+//                        this.preparedStatement.close();
+//                    }
+//
+//                    if (connection != null) {
+//                        connection.close();
+//                    }
+//                } catch (SQLException var11) {
+//                    log.log(Level.SEVERE, var11.getMessage());
+//                }
+//
+//            }
+//        }
+//
+//        return this.getRideByID(Integer.parseInt(rideID));
+//    }
 
-        if (rideID != null && !rideID.isEmpty()) {
-            try {
-                connection = DBConnectionUtil.getDBConnection();
-                this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("update_ride"));
-
-                this.preparedStatement.setInt(1, ride.getRideId());
-                this.preparedStatement.setFloat(1, ride.getStart_latitude());
-                this.preparedStatement.setFloat(2, ride.getStart_longitude());
-                this.preparedStatement.setFloat(3, ride.getEnd_latitude());
-                this.preparedStatement.setFloat(4, ride.getEnd_longitude());
-                this.preparedStatement.setString(5, ride.getVehicleType().getName());
-                this.preparedStatement.setFloat(6, ride.getDistance());
-                this.preparedStatement.setFloat(7, ride.getFare());
-                this.preparedStatement.setDate(8, (Date) ride.getDate_time());
-                this.preparedStatement.setInt(9, ride.getRider().getID());
-                this.preparedStatement.setInt(10, ride.getDriver().getID());
-                this.preparedStatement.setString(11, ride.getStatus());
-
-                this.preparedStatement.executeUpdate();
-            } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
-                     SQLException var12) {
-                log.log(Level.SEVERE, var12.getMessage());
-            } finally {
-                try {
-                    if (this.preparedStatement != null) {
-                        this.preparedStatement.close();
-                    }
-
-                    if (connection != null) {
-                        connection.close();
-                    }
-                } catch (SQLException var11) {
-                    log.log(Level.SEVERE, var11.getMessage());
-                }
-
-            }
-        }
-
-        return this.getRideByID(Integer.parseInt(rideID));
-    }
 
     @Override
     public void updateRideStatus(int id, String status, Driver driver) {
@@ -384,7 +384,7 @@ public class RideServiceImpl implements IRideService {
             ResultSet resultSet = this.preparedStatement.executeQuery();
 
             while (resultSet.next()) {
-                Ride ride = new Ride();
+                ActiveRide ride = new ActiveRide();
 
                 ride.setRideId(resultSet.getInt(1)); // ride id
                 ride.setStart_latitude(resultSet.getFloat(2)); // start latitude

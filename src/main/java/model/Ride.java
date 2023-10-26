@@ -12,10 +12,8 @@ public class Ride {
     private float distance;
     private float fare;
     private Date date_time;
-
-    //
     private Rider rider;
-    private Driver driver;
+    //private Driver driver;
     private String status;
 
     public Ride() {
@@ -29,11 +27,11 @@ public class Ride {
         this.fare = 0;
         this.date_time = null;
         this.rider = null;
-        this.driver = null;
+        //this.driver = null;
         this.status = null;
     }
 
-    public Ride(int rideId, float start_latitude, float start_longitude, float end_latitude, float end_longitude, VehicleType vehicleType, float distance, float fare, Date date_time, Rider rider, Driver driver, String status) {
+    public Ride(int rideId, float start_latitude, float start_longitude, float end_latitude, float end_longitude, VehicleType vehicleType, float distance, float fare, Date date_time, Rider rider, String status) {
     	this.rideId = rideId;
     	this.start_latitude = start_latitude;
     	this.start_longitude = start_longitude;
@@ -44,7 +42,7 @@ public class Ride {
     	this.fare = fare;
     	this.date_time = date_time;
     	this.rider = rider;
-    	this.driver = driver;
+    	//this.driver = driver;
     	this.status = status;
     }
 
@@ -128,13 +126,13 @@ public class Ride {
     	this.rider = rider;
     }
 
-    public Driver getDriver() {
+    /*public Driver getDriver() {
     	return this.driver;
-    }
+    }*/
 
-    public void setDriver(Driver driver) {
+    /*public void setDriver(Driver driver) {
     	this.driver = driver;
-    }
+    }*/
 
     public String getStatus() {
     	return this.status;
