@@ -2,7 +2,6 @@ package service.ride;
 
 import model.*;
 import model.Driver;
-import model.Factory.RideFactory;
 import org.xml.sax.SAXException;
 import util.DBConnectionUtil;
 import util.QueryUtil;
@@ -24,26 +23,26 @@ public class RideServiceImpl implements IRideService {
     private PreparedStatement preparedStatement;
 
     static {
-        createRideTable();
+        //createRideTable();
     }
 
     public RideServiceImpl() {
     }
 
     public static void createRideTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_ride_table"));
-//
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+			statement = connection.createStatement();
+
+			// drop table
+			statement.executeUpdate(QueryUtil.queryByID("drop_table"));
+
+			// create table
+			statement.executeUpdate(QueryUtil.queryByID("create_ride_table"));
+
+		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
+			log.log(Level.SEVERE, var1.getMessage());
+		}
 
     }
 
@@ -57,7 +56,6 @@ public class RideServiceImpl implements IRideService {
             this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("insert_ride"), Statement.RETURN_GENERATED_KEYS);
             connection.setAutoCommit(false);
 
-//            this.preparedStatement.setInt(1, ride.getRideId());
             this.preparedStatement.setFloat(1, ride.getStart_latitude());
             this.preparedStatement.setFloat(2, ride.getStart_longitude());
             this.preparedStatement.setFloat(3, ride.getEnd_latitude());
@@ -65,10 +63,7 @@ public class RideServiceImpl implements IRideService {
             this.preparedStatement.setInt(5, ride.getVehicleType().getVehicle_id());
             this.preparedStatement.setFloat(6, ride.getDistance());
             this.preparedStatement.setFloat(7, ride.getFare());
-//            this.preparedStatement.setDate(8, (Date) ride.getDate_time());
             this.preparedStatement.setInt(8, ride.getRider().getID());
-//            this.preparedStatement.setInt(10, ride.getDriver().getID());
-//            this.preparedStatement.setString(11, ride.getStatus());
 
             int affectedRows = this.preparedStatement.executeUpdate();
 
@@ -249,10 +244,10 @@ public class RideServiceImpl implements IRideService {
         return !this.actionOnRide(String.valueOf(id)).isEmpty();
     }
 
-    @Override
-    public ArrayList<Ride> getRides() {
-        return this.actionOnRide((String) null);
-    }
+//    @Override
+//    public ArrayList<Ride> getRides() {
+//        return this.actionOnRide((String) null);
+//    }
 
 //    @Override
 //    public Ride updateRide(int id, Ride ride) {

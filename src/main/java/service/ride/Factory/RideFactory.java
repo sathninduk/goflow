@@ -1,4 +1,4 @@
-package model.Factory;
+package service.ride.Factory;
 
 import model.ActiveRide;
 import model.PendingRide;

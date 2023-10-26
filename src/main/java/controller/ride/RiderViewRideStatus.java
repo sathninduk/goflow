@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import model.Factory.RideFactory;
+import service.ride.Factory.RideFactory;
 import model.Ride;
 import model.Rider;
 import model.VehicleType;

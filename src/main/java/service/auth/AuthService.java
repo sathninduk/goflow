@@ -6,6 +6,7 @@ import service.driver.DriverServiceImpl;
 import service.driver.IDriverService;
 import service.rider.IRiderService;
 import service.rider.RiderServiceImpl;
+import util.CommonConstants;
 import util.Md5;
 
 public class AuthService implements IAuthService {
@@ -17,7 +18,7 @@ public class AuthService implements IAuthService {
         if (role.equals("Admin")) {
 
             String hashedPassword = Md5.generate(password);
-            return email.equals("admin@admin.com") && hashedPassword.equals("d722dbcb93d6ca952b49928b37cac8e1");
+            return email.equals(CommonConstants.ADMIN_USERNAME) && hashedPassword.equals(CommonConstants.ADMIN_PASSWORD);
 
         } else if (role.equals("Rider")) {
 
