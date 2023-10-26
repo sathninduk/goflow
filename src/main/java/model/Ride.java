@@ -12,6 +12,8 @@ public class Ride {
     private float distance;
     private float fare;
     private Date date_time;
+
+    //
     private Rider rider;
     private Driver driver;
     private String status;
