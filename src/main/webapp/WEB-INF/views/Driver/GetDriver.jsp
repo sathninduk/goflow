@@ -6,12 +6,14 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@page import="model.Driver"%>
+<%@page import="model.Driver" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Edit Driver | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
@@ -32,27 +34,28 @@
         <tr>
             <td>Driver ID</td>
             <td><input type="text" name="driverID" disabled="disabled"
-                       value="<%=driver.getID()%>" /></td>
+                       value="<%=driver.getID()%>"/></td>
         </tr>
         <tr>
             <td>Name</td>
             <td><input type="text" name="name"
-                       value="<%=driver.getName()%>" /></td>
+                       value="<%=driver.getName()%>"/></td>
         </tr>
         <tr>
             <td>Email</td>
             <td><input type="text" name="email"
-                       value="<%=driver.getEmail()%>" /></td>
+                       value="<%=driver.getEmail()%>"/></td>
         </tr>
         <tr>
             <td>Telephone</td>
             <td><input type="text" name="tel"
-                       value="<%=driver.getTel()%>" /></td>
+                       value="<%=driver.getTel()%>"/></td>
         </tr>
         <tr>
             <td colspan="2"><input type="hidden" name="driverID"
-                                   value="<%=driver.getID()%>" /> <input type="submit"
-                                                                        value="Update Driver" class="update-button" /></td>
+                                   value="<%=driver.getID()%>"/> <input type="submit"
+                                                                        value="Update Driver" class="update-button"/>
+            </td>
         </tr>
     </table>
 </form>
@@ -62,7 +65,7 @@
         <td colspan="2">
             <form method="POST" action="DeleteDriver">
                 <input type="hidden" name="driverID"
-                       value="<%=driver.getID()%>" /> <input type="submit"
+                       value="<%=driver.getID()%>"/> <input type="submit"
                                                             value="Delete Driver" class="delete-button"/>
             </form>
         </td>

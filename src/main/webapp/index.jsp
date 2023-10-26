@@ -4,6 +4,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="stylesheet" href="./public/css/styles_home.css">
