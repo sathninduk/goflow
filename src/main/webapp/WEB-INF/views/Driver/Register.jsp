@@ -16,11 +16,49 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Driver Registration | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+    <style>
+        /* Internal CSS styles go here */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+
+        td {
+            padding: 12px;
+        }
+
+        select, input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .add-button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 <%
@@ -55,8 +93,7 @@
                 <select name="vehicleType" required>
                     <option value="">-- Select --</option>
                     <% for (VehicleType vehicleType : vehicleTypes) { %>
-                    <option value="<%=vehicleType.getVehicle_id()%>"><%=vehicleType.getName()%>
-                    </option>
+                    <option value="<%=vehicleType.getVehicle_id()%>"><%=vehicleType.getName()%></option>
                     <% } %>
                 </select>
             </td>
@@ -75,7 +112,5 @@
         </tr>
     </table>
 </form>
-
-
 </body>
 </html>

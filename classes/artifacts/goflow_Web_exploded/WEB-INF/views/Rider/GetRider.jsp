@@ -12,11 +12,57 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Edit Rider | GoFlow</title>
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
+
+    <style>
+        /* Internal CSS styles */
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        p {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        table {
+            margin: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table td {
+            padding: 10px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 5px;
+        }
+
+        .update-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/Common/Header.jsp"></jsp:include>
@@ -34,22 +80,22 @@
     <table>
         <tr>
             <td>Rider ID</td>
-            <td><input type="text" name="riderID" disabled="disabled"
+            <td><input required type="text" name="riderID" disabled="disabled"
                        value="<%=rider.getID()%>"/></td>
         </tr>
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name"
+            <td><input required type="text" name="name"
                        value="<%=rider.getName()%>"/></td>
         </tr>
         <tr>
             <td>Email</td>
-            <td><input type="text" name="email"
+            <td><input required type="text" name="email"
                        value="<%=rider.getEmail()%>"/></td>
         </tr>
         <tr>
             <td>Telephone</td>
-            <td><input type="text" name="tel"
+            <td><input required type="text" name="tel"
                        value="<%=rider.getTel()%>"/></td>
         </tr>
         <tr>

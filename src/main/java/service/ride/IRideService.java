@@ -9,9 +9,13 @@ import service.rider.IRiderService;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+// interface - Data access object of Ride
 public interface IRideService {
+
+    // Java logger
     Logger log = Logger.getLogger(IRiderService.class.getName());
 
+    // add a ride
     int addRide(Ride ride);
 
     Ride getRideByID(int id);

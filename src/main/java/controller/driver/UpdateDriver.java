@@ -46,10 +46,11 @@ public class UpdateDriver extends HttpServlet {
 
 		driver.setName(request.getParameter("name"));
 		driver.setEmail(request.getParameter("email"));
+		driver.setVehicleType(Integer.parseInt(request.getParameter("vehicle")));
 		driver.setTel(request.getParameter("tel"));
 
-		IDriverService iEmployeeService = new DriverServiceImpl();
-		iEmployeeService.updateDriver(Integer.parseInt(driverID), driver);
+		IDriverService iDriverService = new DriverServiceImpl();
+		iDriverService.updateDriver(Integer.parseInt(driverID), driver);
 
 		request.setAttribute("msg", "Driver updated successfully");
 

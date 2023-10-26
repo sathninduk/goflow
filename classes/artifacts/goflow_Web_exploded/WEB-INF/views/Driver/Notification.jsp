@@ -10,18 +10,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="MobileOptimized" content="320">
-    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Redirecting...</title>
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 </head>
 <body>
 
 <%
-    if (!session.getAttribute("role").equals("Admin")) {
-        response.sendRedirect("./Login");
-        return;
-    }
 
     String msg = (String) request.getAttribute("msg"); %>
 

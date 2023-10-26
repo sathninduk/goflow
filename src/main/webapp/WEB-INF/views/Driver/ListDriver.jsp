@@ -6,10 +6,10 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@page import="model.Driver" %>
-<%@page import="service.driver.IDriverService" %>
-<%@page import="service.driver.DriverServiceImpl" %>
-<%@page import="java.util.ArrayList" %>
+<%@page import="model.Driver"%>
+<%@page import="service.driver.IDriverService"%>
+<%@page import="service.driver.DriverServiceImpl"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page import="service.vehicleType.IVehicleTypeService" %>
 <%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %>
 <%@ page import="model.VehicleType" %>
@@ -50,27 +50,22 @@
         IDriverService iDriverService = new DriverServiceImpl();
         ArrayList<Driver> driver = iDriverService.getDrivers();
 
-        for (Driver r : driver) {
+        for(Driver r : driver){
     %>
     <tr>
-        <td><%=r.getID() %>
-        </td>
-        <td><%=r.getName() %>
-        </td>
-        <td><%=r.getEmail() %>
-        </td>
-        <td><%=r.getTel() %>
-        </td>
+        <td> <%=r.getID() %> </td>
+        <td> <%=r.getName() %> </td>
+        <td> <%=r.getEmail() %> </td>
+        <td> <%=r.getTel() %> </td>
         <%
             IVehicleTypeService vehicleTypeService = new IVehicleTypeServiceImpl();
             VehicleType vehicleType = vehicleTypeService.getVehicleTypeByID(r.getVehicleType());
         %>
-        <td><%=vehicleType.getName() %>
-        </td>
+        <td> <%=vehicleType.getName() %> </td>
         <td>
             <form method="POST" action="GetDriver">
                 <input type="hidden" name="driverID" value="<%=r.getID()%>"/>
-                <input type="submit" value="Select Driver" class="select-button"/>
+                <input type="submit" value= "Select Driver" class="select-button" />
             </form>
         </td>
     </tr>
