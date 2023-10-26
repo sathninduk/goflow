@@ -17,7 +17,7 @@
 <body>
 
 <%
-   
+
     String msg = (String) request.getAttribute("msg"); %>
 
 <script>
