@@ -51,6 +51,14 @@
             IRideService iRideService = new RideServiceImpl();
             ArrayList<Ride> ride = iRideService.getRidesByStatusAndVehicle("wait_driver", vehicleType);
 
+            if (ride.size() == 0) {
+        %>
+        <div style="text-align: center">
+            <p>No rides available</p>
+        </div>
+        <%
+            }
+
             for (Ride r : ride) {
         %>
         <div class="blocks">
