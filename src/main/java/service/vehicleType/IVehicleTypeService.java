@@ -13,6 +13,8 @@ public interface IVehicleTypeService {
 
     VehicleType getVehicleTypeByID(int id);
 
+    VehicleType getVehicleTypeByName(String name);
+
     ArrayList<VehicleType> getVehicleTypes();
 
     VehicleType updateVehicleType(int id, VehicleType vehicleType);

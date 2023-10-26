@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="goflow:Web">
+    <output-path>$PROJECT_DIR$/classes/artifacts/goflow_Web</output-path>
+    <root id="archive" name="goflow_Web.war">
+      <element id="artifact" artifact-name="goflow:Web exploded" />
+    </root>
+  </artifact>
+</component>

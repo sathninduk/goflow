@@ -140,6 +140,10 @@
         if (flag === "distance") {
             alert("Locations should fall within a range of 1km to 500km. Please try again.");
         }
+
+        if (flag === "unavailable") {
+            alert("No drivers are available from requested vehicle type currently. Please try again later.");
+        }
     }
 </script>
 

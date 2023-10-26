@@ -11,8 +11,12 @@ import service.ride.Factory.RideFactory;
 import model.Ride;
 import model.Rider;
 import model.VehicleType;
+import service.ride.Factory.SearchDriverFactory;
 import service.ride.IRideService;
 import service.ride.RideServiceImpl;
+import service.ride.SearchDriver;
+import service.vehicleType.IVehicleTypeService;
+import service.vehicleType.IVehicleTypeServiceImpl;
 
 import java.io.IOException;
 
@@ -48,6 +52,17 @@ public class RiderViewRideStatus extends HttpServlet {
                 throw new RideDistanceException("Distance cannot be less than 1 km"); // check distance - min
             } else if (Float.parseFloat(request.getParameter("distance")) > 500.0) {
                 throw new RideDistanceException("Distance cannot be greater than 500 km"); // check distance - max
+            }
+
+            IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
+            VehicleType vehicleTypeForCheck = iVehicleTypeService.getVehicleTypeByID(Integer.parseInt(request.getParameter("vehicleType_id")));
+
+            SearchDriverFactory searchDriverFactory = new SearchDriverFactory();
+            SearchDriver searchDriver = searchDriverFactory.getSearchDriver(vehicleTypeForCheck.getName());
+
+            if (!searchDriver.driverAvailable()) {
+                response.sendRedirect("./AddRide?type=start&flag=unavailable"); // redirect to dashboard with unavailable flag
+                return;
             }
 
             RideFactory rideFactory = new RideFactory();

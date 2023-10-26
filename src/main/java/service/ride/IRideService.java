@@ -18,13 +18,9 @@ public interface IRideService {
 
     boolean checkRideExists(int id);
 
-//    ArrayList<Ride> getRides();
-
     ArrayList<Ride> getRidesByStatusAndVehicle(String status, VehicleType vehicleTypeIn);
 
     ArrayList<Ride> getRideByRider(Rider rider);
-
-//    Ride updateRide(int id, Ride ride);
 
     void updateRideStatus(int id, String status, Driver driver);
 

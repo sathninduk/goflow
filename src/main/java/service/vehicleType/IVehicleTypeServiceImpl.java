@@ -91,6 +91,44 @@ public class IVehicleTypeServiceImpl implements IVehicleTypeService {
     }
 
     @Override
+    public VehicleType getVehicleTypeByName(String name) {
+
+        VehicleType vehicleType = new VehicleType();
+
+        try {
+            connection = DBConnectionUtil.getDBConnection();
+            this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("vehicleType_by_name"));
+            this.preparedStatement.setString(1, name);
+
+            ResultSet resultSet = this.preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                vehicleType.setVehicle_id(resultSet.getInt(1));
+                vehicleType.setName(resultSet.getString(2));
+                vehicleType.setRate(resultSet.getFloat(3));
+            }
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var13) {
+            log.log(Level.SEVERE, var13.getMessage());
+        } finally {
+            try {
+                if (this.preparedStatement != null) {
+                    this.preparedStatement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException var12) {
+                log.log(Level.SEVERE, var12.getMessage());
+            }
+
+        }
+
+        return vehicleType;
+    }
+
+    @Override
     public ArrayList<VehicleType> getVehicleTypes() {
         return this.actionOnVehicleType((String) null);
     }

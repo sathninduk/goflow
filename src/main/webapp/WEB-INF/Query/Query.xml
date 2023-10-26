@@ -97,6 +97,13 @@
         ]]>
     </query>
 
+    <!-- driver_by_vehicle_type -->
+    <query id="driver_by_vehicle_type">
+        <![CDATA[
+            select * from driver where driver.vehicle_type = ?
+        ]]>
+    </query>
+
     <!-- Select all customer orders Query -->
     <query id="insert_driver">
         <![CDATA[
@@ -241,7 +248,7 @@
     <!-- get vehicle type by name -->
     <query id="vehicleType_by_name">
         <![CDATA[
-            select * from vehicle_type where vehicle_type.name = ?
+            select * from vehicle_type where vehicle_type.name = ? LIMIT 1
         ]]>
     </query>
 

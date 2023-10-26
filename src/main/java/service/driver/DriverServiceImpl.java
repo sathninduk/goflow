@@ -24,26 +24,26 @@ public class DriverServiceImpl implements IDriverService {
     private PreparedStatement preparedStatement;
 
     static {
-        createDriverTable();
+        //createDriverTable();
     }
 
     public DriverServiceImpl() {
     }
 
     public static void createDriverTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//			
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//			
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_driver_table"));
-//			
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+			statement = connection.createStatement();
+
+			// drop table
+			statement.executeUpdate(QueryUtil.queryByID("drop_table"));
+
+			// create table
+			statement.executeUpdate(QueryUtil.queryByID("create_driver_table"));
+
+		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
+			log.log(Level.SEVERE, var1.getMessage());
+		}
 
     }
 
@@ -84,6 +84,47 @@ public class DriverServiceImpl implements IDriverService {
 
         }
 
+    }
+
+    @Override
+    public ArrayList<Driver> getDriversByVehicleType(int vehicleTypeId) {
+        ArrayList<Driver> driverList = new ArrayList();
+
+        try {
+            connection = DBConnectionUtil.getDBConnection();
+            this.preparedStatement = connection.prepareStatement(QueryUtil.queryByID("driver_by_vehicle_type"));
+            this.preparedStatement.setInt(1, vehicleTypeId);
+            ResultSet resultSet = this.preparedStatement.executeQuery();
+
+            while (resultSet.next()) {
+                Driver driver = new Driver();
+                driver.setID(resultSet.getInt(1));
+                driver.setName(resultSet.getString(2));
+                driver.setEmail(resultSet.getString(3));
+                driver.setVehicleType(resultSet.getInt(4));
+                driver.setPassword(resultSet.getString(5));
+                driver.setTel(resultSet.getString(6));
+                driverList.add(driver);
+            }
+        } catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException |
+                 SQLException var12) {
+            log.log(Level.SEVERE, var12.getMessage());
+        } finally {
+            try {
+                if (this.preparedStatement != null) {
+                    this.preparedStatement.close();
+                }
+
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException var11) {
+                log.log(Level.SEVERE, var11.getMessage());
+            }
+
+        }
+
+        return driverList;
     }
 
     @Override

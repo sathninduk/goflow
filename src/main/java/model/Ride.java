@@ -42,7 +42,6 @@ public class Ride {
     	this.fare = fare;
     	this.date_time = date_time;
     	this.rider = rider;
-    	//this.driver = driver;
     	this.status = status;
     }
 
@@ -125,14 +124,6 @@ public class Ride {
     public void setRider(Rider rider) {
     	this.rider = rider;
     }
-
-    /*public Driver getDriver() {
-    	return this.driver;
-    }*/
-
-    /*public void setDriver(Driver driver) {
-    	this.driver = driver;
-    }*/
 
     public String getStatus() {
     	return this.status;

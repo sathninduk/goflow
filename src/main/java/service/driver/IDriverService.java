@@ -15,6 +15,8 @@ public interface IDriverService {
 
     ArrayList<Driver> getDrivers();
 
+    ArrayList<Driver> getDriversByVehicleType(int vehicleTypeId);
+
     Driver updateDriver(int id, Driver driver);
 
     void removeDriver(int id);
