@@ -2,12 +2,12 @@ package controller.ride;
 
 import exception.common.EmptyInputsException;
 import exception.ride.RideDistanceException;
-import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import model.Factory.RideFactory;
 import model.Ride;
 import model.Rider;
 import model.VehicleType;
@@ -50,7 +50,8 @@ public class RiderViewRideStatus extends HttpServlet {
                 throw new RideDistanceException("Distance cannot be greater than 500 km"); // check distance - max
             }
 
-            Ride ride = new Ride();
+            RideFactory rideFactory = new RideFactory();
+            Ride ride = rideFactory.getRide("PENDING");
 
             ride.setStart_latitude(Float.parseFloat(request.getParameter("start_latitude")));
             ride.setStart_longitude(Float.parseFloat(request.getParameter("start_longitude")));
