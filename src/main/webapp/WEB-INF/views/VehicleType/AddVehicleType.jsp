@@ -26,11 +26,11 @@
     <table>
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name"/></td>
+            <td><input type="text" name="name" required /></td>
         </tr>
         <tr>
             <td>Rate</td>
-            <td><input type="number" name="rate"/></td>
+            <td><input type="number" name="rate" required /></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit"

@@ -1,13 +1,7 @@
 <%@ page import="service.ride.IRideService" %>
 <%@ page import="service.ride.RideServiceImpl" %>
 <%@ page import="model.Ride" %>
-<%@ page import="java.util.Objects" %><%--
-  Created by IntelliJ IDEA.
-  User: sathnindu
-  Date: 2023-10-14
-  Time: 11:42
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.Objects" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

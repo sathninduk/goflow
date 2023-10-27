@@ -30,12 +30,12 @@
         </tr>
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name"
+            <td><input type="text" name="name" required
                        value="<%=vehicleType.getName()%>"/></td>
         </tr>
         <tr>
             <td>Rate</td>
-            <td><input type="text" name="rate"
+            <td><input type="text" name="rate" required
                        value="<%=vehicleType.getRate()%>"/></td>
         </tr>
         <tr>

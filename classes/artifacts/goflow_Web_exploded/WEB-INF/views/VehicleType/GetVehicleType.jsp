@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sathnindu
-  Date: 2023-10-03
-  Time: 09:46
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@page import="model.VehicleType" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
@@ -38,12 +30,12 @@
         </tr>
         <tr>
             <td>Name</td>
-            <td><input type="text" name="name"
+            <td><input type="text" name="name" required
                        value="<%=vehicleType.getName()%>"/></td>
         </tr>
         <tr>
             <td>Rate</td>
-            <td><input type="text" name="rate"
+            <td><input type="text" name="rate" required
                        value="<%=vehicleType.getRate()%>"/></td>
         </tr>
         <tr>
