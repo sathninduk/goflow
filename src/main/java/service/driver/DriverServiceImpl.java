@@ -14,22 +14,24 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// This is the implementation of the DriverService class
 public class DriverServiceImpl implements IDriverService {
 
-
+    // logger object
     public static final Logger log = Logger.getLogger(DriverServiceImpl.class.getName());
 
-    private static Connection connection;
-    private static Statement statement;
-    private PreparedStatement preparedStatement;
+    private static Connection connection; // connection object
+    private static Statement statement; // statement object
+    private PreparedStatement preparedStatement; // prepared statement object
 
-    static {
+    static { // static block
         //createDriverTable();
     }
 
-    public DriverServiceImpl() {
+    public DriverServiceImpl() { // default constructor
     }
 
+    // This method is used to create the driver table
     public static void createDriverTable() {
 		try {
 			connection = DBConnectionUtil.getDBConnection();
@@ -47,6 +49,7 @@ public class DriverServiceImpl implements IDriverService {
 
     }
 
+    // This method is used to add a driver
     @Override
     public void addDriver(Driver driver) {
 
@@ -86,6 +89,7 @@ public class DriverServiceImpl implements IDriverService {
 
     }
 
+    // This method is used to get drivers by vehicle type
     @Override
     public ArrayList<Driver> getDriversByVehicleType(int vehicleTypeId) {
         ArrayList<Driver> driverList = new ArrayList();
@@ -127,11 +131,13 @@ public class DriverServiceImpl implements IDriverService {
         return driverList;
     }
 
+    // This method is used to get a driver by id
     @Override
     public Driver getDriverByID(int id) {
             return (Driver) this.actionOnDriver(String.valueOf(id)).get(0);
     }
 
+    // This method is used to get a driver by email
     @Override
     public Driver getDriverByEmail(String email) {
         Driver driver = new Driver();
@@ -173,11 +179,13 @@ public class DriverServiceImpl implements IDriverService {
         return driver;
     }
 
+    // This method is used to get all drivers
     @Override
     public ArrayList<Driver> getDrivers() {
         return this.actionOnDriver((String) null);
     }
 
+    // This method is used to update a driver
     @Override
     public Driver updateDriver(int id, Driver driver) {
         String driverID = String.valueOf(id);
@@ -214,6 +222,7 @@ public class DriverServiceImpl implements IDriverService {
         return this.getDriverByID(Integer.parseInt(driverID));
     }
 
+    // This method is used to remove a driver
     @Override
     public void removeDriver(int id) {
         String driverID = String.valueOf(id);
@@ -245,6 +254,7 @@ public class DriverServiceImpl implements IDriverService {
 
     }
 
+    // This method is used to perform actions on the driver
     private ArrayList<Driver> actionOnDriver(String driverID) {
         ArrayList<Driver> driverList = new ArrayList();
 
@@ -291,6 +301,7 @@ public class DriverServiceImpl implements IDriverService {
         return driverList;
     }
 
+    // This method is used to generate the MD5 hash
     public String generateMD5(String password) {
         try {
             // Create MessageDigest instance for MD5

@@ -12,43 +12,47 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+// This is the implementation of the CityService class
 public class CityServiceImpl implements ICityService {
 
+    // logger object
     public static final Logger log = Logger.getLogger(CityServiceImpl.class.getName());
 
-    private static Connection connection;
-    private static Statement statement;
-    private PreparedStatement preparedStatement;
+    private static Connection connection; // connection object
+    private static Statement statement; // statement object
+    private PreparedStatement preparedStatement; // prepared statement object
 
-    static {
-        createCityTable();
+    static { // static block
+//        createCityTable();
     }
 
-    public CityServiceImpl() {
+    public CityServiceImpl() { // default constructor
     }
 
-    public static void createCityTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_city_table"));
-//
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
+    public static void createCityTable() { // This method is used to create the city table
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+			statement = connection.createStatement();
+
+			// drop table
+			statement.executeUpdate(QueryUtil.queryByID("drop_table"));
+
+			// create table
+			statement.executeUpdate(QueryUtil.queryByID("create_city_table"));
+
+		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
+			log.log(Level.SEVERE, var1.getMessage());
+		}
 
     }
 
+    // This method is used to add a city
     @Override
     public City getCityByID(int id) {
         return (City) this.actionOnCity(String.valueOf(id)).get(0);
     }
 
+    // This method is used to get a city by searching
     @Override
     public ArrayList<City> getCitiesBySearch(String cityString) {
         ArrayList<City> cityList = new ArrayList();
@@ -95,6 +99,7 @@ public class CityServiceImpl implements ICityService {
         return cityList;
     }
 
+    // This method is used to get a city by name
     @Override
     public City getCityByName(String name) {
         City city = new City();
@@ -134,11 +139,13 @@ public class CityServiceImpl implements ICityService {
         return city;
     }
 
+    // This method is used to get all cities
     @Override
     public ArrayList<City> getCities() {
         return this.actionOnCity((String) null);
     }
 
+    // This method is used to add a city
     private ArrayList<City> actionOnCity(String cityID) {
         ArrayList<City> cityList = new ArrayList();
 

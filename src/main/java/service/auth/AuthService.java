@@ -9,10 +9,14 @@ import service.rider.RiderServiceImpl;
 import util.CommonConstants;
 import util.Md5;
 
+// This class is used to authenticate users
 public class AuthService implements IAuthService {
+
+    // default constructor
     public AuthService() {
     }
 
+    // login method
     public boolean login(String email, String password, String role) {
 
         if (role.equals("Admin")) {

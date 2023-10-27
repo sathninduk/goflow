@@ -19,38 +19,41 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+// This is the implementation of the VehicleTypeService class
 public class IVehicleTypeServiceImpl implements IVehicleTypeService {
 
+    // logger object
     public static final Logger log = Logger.getLogger(service.vehicleType.IVehicleTypeServiceImpl.class.getName());
 
-    private static Connection connection;
-    private static Statement statement;
-    private PreparedStatement preparedStatement;
+    private static Connection connection; // connection object
+    private static Statement statement; // statement object
+    private PreparedStatement preparedStatement; // prepared statement object
 
-    static {
-        createVehicleTypeTable();
+    static { // static block
+        //createVehicleTypeTable();
     }
 
     public IVehicleTypeServiceImpl() {
     }
 
     public static void createVehicleTypeTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//			
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//			
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_vehicleType_table"));
-//			
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+			statement = connection.createStatement();
+
+			// drop table
+			statement.executeUpdate(QueryUtil.queryByID("drop_table"));
+
+			// create table
+			statement.executeUpdate(QueryUtil.queryByID("create_vehicleType_table"));
+
+		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
+			log.log(Level.SEVERE, var1.getMessage());
+		}
 
     }
 
+    // This method is used to add a vehicle type
     @Override
     public void addVehicleType(VehicleType vehicleType) {
 
@@ -85,11 +88,13 @@ public class IVehicleTypeServiceImpl implements IVehicleTypeService {
 
     }
 
+    // This method is used to get a vehicle type by id
     @Override
     public VehicleType getVehicleTypeByID(int id) {
         return (VehicleType) this.actionOnVehicleType(String.valueOf(id)).get(0);
     }
 
+    // This method is used to get a vehicle type by name
     @Override
     public VehicleType getVehicleTypeByName(String name) {
 
@@ -128,11 +133,13 @@ public class IVehicleTypeServiceImpl implements IVehicleTypeService {
         return vehicleType;
     }
 
+    // This method is used to get all vehicle types
     @Override
     public ArrayList<VehicleType> getVehicleTypes() {
         return this.actionOnVehicleType((String) null);
     }
 
+    // This method is used to update a vehicle type
     @Override
     public VehicleType updateVehicleType(int id, VehicleType vehicleType) {
         String vehicleTypeID = String.valueOf(id);
@@ -169,6 +176,7 @@ public class IVehicleTypeServiceImpl implements IVehicleTypeService {
         return this.getVehicleTypeByID(Integer.parseInt(vehicleTypeID));
     }
 
+    // This method is used to remove a vehicle type
     @Override
     public void removeVehicleType(int id) {
         String vehicleTypeID = String.valueOf(id);
@@ -200,6 +208,7 @@ public class IVehicleTypeServiceImpl implements IVehicleTypeService {
 
     }
 
+    // This method is used to perform the action on the vehicle type
     private ArrayList<VehicleType> actionOnVehicleType(String vehicleTypeID) {
         ArrayList<VehicleType> vehicleTypeList = new ArrayList<VehicleType>();
 

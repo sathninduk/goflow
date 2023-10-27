@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sathnindu
-  Date: 2023-10-03
-  Time: 09:53
-  To change this template use File | Settings | File Templates.
---%>
-
 <%@page import="model.Driver" %>
 <%@ page import="service.vehicleType.IVehicleTypeService" %>
 <%@ page import="service.vehicleType.IVehicleTypeServiceImpl" %>

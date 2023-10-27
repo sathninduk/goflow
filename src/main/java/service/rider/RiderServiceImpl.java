@@ -20,38 +20,42 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
+// This is the implementation of the RiderService class
 public class RiderServiceImpl implements IRiderService {
 
+    // logger object
     public static final Logger log = Logger.getLogger(RiderServiceImpl.class.getName());
 
-    private static Connection connection;
-    private static Statement statement;
-    private PreparedStatement preparedStatement;
+    private static Connection connection; // connection object
+    private static Statement statement; // statement object
+    private PreparedStatement preparedStatement; // prepared statement object
 
-    static {
-        createRiderTable();
+    static { // static block
+//        createRiderTable();
     }
 
-    public RiderServiceImpl() {
+    public RiderServiceImpl() { // default constructor
     }
 
+    // This method is used to create the rider table
     public static void createRiderTable() {
-//		try {
-//			connection = DBConnectionUtil.getDBConnection();
-//			statement = connection.createStatement();
-//			
-//			// drop table
-//			//statement.executeUpdate(QueryUtil.queryByID("drop_table"));
-//			
-//			// create table
-//			//statement.executeUpdate(QueryUtil.queryByID("create_rider_table"));
-//			
-//		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
-//			log.log(Level.SEVERE, var1.getMessage());
-//		}
+		try {
+			connection = DBConnectionUtil.getDBConnection();
+			statement = connection.createStatement();
+
+			// drop table
+			statement.executeUpdate(QueryUtil.queryByID("drop_table"));
+
+			// create table
+			statement.executeUpdate(QueryUtil.queryByID("create_rider_table"));
+
+		} catch (SAXException | IOException | ParserConfigurationException | ClassNotFoundException | SQLException var1) {
+			log.log(Level.SEVERE, var1.getMessage());
+		}
 
     }
 
+    // This method is used to add a rider
     @Override
     public void addRider(Rider rider) {
 
@@ -90,11 +94,13 @@ public class RiderServiceImpl implements IRiderService {
 
     }
 
+    // This method is used to get a rider by id
     @Override
     public Rider getRiderByID(int id) {
         return (Rider) this.actionOnRider(String.valueOf(id)).get(0);
     }
 
+    // This method is used to get a rider by email
     @Override
     public Rider getRiderByEmail(String email) {
         Rider rider = new Rider();
@@ -135,11 +141,13 @@ public class RiderServiceImpl implements IRiderService {
         return rider;
     }
 
+    // This method is used to get all riders
     @Override
     public ArrayList<Rider> getRiders() {
         return this.actionOnRider((String) null);
     }
 
+    // This method is used to update a rider
     @Override
     public Rider updateRider(int id, Rider rider) {
         String riderID = String.valueOf(id);
@@ -175,6 +183,7 @@ public class RiderServiceImpl implements IRiderService {
         return this.getRiderByID(Integer.parseInt(riderID));
     }
 
+    // This method is used to remove a rider
     @Override
     public void removeRider(int id) {
         String riderID = String.valueOf(id);
@@ -206,6 +215,7 @@ public class RiderServiceImpl implements IRiderService {
 
     }
 
+    // This method is used to perform actions on the rider
     private ArrayList<Rider> actionOnRider(String riderID) {
         ArrayList<Rider> riderList = new ArrayList<Rider>();
 
@@ -251,6 +261,7 @@ public class RiderServiceImpl implements IRiderService {
         return riderList;
     }
 
+    // This method is used to generate the MD5 hash
     public String generateMD5(String password) {
         try {
             // Create MessageDigest instance for MD5

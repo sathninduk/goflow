@@ -1,7 +1,9 @@
 package model;
 
+// This class is used to store driver information
 public class Driver {
 
+    // attributes
     private int id;
     private String name;
     private String email;
@@ -9,10 +11,12 @@ public class Driver {
     private String password;
     private String tel;
 
+    // default constructor
     public Driver() {
 
     }
 
+    // parameterized constructor
     public Driver(int uid, String name, String email, String password, String tel) {
         this.id = uid;
         this.name = name;
@@ -21,6 +25,7 @@ public class Driver {
         this.tel = tel;
     }
 
+    // getters and setters
     public int getID() {
         return id;
     }
@@ -69,6 +74,7 @@ public class Driver {
         this.tel = tel;
     }
 
+    // toString method
     public String toString() {
         return "Driver ID = " + this.id + "\n" + "Driver Name = " + this.name + "\n" + "Email = " + this.email + "\n" + "Telephone = " + this.tel;
     }

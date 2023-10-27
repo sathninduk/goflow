@@ -85,6 +85,29 @@ function showError(error) {
 // Call the function to get the location
 getLocation();
 
+// API Service -------------------------------------------------
+//
+// function httpGetAsync(url, callback) {
+//     fetch(url)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error('Network response was not ok');
+//             }
+//             return response.text();
+//         })
+//         .then(data => {
+//             setMapView(JSON.parse(data).latitude, JSON.parse(data).longitude);
+//         })
+//         .catch(error => {
+//             console.error('There has been a problem with your fetch operation:', error);
+//         });
+// }
+//
+//
+// const url = "https://ipgeolocation.abstractapi.com/v1/?api_key=9175d2a6fe5844b2b17be21a1b0f934d"
+//
+// httpGetAsync(url)
+
 
 // Set Map View ------------------------------------------------- leaflet.js
 function setMapView(latitude, longitude, type) {

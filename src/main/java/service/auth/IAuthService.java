@@ -1,6 +1,8 @@
 package service.auth;
 
+// This interface is used to authenticate the user
 public interface IAuthService {
 
-    public boolean login(String email, String password, String role);
+    // login method
+    boolean login(String email, String password, String role);
 }

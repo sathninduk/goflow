@@ -3,6 +3,7 @@ package util;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+// This class is used to generate the MD5 hash
 public class Md5 {
     private Md5() {
         // private constructor

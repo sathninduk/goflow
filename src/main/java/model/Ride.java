@@ -2,20 +2,23 @@ package model;
 
 import java.util.Date;
 
+// This class is used to create Ride object
 public class Ride {
-    private int rideId;
-    private float start_latitude;
-    private float start_longitude;
-    private float end_latitude;
-    private float end_longitude;
-    private VehicleType vehicleType;
-    private float distance;
-    private float fare;
-    private Date date_time;
-    private Rider rider;
-    //private Driver driver;
-    private String status;
 
+    // attributes
+    private int rideId; // ride id
+    private float start_latitude; // start latitude
+    private float start_longitude; // start longitude
+    private float end_latitude; // end latitude
+    private float end_longitude; // end longitude
+    private VehicleType vehicleType; // vehicle type
+    private float distance; // distance
+    private float fare; // fare
+    private Date date_time; // date and time
+    private Rider rider; // rider
+    private String status; // status
+
+    // default constructor
     public Ride() {
         this.rideId = 0;
         this.start_latitude = 0;
@@ -31,6 +34,7 @@ public class Ride {
         this.status = null;
     }
 
+    // parameterized constructor
     public Ride(int rideId, float start_latitude, float start_longitude, float end_latitude, float end_longitude, VehicleType vehicleType, float distance, float fare, Date date_time, Rider rider, String status) {
     	this.rideId = rideId;
     	this.start_latitude = start_latitude;
@@ -45,6 +49,7 @@ public class Ride {
     	this.status = status;
     }
 
+    // getters and setters
     public int getRideId() {
     	return this.rideId;
     }

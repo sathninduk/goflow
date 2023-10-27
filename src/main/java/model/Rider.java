@@ -1,17 +1,21 @@
 package model;
 
+// This class is used to store rider information
 public class Rider {
-	
+
+	// attributes
 	private int id;
     private String name;
     private String email;
     private String password;
     private String tel;
-    
+
+	// default constructor
     public Rider() {
     	
     }
 
+	// parameterized constructor
     public Rider(int uid, String name, String email, String password, String tel) {
     	this.id = uid;
     	this.name = name;
@@ -20,6 +24,7 @@ public class Rider {
     	this.tel = tel;
     }
 
+	// getters and setters
 	public int getID() {
 		return id;
 	}

@@ -43,6 +43,7 @@ public class RiderViewRideStatus extends HttpServlet {
 
         try {
 
+            // validate inputs
             if (request.getParameter("start_latitude").isEmpty() || request.getParameter("start_longitude").isEmpty()
                     || request.getParameter("end_latitude").isEmpty() || request.getParameter("end_longitude").isEmpty()
                     || request.getParameter("distance").isEmpty() || request.getParameter("fare").isEmpty()
@@ -54,20 +55,24 @@ public class RiderViewRideStatus extends HttpServlet {
                 throw new RideDistanceException("Distance cannot be greater than 500 km"); // check distance - max
             }
 
+            // get vehicle type (object) from id
             IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
             VehicleType vehicleTypeForCheck = iVehicleTypeService.getVehicleTypeByID(Integer.parseInt(request.getParameter("vehicleType_id")));
 
-            SearchDriverFactory searchDriverFactory = new SearchDriverFactory();
-            SearchDriver searchDriver = searchDriverFactory.getSearchDriver(vehicleTypeForCheck.getName());
+            // check driver availability for the particular vehicle type
+            SearchDriverFactory searchDriverFactory = new SearchDriverFactory(); // factory pattern
+            SearchDriver searchDriver = searchDriverFactory.getSearchDriver(vehicleTypeForCheck.getName()); // get search driver object
 
-            if (!searchDriver.driverAvailable()) {
+            if (!searchDriver.driverAvailable()) { // check driver availability
                 response.sendRedirect("./AddRide?type=start&flag=unavailable"); // redirect to dashboard with unavailable flag
                 return;
             }
 
-            RideFactory rideFactory = new RideFactory();
-            Ride ride = rideFactory.getRide("PENDING");
+            // create ride object
+            RideFactory rideFactory = new RideFactory(); // factory pattern
+            Ride ride = rideFactory.getRide("PENDING"); // get pending ride object
 
+            // set ride object
             ride.setStart_latitude(Float.parseFloat(request.getParameter("start_latitude")));
             ride.setStart_longitude(Float.parseFloat(request.getParameter("start_longitude")));
             ride.setEnd_latitude(Float.parseFloat(request.getParameter("end_latitude")));
