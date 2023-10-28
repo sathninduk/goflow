@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>Rate</td>
-            <td><input type="number" name="rate" required /></td>
+            <td><input type="number" name="rate"  pattern="\d+(\.\d{2})?" title="Please enter a valid price rate (e.g., 99.99)" required /></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit"

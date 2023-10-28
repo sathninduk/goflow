@@ -48,8 +48,8 @@ public class UpdateRider extends HttpServlet {
 		rider.setEmail(request.getParameter("email"));
 		rider.setTel(request.getParameter("tel"));
 		
-		IRiderService iEmployeeService = new RiderServiceImpl();
-        iEmployeeService.updateRider(Integer.parseInt(riderID), rider);
+		IRiderService iRiderService = new RiderServiceImpl();
+        iRiderService.updateRider(Integer.parseInt(riderID), rider);
         
         request.setAttribute("msg", "Rider updated successfully");
         

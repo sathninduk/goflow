@@ -46,8 +46,8 @@ public class AddRider extends HttpServlet {
 		rider.setPassword(request.getParameter("password"));
 		rider.setTel(request.getParameter("tel"));
 		
-		IRiderService iEmployeeService = new RiderServiceImpl();
-        iEmployeeService.addRider(rider);
+		IRiderService iRiderService = new RiderServiceImpl();
+		iRiderService.addRider(rider);
         
         request.setAttribute("msg", "Rider added successfully");
 		

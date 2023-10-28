@@ -46,8 +46,8 @@ public class AddDriver extends HttpServlet {
 		driver.setPassword(request.getParameter("password"));
 		driver.setTel(request.getParameter("tel"));
 
-		IDriverService iEmployeeService = new DriverServiceImpl();
-		iEmployeeService.addDriver(driver);
+		IDriverService iDriverService = new DriverServiceImpl();
+		iDriverService.addDriver(driver);
 
 		request.setAttribute("msg", "Driver added successfully");
 

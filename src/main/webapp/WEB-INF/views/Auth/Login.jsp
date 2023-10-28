@@ -12,7 +12,6 @@
     <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Login | GoFlow</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <style>
         .toggle-body {
             background-color: #cccccc;
@@ -68,6 +67,12 @@
     <link rel="stylesheet" href="./public/css/styles.css">
     <link rel="icon" type="image/x-icon" href="./public/images/GoFlow-Logo.png">
 
+    <style>
+        .toggle-body .btn:hover {
+            color: #000000;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -95,7 +100,7 @@
         <div class="toggle-body">
             <div class="btn_box">
                 <button class="btn btn1">Rider Login</button>
-                <button class="btn btn2">Driver Login</button>
+                <button class="btn btn2" onclick="window.location.href='./DriverLogin'">Driver Login</button>
                 <div onclick="loginLink()" id="movingPart" class="moving-bg con-mid" style="left: 0;">
                     Rider Login
                 </div>
@@ -107,7 +112,6 @@
 
 
 <!-- script -->
-<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
 <script>
     $('.btn_box .btn').mouseover(function () {
         if ($(this).hasClass("btn1")) {

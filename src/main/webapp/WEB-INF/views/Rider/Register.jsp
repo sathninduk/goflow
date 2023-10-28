@@ -35,6 +35,8 @@
         }
 
         input[type="text"],
+        input[type="tel"],
+        input[type="email"],
         input[type="password"] {
             width: 100%;
             padding: 10px;
@@ -73,7 +75,7 @@
         </tr>
         <tr>
             <td>Email</td>
-            <td><input required type="text" name="email"/></td>
+            <td><input required type="email" style="width: 100%" name="email"/></td>
         </tr>
         <tr>
             <td>Password</td>
@@ -81,7 +83,7 @@
         </tr>
         <tr>
             <td>Telephone</td>
-            <td><input required type="text" name="tel"/></td>
+            <td><input required type="tel" style="width: 100%" name="tel" pattern="[0-9]{10}" title="Please enter a valid phone number in the format xxxxxxxxxx digits"/></td>
         </tr>
         <tr>
             <td colspan="2"><input type="submit"

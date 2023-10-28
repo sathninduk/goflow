@@ -48,8 +48,8 @@ public class UpdateVehicleType extends HttpServlet {
 		vehicleType.setName(request.getParameter("name"));
 		vehicleType.setRate(Float.parseFloat(request.getParameter("rate")));
 
-		IVehicleTypeService iEmployeeService = new IVehicleTypeServiceImpl();
-		iEmployeeService.updateVehicleType(Integer.parseInt(vehicleTypeID), vehicleType);
+		IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
+		iVehicleTypeService.updateVehicleType(Integer.parseInt(vehicleTypeID), vehicleType);
 
 		request.setAttribute("msg", "VehicleType updated successfully");
 

@@ -46,8 +46,8 @@ public class AddVehicleType extends HttpServlet {
 			vehicleType.setName(request.getParameter("name"));
 			vehicleType.setRate(Float.parseFloat(request.getParameter("rate")));
 
-			IVehicleTypeService iEmployeeService = new IVehicleTypeServiceImpl();
-			iEmployeeService.addVehicleType(vehicleType);
+			IVehicleTypeService iVehicleTypeService = new IVehicleTypeServiceImpl();
+			iVehicleTypeService.addVehicleType(vehicleType);
 
 			request.setAttribute("msg", "VehicleType added successfully");
 
