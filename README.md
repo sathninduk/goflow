@@ -1,16 +1,4 @@
-# GoFlow
- Year 2, Semester 1 - Malabe Weekday (IT)<br>
- Object Oriented Programming (IT2030) Assignment<br><br>
- Topic: **Online Transport System (like uber)<br>** 
- Group ID: **SE/OOP/2023/S2/MLB/WD/G67**
-
-## Group Members
-| Name                 | Student ID | Function                                |
-|----------------------|------------|-----------------------------------------|
-| KOTTAGE N.S (Leader) | IT22602282 | Login Authentication & Rides Management |
-| MUTHUNAYAKE A.K.D    | IT22275806 | Vehicle Types Management                |
-| WIMALASENA B.D.B.S   | IT22230256 | Drivers Management                      |
-| WIJESINGHE K.T.H     | IT22288394 | Riders Management                       |
+# GoFlow Online Transport Management System
 
 ## Project Description
 GoFlow is a transport management system that allows users to book and manage their trips. The system is designed to be used by both customers and drivers. Customers can book trips, view their trip history, and cancel trips. Drivers can view their trip history, accept or reject trip requests, and cancel trips. The system also allows admins to view all trips, view all users, and view all drivers.
