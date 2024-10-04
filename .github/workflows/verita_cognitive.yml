@@ -1,0 +1,32 @@
+
+name: Verita - Cognitive Relevance
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  list-changed-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Send changed Java files to Verita
+        run: |
+          REPO_NAME=$(echo $GITHUB_REPOSITORY)
+          BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
+          COMMIT_ID=$(git rev-parse --short HEAD)
+          git fetch origin main --depth=2
+          git diff --name-only HEAD^ HEAD | grep '\.java$' | while IFS= read -r file; do
+            FILE_NAME=$(basename "$file")
+            curl --location 'https://verita-cog.dpacks.net/api/cognitive/upload' \
+            --form "file=@${file}" \
+            --form "repository=${REPO_NAME}" \
+            --form "file_name=${FILE_NAME}" \
+            --form "commit_id=${COMMIT_ID}" \
+            --form "branch=${BRANCH_NAME}"
+          done
