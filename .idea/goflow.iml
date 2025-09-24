@@ -20,5 +20,15 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="annotations-api" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../../../Tomcat/apache-tomcat-10.1.46/apache-tomcat-10.1.46/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../../../Tomcat/apache-tomcat-10.1.46/apache-tomcat-10.1.46/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>
